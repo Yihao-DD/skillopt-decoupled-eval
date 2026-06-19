@@ -11,15 +11,17 @@ Branch `gain-pipeline` (orphan, clean history). Zero-API tests: **41 passed**.
 
 ## Quickstart — turnkey, 4 steps
 ```bash
-# 1. install  (Python 3.10+; tested on 3.13)
-python -m venv .venv && .venv/Scripts/python -m pip install -e ./SkillOpt -r requirements-extra.txt
+# 1. install  (Python 3.10+; tested on 3.13).  Installs BOTH the SkillOpt fork and this
+#    root package (qd/), plus the materialization/test extras.
+python -m venv .venv && .venv/Scripts/python -m pip install -e ./SkillOpt -e . -r requirements-extra.txt
 
 # 2. pick ONE model: copy the template, set 3 lines
 cp .env.example .env
 #    MODEL_PROVIDER=deepseek     MODEL_API_KEY=sk-...     MODEL_NAME=deepseek-chat
 
-# 3. download benchmark data (HuggingFace)
-python tools/materialize_all.py     # officeqa needs HF_TOKEN; inside CN: HF_ENDPOINT=https://hf-mirror.com
+# 3. benchmark data: LiveMath / SearchQA / SpreadsheetBench are ALREADY BUNDLED (offline, no network).
+#    ONLY OfficeQA needs a download (HF_TOKEN required; inside CN: HF_ENDPOINT=https://hf-mirror.com):
+python tools/materialize_officeqa.py --token "$HF_TOKEN"   # skip entirely if not running OfficeQA
 
 # 4. run the benchmark — 3 seeds (1,2,3) BY DEFAULT — then score them with the 3 optimizers
 python run.py --env livemathematicianbench                  # -> run_livemathematicianbench_s1/s2/s3

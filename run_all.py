@@ -68,11 +68,20 @@ def run_benchmark(env_name: str, epochs: int, workers: int | None) -> tuple[str,
         return "FAILED", "greedy run.py returned non-zero (see log above)."
     tags = [f"run_{env_name}_s{s}" for s in SEEDS]
 
-    # 2) posthoc per seed (uses the bundled standard split's val/test)
+    # 2) posthoc per seed (uses the bundled standard split's val/test).
+    #    Check each return code: a swallowed posthoc failure would otherwise reach
+    #    decoupled_ship with no cached data and yield a meaningless "nothing pooled" verdict.
+    posthoc_fail = 0
     for tag in tags:
-        sh([PY, "tools/posthoc_select.py", "--tag", tag, "--env", env_name,
-            "--val-split-dir", f"data/{env_name}_split", "--val-split", "val",
-            "--test-split-dir", f"data/{env_name}_split", "--test-split", "test"])
+        rc = sh([PY, "tools/posthoc_select.py", "--tag", tag, "--env", env_name,
+                 "--val-split-dir", f"data/{env_name}_split", "--val-split", "val",
+                 "--test-split-dir", f"data/{env_name}_split", "--test-split", "test"]).returncode
+        if rc != 0:
+            posthoc_fail += 1
+            print(f"[run_all] WARNING: posthoc_select failed on {tag} (rc={rc}) — "
+                  "its skills will be missing from the verdict.", flush=True)
+    if posthoc_fail == len(tags):
+        return "FAILED", f"posthoc_select failed on all {len(tags)} seed(s) — nothing to select over (see log)."
 
     # 3) decoupled_ship across the 3 seeds -> the 3-optimizer verdict (capture it)
     env2 = dict(os.environ)
