@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+
+# environments / secrets (never commit real keys)
+.env
+.venv/
+venv/
+
+# run artifacts — regenerate via the pipeline
+runs/
+outputs/
+SkillOpt/outputs/
+SkillOpt/runs/
+*.log
+
+# materialized benchmark payloads (re-create with tools/materialize_*.py;
+# the committed *_id_split / *_split index files under SkillOpt/data are kept)
+SkillOpt/data/**/cache/
+SkillOpt/*.xlsx
+SkillOpt/debug*.txt

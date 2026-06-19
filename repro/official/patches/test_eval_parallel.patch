@@ -1,0 +1,41 @@
+--- a/skillopt/engine/trainer.py
++++ b/skillopt/engine/trainer.py
+@@ -2393,8 +2393,18 @@
+             )
+             print(f"  Test items: {test_n}")
+             baseline_test_dir = os.path.join(out_root, "test_eval_baseline")
+-            baseline_test_results = adapter.rollout(test_env, skill_init, baseline_test_dir)
+-            target_test_evals += 1
++            test_dir = os.path.join(out_root, "test_eval")
++            # Behavior-preserving parallelization (acceleration branch, 2nd patch):
++            # the two final 280-test rollouts (baseline skill_init vs best_skill)
++            # are independent — different skills, separate out dirs, shared
++            # read-only test env (valid_unseen is built identically for both) →
++            # run them concurrently. Returned in input order [baseline, best].
++            print("  [final test] running baseline + best 280-test rollouts in parallel")
++            baseline_test_results, test_results = _run_rollouts_parallel(
++                [(skill_init, baseline_test_dir), (best_skill, test_dir)],
++                lambda p: adapter.rollout(test_env, p[0], p[1]),
++            )
++            target_test_evals += 2
+             baseline_test_hard, baseline_test_soft = compute_score(baseline_test_results)
+             baseline_buckets = _compute_task_type_buckets(baseline_test_results, task_types)
+             print("\n  === Baseline Test Results (S_0) ===")
+@@ -2421,15 +2431,8 @@
+             print(f"\n{'='*60}")
+             print("  BEST SKILL TEST — evaluate best skill on Test set (valid_unseen)")
+             print(f"{'='*60}")
+-            test_env2, test_n2 = _build_eval_env(
+-                split="valid_unseen",
+-                env_num=cfg["test_env_num"],
+-                seed=seed,
+-            )
+-            print(f"  Test items: {test_n2}")
+-            test_dir = os.path.join(out_root, "test_eval")
+-            test_results = adapter.rollout(test_env2, best_skill, test_dir)
+-            target_test_evals += 1
++            # (best-skill 280-test rollout already ran in parallel with the
++            # baseline rollout above; test_dir / test_results are bound there.)
+             test_hard, test_soft = compute_score(test_results)
+             best_buckets = _compute_task_type_buckets(test_results, task_types)
+             print("\n  === Best Skill Test Results ===")

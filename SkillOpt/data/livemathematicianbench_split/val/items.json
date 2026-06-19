@@ -1,0 +1,716 @@
+[
+  {
+    "id": "202602:8",
+    "month": "202602",
+    "no": 8,
+    "paper_link": "http://arxiv.org/abs/2602.19529v1",
+    "theorem": "\\label{geometricallyFiniteNearOrbit}\n    Suppose that a group $G$ admits a non-elementary proper action on a proper Gromov hyperbolic space $X$. Then the action is geometrically infinite if and only if there exists an escaping sequence of hyperbolic elements in $G$.",
+    "sketch": "A proof sketch for Theorem~\\ref{geometricallyFiniteNearOrbit} is indicated in the “Structure of the paper” paragraph: in Section~3, “assuming the condition in Theorem~\\ref{geometricallyFiniteNearOrbit}, we construct geometric objects analogous to those in a cusp-uniform action” and then “prove that every point in the limit set $\\Lambda G$ is either conical or bounded parabolic, thereby establishing the theorem.” The introduction also notes that the approach “relies only on elementary arguments in hyperbolic geometry and does not invoke the Margulis lemma,” and that a “key technical lemma (Lemma~\\ref{producingHyperbolicElements}) for producing hyperbolic elements under a dynamical condition is presented” in Section~2.",
+    "theorem_type": [
+      "Biconditional or Equivalence"
+    ],
+    "question": "Let $G$ be a group that acts properly and non-elementarily on a proper Gromov hyperbolic space $X$. A sequence $\\{g_n\\}_{n\\ge 1}$ of hyperbolic elements in $G$ is called \\emph{escaping} if, for any point $o\\in X$ and any $R>0$, the $R$-neighborhood of the orbit $Go$ intersects the axes of only finitely many $g_n$. Which statement is equivalent to the action of $G$ on $X$ being geometrically infinite?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "There exists a sequence \\(\\{g_n\\}_{n\\ge 1}\\) of hyperbolic elements in \\(G\\) and a constant \\(R>0\\) such that, for every point \\(o\\in X\\), the \\(R\\)-neighborhood of the orbit \\(Go\\) intersects the axes of only finitely many \\(g_n\\)."
+      },
+      {
+        "label": "C",
+        "text": "There exists an infinite sequence of hyperbolic elements in \\(G\\) whose axes are pairwise distinct."
+      },
+      {
+        "label": "D",
+        "text": "There exists a sequence \\(\\{g_n\\}_{n\\ge 1}\\) of hyperbolic elements in \\(G\\) such that, for every point \\(o\\in X\\), there exists \\(R>0\\) for which the \\(R\\)-neighborhood of the orbit \\(Go\\) intersects the axes of only finitely many \\(g_n\\)."
+      },
+      {
+        "label": "E",
+        "text": "There exists a sequence \\(\\{g_n\\}_{n\\ge 1}\\) of hyperbolic elements in \\(G\\) whose translation lengths tend to infinity."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202602_final.json"
+  },
+  {
+    "id": "202512:50",
+    "month": "202512",
+    "no": 50,
+    "paper_link": "http://arxiv.org/abs/2512.15277v1",
+    "theorem": "\\label{thm:main}\n    Let $E\\subset\\Omega_T$ be a closed set, let $\\mathcal{A}$ satisfy\n    \\begin{equation}\\tag{S1}\\label{as:growth}\n        \\cA(x,t,\\xi) \\cdot \\xi \\geq \\nu |\\xi|^p\n        \\quad \\text{and} \\quad\n        |\\cA(x,t,\\xi)| \\leq L |\\xi|^{p-1}\n\\end{equation}\n    and\n    \\begin{equation}\\tag{S2a}\\label{as:monotonicity-weaker}\n            \\left(\\cA(x,t,\\xi)-\\cA(x,t,\\eta) \\right) \\cdot \\left( \\xi - \\eta \\right) > 0 \\text{ for all $\\xi$, $\\eta \\in \\R^n$ with } \\xi \\neq \\eta\\,,\\end{equation}\n    and assume that $u\\in {C}(\\Omega_T)$ is a weak solution of\n    \\begin{equation}\\label{eq_main}\n    \\partial_t u-\\div \\cA(x,t,\\nabla u)=0\\,,\n\\end{equation}\n    in $\\Omega_T\\backslash E$ such that \n    \\begin{equation}\n        \\left| u(z)-u(z_0) \\right|\n        \\leq\n        Md^\\alpha_\\alpha(z,z_0)\\,,\n        \\label{eq:Holder-condition-E}\n    \\end{equation}\n    holds for every $z_0 \\in E$ and $z \\in \\Omega_T$. If $\\mathcal{H}^{n+\\alpha}_{(\\alpha)}(E) = 0$, then $u$ is a weak solution to the same equation in $\\Omega_T$.",
+    "sketch": "For the sufficient direction (To prove the main theorem, ...), the text compares to the elliptic strategy of Kilpeläinen–Zhong, *Removability of sets for quasilinear elliptic equations* and then states the authors’ parabolic proof route.\n\n- Elliptic benchmark strategy (as a guide): take a solution $u$ in $\\Omega\\setminus E$, solve an obstacle problem in all of $\\Omega$ with obstacle $u$ to get $v$; control the oscillation of $v$ from that of $u$ near the contact set via Harnack; use Caccioppoli to bound the Riesz measure $\\mu$ of $v$; the size assumption on $E$ gives $\\mu(E)=0$, while $\\mu(\\Omega\\setminus E)=0$ since $u$ solves there; conclude $\\mu\\equiv 0$ so $v$ solves the PDE, and finally show $v=u$ so $u$ solves in all of $\\Omega$.\n\n- Parabolic difficulty: “using the Harnack inequality is more delicate due to the presence of the time lag”; for general operators “the regularity of solutions is not sufficient to perform the reduction to $p=2$,” and for $p>2$ “the time lag cannot be controlled by a constant scaling…,” so proving an oscillation estimate for $v$ “seems to be a difficult problem.”\n\n- Claimed proof strategy used for the main theorem (Next we prove...): instead of an oscillation estimate for $v$, they “directly show the decay of the Riesz measure associated with the solution $v$ of the obstacle problem,” using “a Caccioppoli inequality, truncation arguments, and elementary properties of the obstacle problem.” Concretely: (i) “for any supersolution $w$… estimate the Riesz measure associated with $w$ in terms of the oscillation of $w$”; (ii) “by truncating $v$, the oscillation of the truncated function is controlled by the oscillation of the obstacle”; (iii) truncation “only increases the associated Riesz measure,” so “the Riesz measure of $v$ can be estimated by the oscillation of the obstacle.”\n\nFor the converse/necessity direction, we first prove the following theorem.\n\\begin{theorem}\n\\label{thm: necessity of Hausdorff zero}\nLet $\\cA$ satisfy \\eqref{as:growth} and \\eqref{as:monotonicity-stronger}, let $\\kappa \\in (0, 1]$ be such that~\\eqref{eq: kappa h\u0003lder cont of sols} holds, and let $0<\\alpha<\\kappa$. Let $E\\subset\\Omega_T$ be a closed set with $\\mathcal{H}^{n+\\alpha}_{(\\alpha)}(E)>0$. Then, there exists a function $u$ which is locally $\\alpha$-H\u0003lder continuous in $\\Omega_T$ with respect to $d_\\alpha$, such that $u$ is a solution of \\eqref{eq_main} in $\\Omega_T\\backslash E$, but not in $\\Omega_T$.  \n\\end{theorem}\nThe text gives the following sketch (We prove later...): construct “a nonzero measure $\\mu$ supported on $E$” and a function $u$ solving the measure-data problem\n\\[\n\\partial_t u-\\mathcal{A}(x,t,\\nabla u)=\\mu\n\\]\nweakly; build $\\mu$ via “a parabolic Frostman Lemma,” which also provides “a suitable decay”; this decay “ensures the H\\\"older continuity of the solution” by “a suitable comparison estimate for solutions to measure data problems and a delicate intrinsic iteration technique.”",
+    "theorem_type": [
+      "Implication",
+      "Universal"
+    ],
+    "question": "Let \\(\\Omega\\subset \\mathbb R^n\\) be open, let \\(0<T<\\infty\\), and write \\(\\Omega_T=\\Omega\\times(0,T)\\). Let \\(E\\subset \\Omega_T\\) be closed, and let \\(\\mathcal A(x,t,\\xi)\\) satisfy for some constants \\(\\nu,L>0\\) and \\(p>1\\)\n\\[\n\\mathcal A(x,t,\\xi)\\cdot \\xi\\ge \\nu |\\xi|^p,\n\\qquad |\n\\mathcal A(x,t,\\xi)|\\le L|\\xi|^{p-1},\n\\]\nand the strict monotonicity condition\n\\[\n\\bigl(\\mathcal A(x,t,\\xi)-\\mathcal A(x,t,\\eta)\\bigr)\\cdot(\\xi-\\eta)>0\n\\quad\\text{for all }\\xi\\ne\\eta\\text{ in }\\mathbb R^n.\n\\]\nAssume \\(u\\in C(\\Omega_T)\\) is a weak solution of\n\\[\n\\partial_t u-\\operatorname{div}\\mathcal A(x,t,\\nabla u)=0\n\\]\nin \\(\\Omega_T\\setminus E\\), and that for some \\(M>0\\) and \\(\\alpha>0\\),\n\\[\n|u(z)-u(z_0)|\\le M\\, d_{\\alpha}(z,z_0)^{\\alpha}\n\\]\nfor every \\(z_0\\in E\\) and \\(z\\in \\Omega_T\\), where for \\(z=(x,t)\\) and \\(z_0=(y,s)\\)\n\\[\nd_{\\alpha}(z,z_0)=\\max\\Big\\{|x-y|,\\ |t-s|^{1/(p+\\alpha(2-p))}\\Big\\},\n\\]\nand \\(\\mathcal H^{\\sigma}_{(\\alpha)}\\) is the Hausdorff measure associated with coverings by cylinders\n\\[\nQ_{r,r^{\\alpha}}(x_0,t_0)=B(x_0,r)\\times \\bigl(t_0-r^{\\,p+\\alpha(2-p)},\\, t_0+r^{\\,p+\\alpha(2-p)}\\bigr),\n\\]\nnamely\n\\[\n\\mathcal H^{\\sigma}_{(\\alpha)}(F)=\\lim_{\\delta\\downarrow 0}\\inf\\left\\{\\sum_{i=1}^{\\infty} r_i^{\\sigma}:\\ F\\subset \\bigcup_{i=1}^{\\infty} Q_{r_i,r_i^{\\alpha}}(z_i),\\ 0<r_i<\\delta\\right\\}.\n\\]\nIf \\(\\mathcal H^{n+\\alpha}_{(\\alpha)}(E)=0\\), what is the strongest statement that can be proved about \\(u\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "Then \\(u\\) is a weak solution of\n\\[\n\\partial_t u-\\operatorname{div}\\mathcal A(x,t,\\nabla u)=0\n\\]\nin \\(\\Omega_T\\); moreover, the same conclusion would still hold if the assumption \\(\\mathcal H^{n+\\alpha}_{(\\alpha)}(E)=0\\) were weakened to \\(\\mathcal H^{n+\\alpha}_{(\\alpha)}(E)<\\infty\\)."
+      },
+      {
+        "label": "C",
+        "text": "Then \\(u\\) admits a weak-solution extension across \\(E\\): there exists \\(\\widetilde u\\in C(\\Omega_T)\\) such that \\(\\widetilde u=u\\) in \\(\\Omega_T\\setminus E\\) and\n\\[\n\\partial_t \\widetilde u-\\operatorname{div}\\mathcal A(x,t,\\nabla \\widetilde u)=0\n\\]\nweakly in \\(\\Omega_T\\)."
+      },
+      {
+        "label": "D",
+        "text": "Then \\(u\\) is a weak solution of\n\\[\n\\partial_t u-\\operatorname{div}\\mathcal A(x,t,\\nabla u)=0\n\\]\nin \\(\\Omega_T\\) whenever \\(\\mathcal H^{n+\\alpha}_{(\\beta)}(E)=0\\) for some \\(\\beta\\in(0,1]\\), even if \\(\\beta\\neq \\alpha\\)."
+      },
+      {
+        "label": "E",
+        "text": "Then \\(u\\) is a weak solution of\n\\[\n\\partial_t u-\\operatorname{div}\\mathcal A(x,t,\\nabla u)=0\n\\]\nin \\(\\Omega_T\\) even if the Hölder condition is replaced by the pointwise family\n\\[\n|u(z)-u(z_0)|\\le M_{z_0}\\, d_{\\alpha}(z,z_0)^{\\alpha}\n\\]\nfor every \\(z_0\\in E\\) and \\(z\\in \\Omega_T\\), with constants \\(M_{z_0}>0\\) allowed to depend on \\(z_0\\) and not assumed uniformly bounded on \\(E\\)."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202512_final.json"
+  },
+  {
+    "id": "202512:36",
+    "month": "202512",
+    "no": 36,
+    "paper_link": "http://arxiv.org/abs/2512.06696v1",
+    "theorem": "\\label{theorem:1.1}\nLet $\\mathcal{G}_k$ be the gauge group of a principal $G_2$-bundle over $S^4$ whose classifying map is $k\\in \\mathbb{Z}\\cong \\pi_{4}(BG_2)$. The following holds.\n\\begin{itemize}\n\\item[{\\rm (1)}] \nIf $\\mathcal{G}_k\\simeq \\mathcal{G}_{k'}$, then $(k, 84)=(k', 84)$ and \n\\item[{\\rm (2)}]  $\\mathcal{G}_k\\simeq_{(p)} \\mathcal{G}_{k'}$ at any prime $p$ if $(k, 84)=(k', 84)$.\n\\end{itemize}",
+    "sketch": "To establish the main theorem (2) it suffices to prove the local statement\n\n\\begin{proposition}\\label{proposition:1.2}\nLet $\\mathcal{G}_k$ be the gauge group of a principal $G_2$-bundle over $S^4$ whose classifying map is $k\\in \\mathbb{Z}\\cong \\pi_{4}(BG_2)$.\nThen, we have \n\\begin{itemize}\n\\item[{\\rm (1)}] $\\mathcal{G}_k\\simeq_{(2)} \\mathcal{G}_{k'}$  if $(k, 4)=(k', 4)$, \n\\item[{\\rm (2)}] \n$\\mathcal{G}_k\\simeq_{(3)} \\mathcal{G}_{k'}$  if $(k, 3)=(k', 3)$, \n\\item[{\\rm (3)}] $\\mathcal{G}_k\\simeq_{(7)} \\mathcal{G}_{k'}$  if $(k, 7)=(k', 7)$\nand \n\\item[{\\rm (4)}] $\\mathcal{G}_k\\simeq_{(p)} \\mathcal{G}_{k'} \\simeq _{(p)} G_2 \\times \\Omega_0^4 G_2$ for $p\\not=2,3,7$.\n\\end{itemize}\n\\end{proposition}\n\nThe paper reduces this to proving the preceding proposition (1) (the $2$-local case), since (2),(3),(4) are cited from \\cite{ktt-2017}.\n\nThe method recalled is: using Gottlieb’s identification $B\\mathcal{G}_k\\simeq \\mathrm{Map}(S^4,BG)_k$ and the resulting fiber sequence\n\\[\n\\mathcal{G}_k\\to G\\xrightarrow{\\partial_k} \\Omega_0^3 G\\to B\\mathcal{G}_k\\to BG,\n\\]\nso $\\mathcal{G}_k$ is the homotopy fiber of $\\partial_k$. By Lang, $\\partial_k$ is the triple adjoint of the Samelson product $\\langle k\\cdot i_3,1\\rangle$, hence by linearity $\\langle k\\cdot i_3,1\\rangle\\simeq k\\cdot\\langle i_3,1\\rangle$. Theriault’s result is then invoked: $\\mathcal{G}_k\\simeq_{(p)}\\mathcal{G}_{k'}$ for all primes $p$ if $(k,m)=(k',m)$ where $m$ is the order of $\\langle i_3,1\\rangle$.\n\nFor $G=G_2$ at $p=2$, \\cite{ktt-2017} gives that the order of $\\langle i_3,1\\rangle$ in $[\\Sigma^3G_2,G_2]_{(2)}$ is at least $4$, so to show the preceding proposition (1), it suffices to prove the following.\n\n\\begin{proposition}\\label{proposition:1.3}  The order of the Samelson product $\\langle i_3, 1\\rangle$ in $[\\Sigma^3 G_2, G_2]_{(2)}$ is at most $4$.\n\\end{proposition}\n\nThe proof sketch for the preceding proposition is given: using that $3\\cdot\\langle i_3,1\\rangle$ factors through $\\Sigma^3q\\colon \\Sigma^3G_2\\to \\Sigma^3V$ (with $V=G_2/SU(2)$), write\n\\[\n3\\cdot\\langle i_3,1\\rangle\\simeq \\psi\\circ \\Sigma^3q.\n\\]\nWith the homotopy decomposition $\\Sigma^3V\\simeq P^9(2)\\vee S^{14}$, choose maps $s'\\colon \\Sigma^3V\\to P^9(2)$ and $s''\\colon S^{14}\\to \\Sigma^3V$ so that\n\\[\n\\mathrm{id}_{\\Sigma^3V}\\simeq \\Sigma^3i_6\\circ s'\\; +\\; s''\\circ \\Sigma^3p_{11}.\n\\]\nThen\n\\[\n3\\cdot\\langle i_3,1\\rangle\\simeq \\psi\\circ \\Sigma^3i_6\\circ s'\\circ \\Sigma^3q\\; +\\; \\psi\\circ s''\\circ \\Sigma^3(p_{11}\\circ q).\n\\]\nUsing \\cite{ktt-2017} (Lemma 5.2(a),(b)) that “the order of the identity map of $P^9(2)$ is $4$,” one gets $4(\\Sigma^3i_6\\circ s')\\simeq 0$. The remaining summand is controlled by\n\n\\begin{proposition} \\label{proposition:1.5}\nWe have  $4(\\psi\\circ s'')\\simeq 0$  in $\\pi_{14}(G_2)_{(2)}$. \\end{proposition}\n\nCombining these shows that the order of $\\langle i_3,1\\rangle$ in $[\\Sigma^3G_2,G_2]_{(2)}$ is at most $4$, hence the preceding proposition (1), and therefore the main theorem (2) via the Samelson-product/Thériault criterion.\n\n(They additionally note that with the proposition above and results of \\cite{ktt-2017}, the global order is computed as $84$ (Theorem~\\ref{theorem:1.4}).)",
+    "theorem_type": [
+      "unknown"
+    ],
+    "question": "Let $G_2$ be the compact exceptional Lie group, and let $BG_2$ denote its classifying space. For integers $k$ and $k'$, let $\\mathcal{G}_k$ denote the gauge group (the topological group of bundle automorphisms over $S^4$) of the principal $G_2$-bundle over $S^4$ classified by $k\\in \\pi_4(BG_2)\\cong \\mathbb{Z}$. Writing $(a,b)$ for the greatest common divisor and $\\simeq_{(p)}$ for $p$-local homotopy equivalence, what is the strongest statement that can be proved about the homotopy types of $\\mathcal{G}_k$ and $\\mathcal{G}_{k'}$?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "If $\\mathcal{G}_k\\simeq \\mathcal{G}_{k'}$, then $(k,84)=(k',84)$, and if $(k,84)=(k',84)$, then $\\mathcal{G}_k\\simeq_{(p)}\\mathcal{G}_{k'}$ for every prime $p$."
+      },
+      {
+        "label": "B",
+        "text": "If $\\mathcal{G}_k\\simeq \\mathcal{G}_{k'}$, then $(k,84)=(k',84)$, and if $(k,84)=(k',84)$, then $\\mathcal{G}_k\\simeq \\mathcal{G}_{k'}$."
+      },
+      {
+        "label": "C",
+        "text": "A necessary condition for $\\mathcal{G}_k$ and $\\mathcal{G}_{k'}$ to be homotopy equivalent is that $(k,84)=(k',84)$."
+      },
+      {
+        "label": "D",
+        "text": "If $\\mathcal{G}_k\\simeq \\mathcal{G}_{k'}$, then $(k,84)=(k',84)$, and if $(k,42)=(k',42)$, then $\\mathcal{G}_k\\simeq_{(p)}\\mathcal{G}_{k'}$ for every prime $p$."
+      },
+      {
+        "label": "E",
+        "text": "If $\\mathcal{G}_k\\simeq \\mathcal{G}_{k'}$, then $(k,84)=(k',84)$, and moreover $\\mathcal{G}_k\\simeq_{(2)}\\mathcal{G}_{k'}$ whenever $(k,2)=(k',2)$, $\\mathcal{G}_k\\simeq_{(3)}\\mathcal{G}_{k'}$ whenever $(k,3)=(k',3)$, and $\\mathcal{G}_k\\simeq_{(7)}\\mathcal{G}_{k'}$ whenever $(k,7)=(k',7)$."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "If $\\mathcal{G}_k\\simeq \\mathcal{G}_{k'}$, then $(k,84)=(k',84)$, and if $(k,84)=(k',84)$, then $\\mathcal{G}_k\\simeq_{(p)}\\mathcal{G}_{k'}$ for every prime $p$."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202512_final.json"
+  },
+  {
+    "id": "202511:1",
+    "month": "202511",
+    "no": 1,
+    "paper_link": "http://arxiv.org/abs/2511.04651v1",
+    "theorem": "\\label{main}\nOn the generic region of $X_t$,  the\nCalabi-Yau metric $\\omega_{{\\rm CY},t}$ converges in $C^0$-sense to the ansatz metric $\\omega_t$ as $t\\to 0$, namely\n\\[\n\\lim_{t\\to 0} \\|  \\omega_{{\\rm CY},t}- \\omega_t    \\|_{C^0(U_t, \\omega_t)} =0.\n\\],",
+    "sketch": "The idea to prove the main theorem is to “adapt the proof of Savin's small perturbation theorem to our collapsing setup.” Unlike the case $m=n$ (large complex structure limits) where one can “unwrap” the $T^n$-fibers and “directly apply Savin's small perturbation theorem to bootstrap uniform convergence to smooth convergence,” in the intermediate case $0<m<n$ this fails because one can unwrap the $T^m$-fibers “but not in general the Calabi-Yau manifold $Y$,” which is still collapsing (torus fibers of size $|\\log|t||^{-1}$ and $Y$ of size $|\\log|t||^{-\\frac{1}{2}}$). The approach is to “prove the analogous main steps (a Harnack inequality and a De Giorgi type iteration), but only in a truncated sense,” namely “only up to the scale $|\\log|t||^{-1}$.\n\nTo do this, they “observe that the fiberwise maximum and minimum of the potential are respectively a subsolution and supersolution of the limiting real Monge-Amp\\`ere type equation.” They apply “\\\"half\\\" of Savin's results downstairs to these two functions,” and then “working upstairs after unravelling the $T^m$-fibers,” they “modify Savin's methods to close the proof of Harnack.” For the De Giorgi iteration, “the approximating quadratic polynomials are now pulled back from the base,” and in a contradiction argument “an important point is that the fiberwise maximum and minimum coincide in the limit.” This yields “a truncated H\\\"older bound, which is only valid up to the scale of the torus fibers,” but “this bound is precisely what is needed to apply Savin's original theorem after rescaling the fibers, and thus conclude the proof.”",
+    "theorem_type": [
+      "Asymptotic or Limit",
+      "Universal"
+    ],
+    "question": "Consider a family\n\\[\nX_t=\\{F_0F_1\\cdots F_m+tF=0\\}\\subset M,\n\\]\nwhere \\(M\\) is a Fano manifold with \\(-K_M=dL\\) for some ample line bundle \\(L\\), and let \\(U_t\\subset X_t\\) denote the generic region, i.e. the large open subset on which the ansatz metric \\(\\omega_t\\) is defined. For each \\(t\\), let \\(\\omega_{{\\rm CY},t}\\) be the Calabi--Yau metric on \\(X_t\\). What is the strongest statement that can be proved about the limit of \\(\\omega_{{\\rm CY},t}\\) relative to \\(\\omega_t\\) on the generic region as \\(t\\to 0\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "On the generic region $U_t$, the difference tends to zero uniformly when measured against a fixed ambient background metric, for example $$\\lim_{t\\to 0}\\|\\omega_{{\\rm CY},t}-\\omega_t\\|_{C^0(U_t,\\omega_M|_{X_t})}=0.$$"
+      },
+      {
+        "label": "C",
+        "text": "For all sufficiently small $t$, the Calabi--Yau metric and the ansatz metric are uniformly bi-Lipschitz equivalent on the generic region: there exists a constant $C>1$, independent of $t$, such that $$C^{-1}\\,\\omega_t\\le \\omega_{{\\rm CY},t}\\le C\\,\\omega_t\\quad\\text{on }U_t.$$"
+      },
+      {
+        "label": "D",
+        "text": "After unwrapping the $T^m$-fibers via $\\zeta_i=-T^{-1}\\log z_i$, the pullbacks of $\\omega_{{\\rm CY},t}$ converge to the pullbacks of $\\omega_t$ in $C^{0,\\alpha}$ on every fixed-size coordinate ball in the unwrapped $(\\zeta,z)$-variables, for some fixed $\\alpha>0$."
+      },
+      {
+        "label": "E",
+        "text": "The convergence on the generic region is scale-free: after rescaling to any collapsing scale between the torus-fiber scale $|\\log|t||^{-1}$ and the base scale $|\\log|t||^{-1/2}$, the unwrapped Calabi--Yau metrics still converge smoothly to the correspondingly rescaled ansatz metrics."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202511_final.json"
+  },
+  {
+    "id": "202601:31",
+    "month": "202601",
+    "no": 31,
+    "paper_link": "http://arxiv.org/abs/2601.10298v1",
+    "theorem": "\\label{thm-KF}\nSuppose that $K$ is a number field and $e$ a positive integer. For almost all $\\sigma \\in G_K^e$, any finite extension of $\\overline{K}(\\sigma)$ is both torally Kummer-faithful and AVKF, and thus, Kummer-faithful.,",
+    "sketch": "The proof of the main theorem is split into two parts: the \\emph{torally Kummer-faithfulness} part and the \\emph{AVKF-ness} part, proved next and then later, respectively. The approaches are described as similar. First, the problem is reformulated by reducing it to a \\emph{calculation of measures} (for the AVKF-ness part, this reduction was done by Jarden and Petersen~\\cite{JP22}; for the torally Kummer-faithfulness part, it uses a refinement of the proof of the weaker version~\\cite[Theorem~5.3]{AT}). Then, the required measure calculations are carried out. Finally, the proof is concluded via a \\emph{combinatorial approach} similar to Zywina~\\cite[pp.~495--496]{Zywina16} (see also~\\cite[p.~49]{JP19}).",
+    "theorem_type": [
+      "Universal",
+      "Implication"
+    ],
+    "question": "Let \\(K\\) be a number field, let \\(e\\ge 1\\) be an integer, and write \\(G_K=\\mathrm{Gal}(\\overline K/K)\\), where \\(\\overline K\\) is a fixed algebraic closure of \\(K\\). For \\(\\sigma=(\\sigma_1,\\dots,\\sigma_e)\\in G_K^e\\), let \\(\\overline K(\\sigma)\\) denote the fixed field of the subgroup of \\(G_K\\) generated by \\(\\sigma_1,\\dots,\\sigma_e\\). Here “almost all \\(\\sigma\\in G_K^e\\)” means all \\(\\sigma\\) outside a subset of Haar measure zero in \\(G_K^e\\). What is the strongest statement that can be proved about every finite extension \\(L\\) of \\(\\overline K(\\sigma)\\) for almost all \\(\\sigma\\in G_K^e\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "For almost all \\(\\sigma\\in G_K^e\\), every finite extension \\(L/\\overline K(\\sigma)\\) is both torally Kummer-faithful and AVKF, and hence is Kummer-faithful."
+      },
+      {
+        "label": "B",
+        "text": "For almost all \\(\\sigma\\in G_K^e\\), every finite extension \\(L/\\overline K(\\sigma)\\) is Kummer-faithful, and this already forces \\(L\\) to be both torally Kummer-faithful and AVKF."
+      },
+      {
+        "label": "C",
+        "text": "For almost all \\(\\sigma\\in G_K^e\\), every finite extension \\(L/\\overline K(\\sigma)\\) is Kummer-faithful."
+      },
+      {
+        "label": "D",
+        "text": "For almost all \\(\\sigma\\in G_K^e\\), every algebraic extension \\(L/\\overline K(\\sigma)\\) is both torally Kummer-faithful and AVKF, and hence is Kummer-faithful."
+      },
+      {
+        "label": "E",
+        "text": "For almost all \\(\\sigma\\in G_K^e\\), every finite extension \\(L/\\overline K(\\sigma)\\) is torally Kummer-faithful, while \\(\\overline K(\\sigma)\\) itself is AVKF; hence every such \\(L\\) is Kummer-faithful."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "For almost all \\(\\sigma\\in G_K^e\\), every finite extension \\(L/\\overline K(\\sigma)\\) is both torally Kummer-faithful and AVKF, and hence is Kummer-faithful."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202601_final.json"
+  },
+  {
+    "id": "202511:17",
+    "month": "202511",
+    "no": 17,
+    "paper_link": "http://arxiv.org/abs/2511.13215v1",
+    "theorem": "\\label{Thm: main1}\nAssume that $(M^n,g,E)$ is a spin generalized asymptotically flat manifold with nonnegative scalar curvature. Then we have the following mass-capacity inequality\n$$m(M,g,E)\\geq 2\\mathfrak c(M,g,E).$$\nIf the equality holds, then $(M,g)$ is harmonically conformal  to $\\mathbb R^n\\setminus S$, where $S$ is a bounded closed subset of $\\mathbb R^n$ with Hausdorff dimension no greater than $\\frac{n-2}{2}$. In particular, we have\n$$\\pi_i(M)=0\\mbox{ for all }1\\leq i\\leq n-1- \\left\\lfloor\\frac{n}{2}\\right\\rfloor.$$",
+    "sketch": "Next we prove the main theorem. First, we establish the mass-capacity inequality, “based on the conformal method.” Then we establish the rigidity in the equality case, “by constructing sufficiently many parallel spinors from an approximation procedure.”",
+    "theorem_type": [
+      "Implication",
+      "Inequality or Bound"
+    ],
+    "question": "Let $(M^n,g,E)$ be a spin generalized asymptotically flat manifold with nonnegative scalar curvature, where this means that $(M,g)$ is a complete boundaryless Riemannian $n$-manifold ($n\\ge 3$), $E$ is an asymptotically flat end of $(M,g)$, and $R(g)\\in L^1(E,g)$. Let $m(M,g,E)$ denote the mass of the end $E$, and let $\\mathfrak c(M,g,E)$ denote its capacity. What is the strongest statement that can be proved about the quantitative relationship between $m(M,g,E)$ and $\\mathfrak c(M,g,E)$ for every such manifold?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "$$m(M,g,E)\\ge \\mathfrak c(M,g,E).$$"
+      },
+      {
+        "label": "C",
+        "text": "$$m(M,g,E)\\ge 0.$$"
+      },
+      {
+        "label": "D",
+        "text": "$$m(M,g,E)\\ge 2\\mathfrak c(M,g,E),\\quad\\text{provided }(M,g)\\text{ has only one end.}$$"
+      },
+      {
+        "label": "E",
+        "text": "$$m(M,g,E)\\ge 2\\mathfrak c(M,g,E),\\quad\\text{and if equality holds then }(M,g)\\text{ is isometric to }\\mathbb R^n\\setminus S\\text{ for some bounded closed }S\\subset\\mathbb R^n.$$"
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202511_final.json"
+  },
+  {
+    "id": "202512:37",
+    "month": "202512",
+    "no": 37,
+    "paper_link": "http://arxiv.org/abs/2512.20498v1",
+    "theorem": "\\label{thm:main}\nLet $\\mu$ be a signed Radon measure on $\\mathbb{R}^n$ and $k \\in \\{0,1,\\dots,n\\}$. Then $\\mathcal{S}_\\mu^k$ is contained in a countable union of $k$-dimensional Lipschitz graphs. Moreover, the approximate tangent plane to $\\mathcal{S}_\\mu^k$ at $x$ coincides with $D_x$ for $\\mathcal{H}^{k}$-a.e.\\ $x \\in \\mathcal{S}_\\mu^k$.,",
+    "sketch": "The post-theorem introduction gives the following proof idea for the main theorem.\n\n1. **Cone containment near each point.** For every $x\\in\\mathcal{S}_\\mu^k$, there exists $r>0$ such that the points in $\\mathcal{S}_\\mu^k\\cap B_r(x)$ with similar properties are contained in a cone $x+C$ around $x+D_x$.\n\n2. **Contradiction setup if cone containment fails.** Otherwise, one can find a sequence $y_j\\notin x+C$ with $r_j=|x-y_j|\\to 0$ such that the measures $c_j\\mu_{y_j}$ and $\\mu_{y_j,r_j}$ are “as close as we want.”\n\n3. **Two limiting descriptions of the same asymptotically close measures.**\n   - On the one hand, $c_j\\mu_{y_j}$ converges to a measure $\\nu$ whose invariant subspace is close to $D_x$.\n   - On the other hand, $\\mu_{y_j,r_j}$ are translations of $\\mu_{x,r_j}$ “with respect to points outside $C$,” hence they converge to a translation of $\\mu_x$ whose invariant subspace is not contained in $C$.\n\n4. **Contradiction.** This “contradict[s] the closeness of $c_j\\mu_{y_j}$ and $\\mu_{y_j,r_j}$,” forcing the desired cone property; this yields the Lipschitz-graph covering and the identification of the approximate tangent plane with $D_x$ for $\\mathcal{H}^k$-a.e. $x\\in\\mathcal{S}_\\mu^k$.",
+    "theorem_type": [
+      "Universal",
+      "Implication"
+    ],
+    "question": "Let \\(\\mu\\) be a signed Radon measure on \\(\\mathbb{R}^n\\). Say that \\(\\mu\\) has a unique blow-up at \\(x\\) if there exists a Radon measure \\(\\mu_x\\) such that, for every sequence \\(r_j\\to 0^+\\), after passing to a subsequence one has\n\\[\n\\mu_{x,r_j}:=\\frac{1}{|\\mu|(B_{r_j}(x))}(\\tau_{x,r_j})_\\#\\mu \\overset{*}{\\rightharpoonup} c\\,\\mu_x\n\\]\nfor some constant \\(c\\neq 0\\), where \\(\\tau_{x,r}(y)=(y-x)/r\\) and \\(|\\mu|\\) is the total variation measure of \\(\\mu\\). For points \\(x\\) with a unique blow-up, let \\(D_x\\subset \\mathbb{R}^n\\) denote the distinguished linear subspace associated with that blow-up, and for \\(k\\in\\{0,1,\\dots,n\\}\\) define the \\(k\\)-stratum by\n\\[\n\\mathcal S_\\mu^k:=\\{x\\in\\mathbb{R}^n:\\text{\\(\\mu\\) has a unique blow-up at \\(x\\) and }\\dim D_x=k\\}.\n\\]\nA \\(k\\)-dimensional Lipschitz graph means the graph of a Lipschitz map from a \\(k\\)-dimensional affine subspace into its orthogonal complement. What is the strongest statement that can be proved about the structure of \\(\\mathcal S_\\mu^k\\) and its tangent planes under the assumptions above?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "\\(\\mathcal S_\\mu^k\\) is contained in a countable union of \\(k\\)-dimensional Lipschitz graphs, and for \\(\\mathcal H^k\\)-almost every \\(x\\in \\mathcal S_\\mu^k\\), the approximate tangent \\(k\\)-plane to \\(\\mathcal S_\\mu^k\\) at \\(x\\) exists and is exactly \\(D_x\\)."
+      },
+      {
+        "label": "B",
+        "text": "\\(\\mathcal S_\\mu^k\\) has the property that, for every \\(R>0\\), the set \\(\\mathcal S_\\mu^k\\cap B_R(0)\\) is contained in a finite union of \\(k\\)-dimensional Lipschitz graphs, and for \\(\\mathcal H^k\\)-almost every \\(x\\in \\mathcal S_\\mu^k\\), the approximate tangent \\(k\\)-plane to \\(\\mathcal S_\\mu^k\\) at \\(x\\) exists and is exactly \\(D_x\\)."
+      },
+      {
+        "label": "C",
+        "text": "\\(\\mathcal S_\\mu^k\\) is contained in a countable union of \\(k\\)-dimensional Lipschitz graphs."
+      },
+      {
+        "label": "D",
+        "text": "\\(\\mathcal S_\\mu^k\\) is contained in a countable union of \\(k\\)-dimensional Lipschitz graphs, and for every \\(x\\in \\mathcal S_\\mu^k\\), the approximate tangent \\(k\\)-plane to \\(\\mathcal S_\\mu^k\\) at \\(x\\) exists and is exactly \\(D_x\\)."
+      },
+      {
+        "label": "E",
+        "text": "\\(\\mathcal S_\\mu^k\\) is contained in a countable union of \\(k\\)-dimensional Lipschitz graphs, and for \\(\\mathcal H^k\\)-almost every \\(x\\in \\mathcal S_\\mu^k\\), the approximate tangent \\(k\\)-plane to \\(\\operatorname{supp}\\mu\\) at \\(x\\) exists and is exactly \\(D_x\\)."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "\\(\\mathcal S_\\mu^k\\) is contained in a countable union of \\(k\\)-dimensional Lipschitz graphs, and for \\(\\mathcal H^k\\)-almost every \\(x\\in \\mathcal S_\\mu^k\\), the approximate tangent \\(k\\)-plane to \\(\\mathcal S_\\mu^k\\) at \\(x\\) exists and is exactly \\(D_x\\)."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202512_final.json"
+  },
+  {
+    "id": "202601:39",
+    "month": "202601",
+    "no": 39,
+    "paper_link": "http://arxiv.org/abs/2601.06601v2",
+    "theorem": "\\label{thm:min}\n    \tFor $n \\geq 4$, consider the threshold parameter\n    \t\\begin{equation}\n    \t\t\\label{eq:def_barlambda} \\bar{\\lambda}(n) := \\dfrac{1}{2} \\dfrac{n-3}{\\sqrt{n-2}} ,\n    \t\\end{equation}\n    \tand assume that $0 < \\lambda \\leq \\bar{\\lambda}(n)$. Let also\n    \t\\begin{equation*}\n    \t\tE := \\{ (x,t) \\in \\mathbb{R}^{n+1} \\, : \\, x_1 > 0 \\}.\n    \t\\end{equation*}\n    \tThen $E$ is a minimizer of the relative perimeter in $\\Omega_{\\lambda}$, that is, given a locally-finite perimeter set $F \\subset \\mathbb{R}^{n+1}$ satisfying $E \\Delta F \\subset\\!\\subset B_R$, for some $R>0$, one has\n    \t\\begin{equation} \\label{eq:min_ineq}\n    \t\tP(E;\\Omega_{\\lambda} \\cap B_R) \\leq P(F;\\Omega_{\\lambda} \\cap B_R) .\n    \t\\end{equation}",
+    "sketch": "In establishing the main theorem, the proof is said to be “based on a calibration argument,” adapted to the free-boundary setting by requiring “the calibrating vector field to be tangent to \\partial \\Omega_{\\lambda}.” The argument proceeds roughly as follows:\n\n1. **Build a calibration field.** Construct a divergence-free vector field $Z$, defined “outside a $2$-dimensional subset of $\\overline{\\Omega}_{\\lambda}$,” such that $Z|_{H_{\\lambda}}=e_1$, $|Z|\\le 1$, and $Z|_{S_{\\lambda}}$ (with $S_{\\lambda}:=\\partial\\Omega_{\\lambda}\\setminus\\{0\\}$) is tangent to $S_{\\lambda}$.\n\n2. **Apply the Divergence Theorem on $(E\\Delta F)\\cap\\Omega_{\\lambda}$.** Using that $Z$ is tangent to $S_{\\lambda}$, one can “disregard the contribution arising from the area of $(E\\Delta F)\\cap\\partial \\Omega_{\\lambda}$”; using $\\operatorname{div}Z=0$, one can “compare $P(E;\\Omega_{\\lambda}\\cap B_R)$ with $P(F;\\Omega_{\\lambda}\\cap B_R)$” and infer the desired inequality\n\\begin{equation} \\label{eq:min_ineq}\n    \t\t\\p(E;\\Omega_{\\lambda} \\cap B_R) \\leq \\p(F;\\Omega_{\\lambda} \\cap B_R) .\n    \t\\end{equation}\n\n3. **Approximation issue.** Since $Z$ is not defined on all of $\\overline{\\Omega}_{\\lambda}$ but only outside a $2$-dimensional subset, this “forces us to perform an approximation argument” to justify applying the Divergence Theorem to $(E\\Delta F)\\cap\\Omega_{\\lambda}$.\n\n4. **How $Z$ is constructed (two steps).** First, calibrate $S^0_{\\lambda}:=H_{\\lambda}\\cap S_{\\lambda}$ *inside* $S_{\\lambda}$ by building a divergence-free tangential field $Y$ on a suitable $S'_{\\lambda}\\subset S_{\\lambda}$ with $Y|_{S^0_{\\lambda}}=e_1$ and $|Y|\\le 1$; this reduces to “finding a solution to a suitable differential inequality subject to appropriate initial conditions,” and such a solution exists for $n\\ge 4$ and $0<\\lambda\\le \\bar\\lambda(n)$. Second, extend $Y$ to (a portion of) $\\Omega_{\\lambda}$ by “vertical projection onto $S_{\\lambda}$,” yielding a $Z$ that is “in particular, divergence-free in its domain” due to the structure of the metric on $S_{\\lambda}$.",
+    "theorem_type": [
+      "Implication",
+      "Inequality or Bound"
+    ],
+    "question": "Let \\(\\Omega_{\\lambda}\\subset \\mathbb R^{n+1}\\) be the ambient open set depending on \\(\\lambda\\). Let \\(n\\ge 4\\) and define\n\\[\n\\bar\\lambda(n)=\\frac12\\frac{n-3}{\\sqrt{n-2}}.\n\\]\nAssume \\(0<\\lambda\\le \\bar\\lambda(n)\\), and let\n\\[\nE=\\{(x,t)\\in \\mathbb R^{n+1}:x_1>0\\}.\n\\]\nWrite \\(P(A;U)\\) for the relative perimeter of a set \\(A\\) in a region \\(U\\). Say that \\(F\\subset \\mathbb R^{n+1}\\) has locally finite perimeter if \\(P(F;U)<\\infty\\) for every \\(U\\subset\\subset \\mathbb R^{n+1}\\). Let \\(B_R=B_R(0,0)\\) denote the Euclidean ball of radius \\(R\\), and let \\(E\\Delta F\\) denote symmetric difference. What is the strongest statement that can be proved about the quantitative estimate satisfied by every locally finite perimeter set \\(F\\subset \\mathbb R^{n+1}\\) such that \\(E\\Delta F\\subset\\subset B_R\\) for some \\(R>0\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "\\[\nP(E;\\Omega_{\\lambda}\\cap B_R)+\\mathcal H^n\\big((E\\Delta F)\\cap \\partial\\Omega_{\\lambda}\\big)\\le P(F;\\Omega_{\\lambda}\\cap B_R).\n\\]"
+      },
+      {
+        "label": "C",
+        "text": "\\[\nP(E;\\Omega_{\\lambda}\\cap B_R)\\le P(F;\\Omega_{\\lambda}\\cap B_R)+\\mathcal H^n\\big((E\\Delta F)\\cap \\partial\\Omega_{\\lambda}\\big).\n\\]\nfor every locally finite perimeter set \\(F\\subset \\mathbb R^{n+1}\\) with \\(E\\Delta F\\subset\\subset B_R\\) for some \\(R>0\\)."
+      },
+      {
+        "label": "D",
+        "text": "\\[\nP(E;\\Omega_{\\lambda}\\cap B_R)\\le P(F;\\Omega_{\\lambda}\\cap B_R)\n\\]\nfor every locally finite perimeter set \\(F\\subset \\mathbb R^{n+1}\\) such that \\(E\\Delta F\\subset\\subset B_R\\), provided \\(0<\\lambda<\\bar\\lambda(n)\\)."
+      },
+      {
+        "label": "E",
+        "text": "\\[\nP(E;\\Omega_{\\lambda}\\cap B_R)\\le P(F;\\Omega_{\\lambda}\\cap B_R)\n\\]\nfor every locally finite perimeter set \\(F\\subset \\mathbb R^{n+1}\\) with \\(E\\Delta F\\subset\\subset B_R\\) for some \\(R>0\\), for every \\(\\lambda>0\\)."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202601_final.json"
+  },
+  {
+    "id": "202601:25",
+    "month": "202601",
+    "no": 25,
+    "paper_link": "http://arxiv.org/abs/2601.10996v3",
+    "theorem": "\\label{maintheorem}\n\t\tLet $(M, g)$ be a complete noncompact Riemannian manifold whose Ricci curvature is lower bounded, i.e. $\\textit{Ric} \\geq \\lambda g$ for some constant $\\lambda \\in \\mathbb{R}$. Moreover, we assume that its injectivity radius has a lower bound, i.e. $\\textit{inj} (M,g) \\geq i > 0$ for some constant $i > 0$. Then there exists a positive constant $\\epsilon = \\epsilon (\\lambda , i , n) =O(\\frac{1}{r_H})$ in the reverse order of the harmonic radius $r_H$ such that for every $\\tau > \\epsilon$, there exists a constant $C = C(n, \\tau , M)$ such that \n\n\t\t$$\n\t\t\\sup_{u \\in W^{1,n} (M) , ||u||_{1, \\tau} \\leq 1} \\int_M \\phi_n (\\alpha_n |u|^{\\frac{n}{n-1}}) dV_g \\leq C. \n\t\t$$ \n\t\tMoreover, $\\alpha_n$ is sharp.,",
+    "sketch": "In the proof of the main theorem one “needs to be rigorized about the uniformity of the upper bound of the critical Trudinger--Moser inequality in terms of the bounded domains of the level sets involved.” The note “give[s] another simple proof” by “only establishing the uniformity of the bounds of the critical Trudinger--Moser inequality on geodesic balls within the manifolds by modifying the ideas developed” by Lam--Lu--Zhang~\\cite{LamLuZhang}. This is achieved “by using a scaling argument and the asymptotic estimates for the supremum of the subcritical Trudinger--Moser functional established in~\\cite{LamLuZhang},” yielding “the equivalence between the subcritical and critical Moser--Trudinger inequalties on geodesic balls,” but proved here “in the opposite direction, i.e. from subcritical inequalities to critical inequalities.” As a consequence, one “prove[s] the uniform boundedness of the critical Trudinger--Moser inequality on the level set of the functions under consideration in~\\cite{LiLu-AIM},” thus “rigorize[s] the proof” by “covering the level set by the geodesic balls,” so that “the same level argument from local inequalities to the global ones used in~\\cite{LiLu-AIM} are justified.”",
+    "theorem_type": [
+      "unknown"
+    ],
+    "question": "Let \\((M,g)\\) be a complete noncompact \\(n\\)-dimensional Riemannian manifold such that \\(\\operatorname{Ric}\\ge \\lambda g\\) for some \\(\\lambda\\in\\mathbb{R}\\) and \\(\\operatorname{inj}(M,g)\\ge i>0\\). For \\(u\\in W^{1,n}(M)\\), define \\(\\|u\\|_{1,\\tau}:=\\|\\nabla_g u\\|_{L^n(M)}+\\tau\\|u\\|_{L^n(M)}\\), let \\(\\phi_n(t)=e^t-\\sum_{k=0}^{n-2} t^k/k!\\), let \\(\\alpha_n=n\\omega_{n-1}^{1/(n-1)}\\) where \\(\\omega_{n-1}\\) is the surface measure of the unit sphere \\(S^{n-1}\\subset\\mathbb{R}^n\\), let \\(dV_g\\) denote the Riemannian volume element, and let \\(r_H\\) denote the harmonic radius of \\((M,g)\\). What is the strongest statement that can be proved about the associated Moser--Trudinger functional on \\(M\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "There exists a constant \\(\\epsilon=\\epsilon(\\lambda,i,n)>0\\), with \\(\\epsilon=O(1/r_H)\\), such that for every \\(\\tau>0\\) there is a constant \\(C=C(n,\\tau,M)\\) for which\n\\[\n\\sup_{u\\in W^{1,n}(M),\\ \\|u\\|_{1,\\tau}\\le 1}\\int_M \\phi_n\\!\\left(\\alpha_n |u|^{\\frac{n}{n-1}}\\right)\\,dV_g\\le C.\n\\]\nMoreover, the constant \\(\\alpha_n\\) is sharp."
+      },
+      {
+        "label": "C",
+        "text": "There exists a constant \\(\\epsilon=\\epsilon(\\lambda,i,n)>0\\), with \\(\\epsilon=O(1/r_H)\\), such that for every \\(\\tau>\\epsilon\\) and every \\(0\\le \\alpha<\\alpha_n\\) there is a constant \\(C=C(n,\\tau,M)\\) for which\n\\[\n\\sup_{u\\in W^{1,n}(M),\\ \\|u\\|_{1,\\tau}\\le 1}\\int_M \\phi_n\\!\\left(\\alpha |u|^{\\frac{n}{n-1}}\\right)\\,dV_g\\le C.\n\\]"
+      },
+      {
+        "label": "D",
+        "text": "There exists a constant \\(\\epsilon=\\epsilon(\\lambda,i,n)>0\\), with \\(\\epsilon=O(1/r_H)\\), such that for every \\(\\tau>\\epsilon\\) there is a constant \\(C=C(n,\\tau,\\lambda,i)\\), independent of the particular manifold \\(M\\), for which\n\\[\n\\sup_{u\\in W^{1,n}(M),\\ \\|u\\|_{1,\\tau}\\le 1}\\int_M \\phi_n\\!\\left(\\alpha_n |u|^{\\frac{n}{n-1}}\\right)\\,dV_g\\le C.\n\\]\nMoreover, the constant \\(\\alpha_n\\) is sharp."
+      },
+      {
+        "label": "E",
+        "text": "There exists a constant \\(\\epsilon=\\epsilon(\\lambda,i,n)>0\\), with \\(\\epsilon=O(1/r_H)\\), such that for every \\(\\tau>\\epsilon\\) there is a constant \\(C=C(n,\\tau,M)\\) for which\n\\[\n\\sup_{u\\in W^{1,n}(M),\\ \\|u\\|_{1,\\tau}\\le 1}\\int_M \\exp\\!\\left(\\alpha_n |u|^{\\frac{n}{n-1}}\\right)\\,dV_g\\le C.\n\\]\nMoreover, the constant \\(\\alpha_n\\) is sharp."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202601_final.json"
+  },
+  {
+    "id": "202601:24",
+    "month": "202601",
+    "no": 24,
+    "paper_link": "http://arxiv.org/abs/2601.12250v1",
+    "theorem": "\\label{thm:main}\n\\begin{problem}\\label{prob:main}[\\cite{BOP19}, Problem 2.2 (P2)]\nLet $p$ be an odd prime. View $0$ as a quadratic residue, and $c$ as a quadratic non-residue. \nIs there a $1$-factor $F$ of $K_{p+1}$ with vertex set $\\F_p \\cup \\{c\\}$ such that \n\\begin{enumerate}\n\\item each edge in $F$ joins a quadratic residue and a quadratic non-residue, and\n\\item the lengths of the edges in $F$ are pairwise distinct?\n\\end{enumerate}\n\\end{problem}\n has an affirmative answer for every odd prime $p$.",
+    "sketch": "We divide the proof of \\cref{thm:main} into two parts. In \\cref{sec2}, we give an explicit $1$-factor for $p \\equiv 1 \\pmod 8$ under a quartic condition on a primitive root; see \\cref{prop:main} for the precise condition. In \\cref{sec3}, we prove that such a primitive root exists for all sufficiently large $p$ using character sum estimates, and finally, we verify the remaining primes computationally.",
+    "theorem_type": [
+      "unknown"
+    ],
+    "question": "Let \\(p\\) be an odd prime, let \\(\\mathbb F_p\\) be the field of \\(p\\) elements, and let \\(c\\) be an extra vertex not in \\(\\mathbb F_p\\). For \\(x\\in \\mathbb F_p\\), call \\(x\\) a quadratic residue if \\(x=a^2\\) for some \\(a\\in \\mathbb F_p\\), and a quadratic non-residue otherwise among \\(\\mathbb F_p^*=\\mathbb F_p\\setminus\\{0\\}\\); regard \\(0\\) as a quadratic residue and \\(c\\) as a quadratic non-residue. A 1-factor of \\(K_{p+1}\\) is a perfect matching on the vertex set \\(\\mathbb F_p \\cup \\{c\\}\\). For an edge \\(\\{x,y\\}\\) with \\(x,y\\in \\mathbb F_p\\), define its length to be \\(\\min\\{(x-y) \\bmod p,(y-x) \\bmod p\\}\\), where residues modulo \\(p\\) are taken in \\(\\{0,1,\\dots,p-1\\}\\); for an edge \\(\\{x,c\\}\\), define its length to be \\(0\\). What is the strongest statement that can be proved about 1-factors of \\(K_{p+1}\\) for every odd prime \\(p\\) under the condition that every edge joins a quadratic residue to a quadratic non-residue?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "There exists a 1-factor \\(F\\) of \\(K_{p+1}\\) with vertex set \\(\\mathbb F_p \\cup \\{c\\}\\) such that every edge of \\(F\\) joins a quadratic residue to a quadratic non-residue, and the lengths of the edges in \\(F\\) are pairwise distinct."
+      },
+      {
+        "label": "B",
+        "text": "For every odd prime \\(p\\), every 1-factor \\(F\\) of \\(K_{p+1}\\) with vertex set \\(\\mathbb F_p \\cup \\{c\\}\\) such that every edge of \\(F\\) joins a quadratic residue to a quadratic non-residue already has pairwise distinct lengths."
+      },
+      {
+        "label": "C",
+        "text": "There exists a 1-factor \\(F\\) of \\(K_{p+1}\\) with vertex set \\(\\mathbb F_p \\cup \\{c\\}\\) such that every edge of \\(F\\) joins a quadratic residue to a quadratic non-residue."
+      },
+      {
+        "label": "D",
+        "text": "For every odd prime \\(p\\), whenever \\(F\\) is a 1-factor of \\(K_{p+1}\\) such that every edge of \\(F\\) joins a quadratic residue to a quadratic non-residue and the lengths of the edges in \\(F\\) are pairwise distinct, the unique edge of \\(F\\) incident to \\(c\\) must be \\(\\{c,0\\}\\)."
+      },
+      {
+        "label": "E",
+        "text": "There exists a 1-factor \\(F\\) of \\(K_{p+1}\\) with vertex set \\(\\mathbb F_p \\cup \\{c\\}\\) such that every edge of \\(F\\) joins a quadratic residue to a quadratic non-residue, the lengths of the edges in \\(F\\) are pairwise distinct, and for each \\(t\\in\\mathbb F_p\\), the matching obtained from \\(F\\) by replacing each finite vertex \\(x\\) with \\(x+t\\) modulo \\(p\\) and fixing \\(c\\) also has every edge joining a quadratic residue to a quadratic non-residue."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "There exists a 1-factor \\(F\\) of \\(K_{p+1}\\) with vertex set \\(\\mathbb F_p \\cup \\{c\\}\\) such that every edge of \\(F\\) joins a quadratic residue to a quadratic non-residue, and the lengths of the edges in \\(F\\) are pairwise distinct."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202601_final.json"
+  },
+  {
+    "id": "202601:45",
+    "month": "202601",
+    "no": 45,
+    "paper_link": "http://arxiv.org/abs/2601.12113v1",
+    "theorem": "\\label{Hodge decomposition}\n    Any Kato manifold satisfies the Hodge decomposition.,",
+    "sketch": "To prove Theorem~\\ref{Hodge decomposition}, the approach is “more direct” and “relies on expressing, via the Mayer--Vietoris sequence applied to a suitable open cover of a Kato manifold \\(X\\), the Dolbeault cohomology of \\(X\\) in terms of the Dolbeault cohomology of \\(\\widehat{\\mathbb{B}}\\)” (Theorem~\\ref{Hodge numbers}). One then observes that the Kato modification \\(\\pi\\) “induces a natural modification \\(\\pi : \\widehat{\\mathbb{CP}^n} \\to \\mathbb{CP}^n\\), and, again through Mayer--Vietoris sequences,” relates “the Hodge and Betti numbers of \\(\\widehat{\\mathbb{B}}\\) to those of \\(\\widehat{\\mathbb{CP}^n}\\)” (Proposition~\\ref{noWFT}). This “allows us to express the Hodge and Betti numbers of \\(X\\) in terms of those of \\(\\widehat{\\mathbb{CP}^n}\\)” (Theorem~\\ref{Hodge numbers21}), thereby “reduc[ing] the Hodge decomposition on \\(X\\) to that on \\(\\widehat{\\mathbb{CP}^n}\\).” Finally, since “\\(\\widehat{\\mathbb{CP}^n}\\) is a Moishezon manifold, the Hodge decomposition holds on it,” and “the result therefore extends to any Kato manifold.”",
+    "theorem_type": [
+      "Universal"
+    ],
+    "question": "If $X=X(\\pi,\\sigma)$ is a Kato manifold, with Kato modification $\\pi:\\widehat{\\mathbb{B}}\\to\\mathbb{B}$, what is the strongest statement that can be proved about every such $X$?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "For every Kato manifold X=X(\\pi,\\sigma), one has h^{p,q}(X)=h^{p,q}(\\widehat{\\mathbb{CP}^n})-h^{p,q}(\\mathbb{CP}^n) for all (p,q), and b_k(X)=b_k(\\widehat{\\mathbb{CP}^n})-b_k(\\mathbb{CP}^n) for all k."
+      },
+      {
+        "label": "C",
+        "text": "Every Kato manifold satisfies the Hodge decomposition."
+      },
+      {
+        "label": "D",
+        "text": "For every Kato manifold X=X(\\pi,\\sigma), the exceptional Hodge numbers are h^{0,0}(X)=h^{1,0}(X)=h^{n-1,n}(X)=h^{n,n}(X)=1, and for all other (p,q) one has h^{p,q}(X)=h^{p,q}(\\widehat{\\mathbb{CP}^n})-h^{p,q}(\\mathbb{CP}^n)."
+      },
+      {
+        "label": "E",
+        "text": "Any compact lcK manifold satisfies the Hodge decomposition; hence every Kato manifold does."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202601_final.json"
+  },
+  {
+    "id": "202601:19",
+    "month": "202601",
+    "no": 19,
+    "paper_link": "http://arxiv.org/abs/2601.00779v1",
+    "theorem": "\\label{MT}\nLet $k \\in \\{2,3,4,5\\}$ and let $s \\geq s_k$ for $k \\in\\{3,4,5\\}$ and $s>s_k$ for $k=2$. Assume now the following \n\\begin{enumerate}\n\\item Let $u_0 \\in H^s(\\mathbb{R})$, and assume \\emph{(H1)}. \n\\item Let $A,\\widetilde A, L >0$ be fixed numbers, and let $0<\\varepsilon<\\varepsilon_1$ sufficiently small. \n\\item Finally, let $u_{\\emph{DNN},\\#}$ be a DNN satisfying \\emph{(H2)-(H3)}. \n\\end{enumerate}\nThen there exists a solution $u \\in C(I;H^s(\\mathbb{R}))\\cap Y_{k,s}(I\\times\\mathbb{R})$ to\n\\begin{equation}\\label{eq:KdV}\n\t\\partial_t u + \\partial_{xxx} u = \\mu \\partial_x (u^k),\\qquad (t,x)\\in \\R\\times\\R,\n\\end{equation}\non $I\\times\\mathbb{R}$ with initial datum $u_0 \\in H^s(\\mathbb{R})$ such that for all $R>0$ sufficiently large and constants $C$, there is smallness in the $Y_{k,s}$ norm:\n\\begin{align}\n    \\|u-u_{\\emph{DNN},\\#}\\|_{Y_{k,s}(I\\times[-R,R])}& \\leq C(A, \\widetilde{A},L)\\varepsilon. \\label{eq:MT2}\n\\end{align}\nAdditionally, one has bounded control of the energy norm:\n\\begin{align}\n\\|\\partial_x(u^k-u^k_{\\emph{DNN},\\#})\\|_{L_x^2L_t^2(I\\times[-R,R])} & \\leq C(A, \\widetilde{A},L)\\varepsilon, \\label{eq:MT1}\\\\\n \\|u-u_{\\emph{DNN},\\#}\\|_{L_t^{\\infty}H_x^s(I\\times[-R.R])} & \\leq C(A, \\widetilde{A},L). \\label{eq:MT3}\n\\end{align}",
+    "sketch": "They “prove To prove the main theorem, … using a mixture between Kenig-Ponce-Vega stability type estimates, and the numerical properties ensured by the hypotheses (H1)-(H2)-(H3),” following “the method introduced in \\cite{ACFMV24}.” A main complication is “to establish the correct functional setting to prove stability estimates,” since “the local well-posedness theory is not fully adapted” to the present problem.\n\nThe “structure of the stability theorem” combines “the nonlinear stability framework of Kenig, Ponce, and Vega (KPV)” with “a rigorous analysis of the residual minimization principle underlying physics-informed neural networks (PINNs).” The starting point is a PINNs/DNN approximation $u_{\\mathrm{DNN},\\#}$ “minimizing the residual functional”\n\\[\n\\mathcal E_k[u_{\\mathrm{DNN},\\#}] = \\partial_t u_{\\mathrm{DNN},\\#} + \\partial_x^3 u_{\\mathrm{DNN},\\#} + \\partial_x(u_{\\mathrm{DNN},\\#}^k),\n\\]\n“and other related functionals” (notably, one “minimizing the linear evolution”). The residual $\\mathcal E_k[u_{\\mathrm{DNN},\\#}]$ is viewed as an “approximate solution” and also “as a nonlinear operator in suitable functional spaces,” which “will induce an associated functional setting for the corresponding solution.”\n\nUsing “the Duhamel formulation and dispersive linear estimates,” the difference $w=u-u_{\\mathrm{DNN},\\#}$ satisfies “an integral inequality controlled by the norms introduced in KPV.” With “small initial discrepancy and small residual (H2)--(H3), one obtains a Gronwall-type estimate” yielding the quantitative bound\n\\[\n\\|w\\|_{Y_{k,s}}\\lesssim C(A,\\tilde A,L)\\,\\varepsilon.\n\\]\nThe space $Y_{k,s}$ is “adapted to each gKdV model, obtained from \n\\begin{aligned}\n    \\|u\\|_{Y_{2,s}(A)} &:= \\|\\partial_x u\\|_{L_t^4L_x^{\\infty}(A)} \n+ \\|D_x^s\\partial_x u\\|_{L_x^{\\infty}L_t^2(A)} \\\\\n&~{} \\quad + \\|u\\|_{L_x^2L_t^\\infty(A)} \n+  \\|u\\|_{L_t^\\infty H^s_x(A)};\n\\end{aligned} \\label{eq:Y2s_norm}\\\\\n& \\begin{aligned}\n\\|u\\|_{Y_{3,s}(A)} &:= \\|\\partial_x u\\|_{L_x^\\infty L_t^2(A)} \n+ \\|u\\|_{L_x^4L_t^\\infty(A)} \n+ \\|D^s_x \\partial_x u\\|_{L_x^\\infty L_t^2(A)} \\\\\n&~{} \\quad + \\|D_x^s u\\|_{L_x^5L_t^{10}(A)}\n+ \\|\\partial_x u\\|_{L_x^{20}L_t^{5/2}(A)}; \n\\end{aligned}\n-\\begin{aligned}\n \\|u\\|_{Y_{4,s}(A)} &:= \\max_{t\\in I} \\|D^s_x w(t)\\|_{L_x^2}+ \\|\\partial_x u\\|_{L_t^\\infty H_x^{s}(A)}\n+ \\|u\\|_{L_x^{42/13}L_t^{21/4}(A)}\n+ \\|u\\|_{L_x^{60/13}L_t^{15}(A)} \\\\\n&~{} \\quad + \\|u\\|_{W_x^{s,10/3}L_t^{30/7}(A)}\n+ \\|\\partial_x u\\|_{L_x^{\\infty} L_t^2(A)}+ \\|D^s_x\\partial_x u\\|_{L_x^{\\infty} L_t^2(A)}; \n\\end{aligned} \\label{eq:Y4s_norm}\\\\\n &\\|u\\|_{Y_{5,s}(A)} := \\|u\\|_{L_x^5L_t^{10}(A)}. \\label{eq:Y5s_norm}\n\\end{align}\nare the norms that we will work in the paper. This norms \\eqref{eq:Y2s_norm}-\\eqref{eq:Y5s_norm} arises naturaly from the Kenig-Ponce-Vega theory. In addition we will say that $g \\in Y_{k,s}(A)$ if $\\|g\\|_{Y_{k,s}(A)}<\\infty$. Notice that under hypothesis (H1), the norms $\\|\\cdot\\|_{Y_{k,s}}$ can be suitable approximated by a functional $\\mathcal Y_{k,s,N,M}$ (cf. Definitions \\eqref{eq:Y2s_appr}-\\eqref{eq:Y5s_appr}).\n\n\\medskip\n\n\\noindent\n{\\bf Hypotheses on PINNs}.\n Let $u_{\\text{DNN},\\#}= u_{\\text{DNN},\\#} (t,x)$ be a smooth bounded function constructed by means of an algorithmic procedure (either SGD or any other ML optimization procedure) and realization of a suitable PINNs, in the following sense: under the framework \\eqref{Loss1}, one has:\n\\begin{enumerate}\n\\item[(H2)] \\emph{Uniformly bounded large time $L^\\infty_tH^s_x$, initial time $H^s_x$ and large time $Y_{k,s}$ control for $u_0$ and $u_{\\text{DNN},\\#}$}.  There are $A,\\widetilde A,B>0$ such that the following holds. For any $N_{1,0},N_{2,0},N_{3,0}\\geq 1$ and $M_{2,0},M_{3,0}\\geq 1$, there are $N_j\\geq N_{j,0}$ and $M_j\\geq M_{j,0}$,  such that each approximate norm satisfies\n\\[\n\\begin{aligned}\n \\mathcal J_{L^2_x,N_1} [(u_0-u_{\\text{DNN},\\#}(0))]+\\mathcal J_{L^2_x,N_1} [D_x^s(u_0-u_{\\text{DNN},\\#}(0))] &\\leq \\widetilde{A}, \\\\\n \\mathcal J_{\\infty,2,N_2,M_2} [u_{\\text{DNN},\\#}] + \\mathcal J_{\\infty,2,N_2,M_2} [D_x^su_{\\text{DNN},\\#}] &\\leq A, \\\\ \\mathcal Y_{k,s,N_3,M_3} [u_{\\text{DNN},\\#}]  &\\leq L.\n\\end{aligned}\n,” depending on “a regularity $s>s_k$ (see \\begin{equation}\\label{s_k}\ns_k := \\begin{cases}\n   \\frac34, &~{} k=2; \\\\\n    \\frac14,&~{} k = 3;\\\\\n    \\frac1{12},&~{} k = 4; \\\\\n     0, &~{} k = 5,\n    \\end{cases}\n\\end{equation}) and a power nonlinearity $k$.” Finally, “this functional setting later will reduce to \n\\begin{align}\n\\|\\partial_x(u^k-u^k_{\\emph{DNN},\\#})\\|_{L_x^2L_t^2(I\\times[-R,R])} & \\leq C(A, \\widetilde{A},L)\\varepsilon, \\label{eq:MT1}\\\\\n \\|u-u_{\\emph{DNN},\\#}\\|_{L_t^{\\infty}H_x^s(I\\times[-R.R])} & \\leq C(A, \\widetilde{A},L). \\label{eq:MT3}\n\\end{align}\n-\\begin{align}\n\\|\\partial_x(u^k-u^k_{\\emph{DNN},\\#})\\|_{L_x^2L_t^2(I\\times[-R,R])} & \\leq C(A, \\widetilde{A},L)\\varepsilon, \\label{eq:MT1}\\\\\n \\|u-u_{\\emph{DNN},\\#}\\|_{L_t^{\\infty}H_x^s(I\\times[-R.R])} & \\leq C(A, \\widetilde{A},L). \\label{eq:MT3}\n\\end{align}\nafter a suitable localization,” giving the localized error/energy bounds stated in the main theorem.",
+    "theorem_type": [
+      "Existence",
+      "Inequality or Bound"
+    ],
+    "question": "Let $k\\in\\{2,3,4,5\\}$, and suppose $s\\ge s_k$ for $k\\in\\{3,4,5\\}$ and $s>s_k$ for $k=2$, where $s_k$ is the regularity threshold appearing in the hypotheses. Let $u_0\\in H^s(\\mathbb{R})$, with $H^s(\\mathbb{R})$ the usual Sobolev space, and assume $(H1)$. Fix $A,\\widetilde A,L>0$ and let $0<\\varepsilon<\\varepsilon_1$ be sufficiently small. Let $u_{\\mathrm{DNN},\\#}$ be a deep neural network satisfying $(H2)$--$(H3)$. For a time interval $I$, consider the generalized KdV equation on the real line\n$$\\partial_t u+\\partial_{xxx}u=\\mu\\,\\partial_x(u^k),\\qquad (t,x)\\in I\\times\\mathbb{R},$$\nwhere $\\mu\\in\\{\\pm1\\}$, with initial datum $u_0$, and where $Y_{k,s}(I\\times\\mathbb{R})$ is the solution space appearing in the assumptions. What is the strongest statement that can be proved about the existence of a solution $u\\in C(I;H^s(\\mathbb{R}))\\cap Y_{k,s}(I\\times\\mathbb{R})$ relative to $u_{\\mathrm{DNN},\\#}$ under these assumptions?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "There exists a solution $u\\in C(I;H^s(\\mathbb{R}))\\cap Y_{k,s}(I\\times\\mathbb{R})$ of $\\partial_t u+\\partial_{xxx}u=\\mu\\,\\partial_x(u^k)$ on $I\\times\\mathbb{R}$ with initial datum $u_0$ such that\n$$\\|u-u_{\\mathrm{DNN},\\#}\\|_{Y_{k,s}(I\\times\\mathbb{R})}\\le C(A,\\widetilde A,L)\\,\\varepsilon,$$\nand, for every sufficiently large $R>0$,\n$$\\|\\partial_x(u^k-u_{\\mathrm{DNN},\\#}^k)\\|_{L_x^2L_t^2(I\\times[-R,R])}\\le C(A,\\widetilde A,L)\\,\\varepsilon,$$\nand\n$$\\|u-u_{\\mathrm{DNN},\\#}\\|_{L_t^{\\infty}H_x^s(I\\times[-R,R])}\\le C(A,\\widetilde A,L).$$"
+      },
+      {
+        "label": "C",
+        "text": "There exists a solution $u\\in C(I;H^s(\\mathbb{R}))\\cap Y_{k,s}(I\\times\\mathbb{R})$ of $\\partial_t u+\\partial_{xxx}u=\\mu\\,\\partial_x(u^k)$ on $I\\times\\mathbb{R}$ with initial datum $u_0$ such that, for every sufficiently large $R>0$,\n$$\\|u-u_{\\mathrm{DNN},\\#}\\|_{Y_{k,s}(I\\times[-R,R])}\\le C(A,\\widetilde A,L)\\,\\varepsilon,$$\nand\n$$\\|\\partial_x(u^k-u_{\\mathrm{DNN},\\#}^k)\\|_{L_x^2L_t^2(I\\times[-R,R])}\\le C(A,\\widetilde A,L)\\,\\varepsilon.$$"
+      },
+      {
+        "label": "D",
+        "text": "There exists a solution $u\\in C(I;H^s(\\mathbb{R}))\\cap Y_{k,s}(I\\times\\mathbb{R})$ of $\\partial_t u+\\partial_{xxx}u=\\mu\\,\\partial_x(u^k)$ on $I\\times\\mathbb{R}$ with initial datum $u_0$ such that, for every sufficiently large $R>0$,\n$$\\|u-u_{\\mathrm{DNN},\\#}\\|_{Y_{k,s}(I\\times[-R,R])}\\le C(A,\\widetilde A,L)\\,\\varepsilon,$$\n$$\\|\\partial_x(u^k-u_{\\mathrm{DNN},\\#}^k)\\|_{L_x^2L_t^2(I\\times[-R,R])}\\le C(A,\\widetilde A,L)\\,\\varepsilon,$$\nand\n$$\\|u-u_{\\mathrm{DNN},\\#}\\|_{L_t^{\\infty}H_x^s(I\\times[-R,R])}\\le C(A,\\widetilde A,L)\\,\\varepsilon.$$"
+      },
+      {
+        "label": "E",
+        "text": "There exists a solution $u\\in C(I;H^s(\\mathbb{R}))\\cap Y_{k,s}(I\\times\\mathbb{R})$ of $\\partial_t u+\\partial_{xxx}u=\\mu\\,\\partial_x(u^k)$ on $I\\times\\mathbb{R}$ with initial datum $u_0$ such that, for every sufficiently large $R>0$,\n$$\\|u-u_{\\mathrm{DNN},\\#}\\|_{Y_{k,s}(I\\times[-R,R])}\\le C(A,\\widetilde A,L)\\,\\varepsilon,$$\n$$\\|\\partial_x(u^k-u_{\\mathrm{DNN},\\#}^k)\\|_{L_t^{\\infty}L_x^2(I\\times[-R,R])}\\le C(A,\\widetilde A,L)\\,\\varepsilon,$$\nand\n$$\\|u-u_{\\mathrm{DNN},\\#}\\|_{L_t^{\\infty}H_x^s(I\\times[-R,R])}\\le C(A,\\widetilde A,L).$$"
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202601_final.json"
+  },
+  {
+    "id": "202512:10",
+    "month": "202512",
+    "no": 10,
+    "paper_link": "http://arxiv.org/abs/2512.07073v2",
+    "theorem": "\\label{A}\nLet $G$ be a $p$-solvable group with $P\\in\\Syl_p(G)$, and let $\\mathcal{N}$ be a\nnormal $p$-series of $G$. Then the following hold.\n\n{\\rm (1)} $\\Irr_0(G,\\mathcal{N})=\\Irr_{p'}(G)$ and\n$\\Irr_0({\\bf N}_G(P),\\mathcal{N})=\\Irr_{p'}({\\bf N}_G(P))$.\n\n{\\rm (2)} $|\\Irr_i(G,\\mathcal{N})|=|\\Irr_i({\\bf N}_G(P),\\mathcal{N})|$ for all $i\\ge 0$.\n\n{\\rm (3)} For $i\\ge 0$, $\\Irr_i(G,\\mathcal{N})$ is nonempty\nif and only if $p^i=\\alpha(1)$ for some  $\\alpha\\in\\Irr(P,\\mathcal{N})$.\n\n{\\rm (4)} $|\\Irr(G,\\mathcal{N})|=|\\Irr({\\bf N}_G(P),\\mathcal{N})|$.",
+    "sketch": "To prove the main theorem and Theorem \\ref{B}, the authors say they \"need to extend the definition of the map $\\Psi:\\Lin(P)\\to\\Irr(G)$\" (Isaacs–Navarro) from linear characters to an arbitrary $\\alpha\\in\\Irr(P)$. Using Corollary 3.15 and Theorem 3.16 of \\cite{I2018}, they note that $\\alpha$ \"uniquely determines a pair $(W,\\gamma)$\", where $W$ is \"the unique largest subgroup $G$ to which $\\alpha$ extends\" and $\\gamma$ is \"the unique $p$-special extension of $\\alpha$ to $W$\"; then they define the (extended) standard map by\n\\[\n\\Psi:\\Irr(P)\\to\\Char(G),\\quad \\alpha\\mapsto \\gamma^G.\n\\]\nThey then state that the key ingredient \"lies at the heart of the proof of the main theorem and Theorem \\ref{B}\", namely Theorem \\ref{C}, which provides the structure needed: for $\\alpha\\in\\Irr(P,\\mathcal{N})$, $\\Psi(\\alpha)\\in\\Irr(G)$, and $\\Psi(\\alpha)=\\Psi(\\beta)$ exactly when $\\alpha$ and $\\beta$ are ${\\bf N}_G(P)$-conjugate; moreover, for each such $\\alpha$ one forms the set\n\\[\n\\Irr_\\alpha(G)=\\{(\\gamma\\delta)^G\\mid \\delta\\text{ is $p'$-special on }W\\}\\subseteq\\Irr(G),\n\\]\nwith $\\chi(1)_p=\\alpha(1)$ for $\\chi\\in\\Irr_\\alpha(G)$, and these sets are either equal (when $\\alpha,\\beta$ are ${\\bf N}_G(P)$-conjugate) or disjoint. The theorem also asserts the counting/covering statements\n\\[\n|\\Irr_\\alpha(G)|=|\\Irr({\\bf N}_G(P)|\\alpha)|,\\qquad\n\\Irr(G,\\mathcal{N})=\\bigcup_{\\alpha\\in\\Irr(P,\\mathcal{N})}\\Irr_\\alpha(G),\n\\]\n(and similarly a union decomposition for $\\Irr({\\bf N}_G(P),\\mathcal{N})$). This is the described route: extend $\\Psi$ via $(W,\\gamma)$ and then apply Theorem \\ref{C} to organize $\\Irr(G,\\mathcal{N})$ (and the corresponding normalizer set) into pieces indexed by $\\Irr(P,\\mathcal{N})$ with controlled degrees and matching cardinalities, and then conclude Theorem \\ref{B}:\n\\begin{thmA}\\label{B}\nLet $G$ be a solvable group of odd order,\nand let $P\\in\\Syl_p(G)$.\nSuppose that $\\NN$ is a normal $p$-series of $G$.\nThen there is a canonical bijection from $\\Irr(G,\\NN)$ onto $\\Irr({\\bf N}_G(P),\\NN)$.\nAlso, if $\\xi\\in\\Irr({\\bf N}_G(P),\\NN)$ is the image of\n$\\chi\\in\\Irr(G,\\NN)$ under this map, then\n$\\xi$ is a constituent of $\\chi_{{\\bf N}_G(P)}$\nand $\\xi(1)$ divides $\\chi(1)$.\n\nFurthermore, for each $i\\ge 0$, the bijection\nmaps $\\Irr_i(G,\\NN)$ onto $\\Irr_i({\\bf N}_G(P),\\NN)$,\nand thus defines a canonical bijection between these two sets.\n\\end{thmA}",
+    "theorem_type": [
+      "Biconditional or Equivalence",
+      "Universal"
+    ],
+    "question": "Let $G$ be a $p$-solvable group, let $P\\in\\Syl_p(G)$, and let $\\mathcal N: 1=N_0\\le N_1\\le \\cdots \\le N_n=G$ be a normal $p$-series of $G$ (so each $N_j\\triangleleft G$ and each $N_j/N_{j-1}$ is either a $p$-group or a $p'$-group). For a subgroup $H\\le G$, let $\\Irr(H,\\mathcal N)$ denote the set of irreducible characters $\\theta\\in\\Irr(H)$ such that, whenever $N_j/N_{j-1}$ is a $p$-group, the subgroup $H\\cap N_j$ fixes an irreducible constituent of $\\theta_{H\\cap N_{j-1}}$. Also define\n$$\\Irr_i(H,\\mathcal N)=\\{\\theta\\in\\Irr(H,\\mathcal N)\\mid \\theta(1)_p=p^i\\},$$\nwhere $\\theta(1)_p$ is the $p$-part of the degree $\\theta(1)$. Fix $i\\ge 0$. Which statement is equivalent to the nonemptiness of $\\Irr_i(G,\\mathcal N)$?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "There exists \\(\\alpha\\in\\Irr(P,\\mathcal N)\\) such that \\(\\alpha(1)=p^i\\) and \\(\\alpha\\) is fixed by \\({\\bf N}_G(P)\\)."
+      },
+      {
+        "label": "C",
+        "text": "There exists \\(\\alpha\\in\\Irr(P,\\mathcal N)\\) such that \\(p^i\\) divides \\(\\alpha(1)\\)."
+      },
+      {
+        "label": "D",
+        "text": "There exists \\(\\alpha\\in\\Irr(P)\\) such that \\(\\alpha(1)=p^i\\)."
+      },
+      {
+        "label": "E",
+        "text": "There exists \\(\\chi\\in\\Irr(G,\\mathcal N)\\) such that \\(\\chi(1)=p^i\\)."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202512_final.json"
+  },
+  {
+    "id": "202601:46",
+    "month": "202601",
+    "no": 46,
+    "paper_link": "http://arxiv.org/abs/2601.07793v2",
+    "theorem": "\\label{thm:d-equals-g}\nLet $u \\leq v$ be elements of any Coxeter group $W$. Then $d_{u,v}=g_{u,v}$.",
+    "sketch": "To prove the main theorem, we note that it was proven by Patimo \\cite{Patimo-q-coefficient} in the case where $W$ is finite and simply-laced, using the \\emph{generalized lifting property} \\cite{Tsukerman-Williams} (known \\cite{caselli-sentinelli-gen-lifting} to hold only in this case). The authors state that their proof (later in the paper) \\emph{introduces new techniques using divergences of increasing paths} to circumvent the need for the generalized lifting property; specifically, they “introduce \\emph{divergences} of increasing paths and prove the main theorem.”",
+    "theorem_type": [
+      "Universal"
+    ],
+    "question": "Let \\(W\\) be a Coxeter group, equipped with its Bruhat order, and let \\(u,v\\in W\\) with \\(u\\le v\\). For this pair, let \\(d_{u,v}\\) and \\(g_{u,v}\\) denote the two quantities associated to the Bruhat interval \\([u,v]=\\{x\\in W: u\\le x\\le v\\}\\). What is the strongest statement that can be proved about the identity \\(d_{u,v}=g_{u,v}\\) for every such pair \\((u,v)\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One always has \\(d_{u,v}=g_{u,v}\\)."
+      },
+      {
+        "label": "B",
+        "text": "The identity \\(d_{u,v}=g_{u,v}\\) holds for all pairs \\(u\\le v\\) precisely when \\(W\\) is finite and simply-laced."
+      },
+      {
+        "label": "C",
+        "text": "The identity \\(d_{u,v}=g_{u,v}\\) holds for every pair \\(u\\le v\\) in every finite simply-laced Coxeter group."
+      },
+      {
+        "label": "D",
+        "text": "For an arbitrary Coxeter group \\(W\\), one can conclude \\(d_{u,v}=g_{u,v}\\) for a given interval \\([u,v]\\) only when that interval satisfies the generalized lifting property."
+      },
+      {
+        "label": "E",
+        "text": "In general Coxeter groups, the strongest valid statement is only that for each fixed \\(W\\) there is a \\(W\\)-dependent subclass of pairs \\((u,v)\\) for which \\(d_{u,v}=g_{u,v}\\); no uniform all-pairs statement holds."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One always has \\(d_{u,v}=g_{u,v}\\)."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202601_final.json"
+  },
+  {
+    "id": "202512:15",
+    "month": "202512",
+    "no": 15,
+    "paper_link": "http://arxiv.org/abs/2512.16165v1",
+    "theorem": "\\label{mainthm}\n   \\begin{enumerate}[topsep=1.5pt,itemsep=1ex]\n       \\item[\\emph{(1)}] Let $I=I_n(\\calH[n-1])$ be the ideal of sub-maximal minors of $\\calH[n-1]$:\n       \\begin{itemize}[topsep=1.5pt,itemsep=1ex]\n           \\item The special fiber ring $\\calF(I)$ is Cohen-Macaulay and its defining ideal is generated by the Pl\\\"ucker relations and the Laplace relations\n           \\begin{equation}\\label{eq:lap}\n     \\Lap_{\\mathbf{a}}:=\\sum\\limits_{\\{i,j\\} \\subset B} \\sgn (i,j) \\ T_{\\{i,j\\}\\cup \\mathbf{a}} T_{[n+2] \\setminus \\{i-1,j-1\\}} \\ \\in \\ \\mathbb{K}[T_\\mathbf{s} \\mid \\mathbf{s}=\\{s_1,\\ldots, s_n\\}\\subset [n+2]],\n        \\end{equation}\n           These relations are all quadratic and form a Gr\\\"obner basis of the defining ideal of the special fiber ring $\\calF(I)$. In particular, the special fiber is Koszul. \n           \\item Let $J[n-1]$ be the coordinate sections of the gradient ideal of $\\det \\calH$. The rational map $\\Theta_{J[n-1]}$, associated with $J[n-1]$ is a  birational map onto its image. As a consequence, we deduce the multiplicity of the special fiber of $J[n-1]$.\n       \\end{itemize}\n       \\item [\\emph{(2)}] Let $I=I_n(\\calH[1])$ be the ideal of sub-maximal minors of $\\calH[1]$:\n       \\begin{itemize}[topsep=1.5pt,itemsep=1ex]\n           \\item The special fiber ring $\\calF(I)$ is a Gorenstein ring whose defining ideal is minimally generated by the Pl\\\"ucker relations  and exactly one extra relation of degree $n$, arising from the vanishing of the determinant of the square matrix of size $n^2$\n           \\begin{equation}\\label{eq:polynomial f}\n    \\calL[1]\\coloneqq\\begin{pmatrix}\n    C_1&C_2&\\ldots  & C_{n+1}& C_{n+2} &0&0&0& 0 &  \\ldots &0& \\ldots & 0 \\\\\n    C_2&C_3& \\ldots &C_{n+2} & 0 & C_1&C_2 &\\ldots&C_{n+1} & \\ldots&0&\\ldots& 0\\\\\n         0& 0&0 &0 &0&C_2&C_3&\\ldots&C_{n+2}&  \\ldots&0&\\ldots&0\\\\\n\n         \\vdots&&&&\\vdots&&&& \\vdots&  \\ddots&&\\vdots \\\\\n         0&0&0&0&0&0&0&0&0&\\ldots&  C_1&\\ldots&C_{n+1}\\\\\n         0&0&0&0&0&0&0&0&0  &  \\ldots & C_2&\\ldots&C_{n+2}\n\n\\end{pmatrix}.\n\\end{equation}\n           \n           \\item The Rees algebra $\\calR(I)$ is of fiber type; hence its defining equations are given by the relations defining the special fiber, and the Eagon-Northcott relations defining the symmetric algebra. Moreover, $I$ has linear powers although the Rees algebra is not Koszul.\n       \\end{itemize}\n   \\end{enumerate}",
+    "sketch": "For the main theorem (1), the argument proceeds by computing the defining equations of the special fiber of $I_n(\\calH[n-1])$ via a reduction to the case of $2$-determinantal ideals studied in \\cite{RS} (the following theorem).\n\nWe first prove the following theorem. \n\\begin{Theorem}\\label{thm:eqSF}\n    The Pl\\\"ucker relations \\eqref{eq:general-plucker} and the Laplace relations \\eqref{eq:lap} generate the ideal $\\calK[n-1]$ of the special fiber ring $\\calF[n-1]$. In particular, $\\calF[n-1]\\isom \\calF(I_2(\\LL))$.\n\\end{Theorem}\n\nThis reduction is achieved “inspired by the classical duality property of the Grassmannian,” using the ${\\mathbb K}$-algebra isomorphism\n\\begin{align} \\label{eq:Kisom}\n        \\varphi: \\mathbb{K}[T_\\bfi \\mid \\bfi=\\{i_1,\\ldots, i_n\\}\\subset [n+2]]&\\longrightarrow \\KK[T_{k_1,k_2} \\mid \\{k_1,k_2\\}\\subset [n+2]]\n    \\end{align}\ninduced by “the isomorphism between the posets of minors of the corresponding Grassmannians,” namely:\n\\begin{Remark}\\label{rmk:isoposet}\nThe composition $\\sigma  \\circ  c$ naturally induces an isomorphism on the corresponding posets of maximal minors $$\\sigma  \\circ  c: \\Pi_{n,n+2}\\longrightarrow \\Pi_{2,n+2}.$$ \nIndeed, both $c$ and $\\sigma$ are bijective and order-reversing, so their composition is bijective and order-preserving. In  other words,  $\\varphi$ identifies the variables corresponding to the same element in the respective posets.\n\n\\end{Remark}\nAs a consequence, one deduces that the special fiber has “a Gr\\\"obner basis generated by quadrics, and so it is Koszul,” i.e.:\n\\begin{Corollary}\\label{cor:SFKoszul}\n    The Pl\\\"ucker and Laplace relations form a Gr\\\"obner basis of $\\calK[n-1]$ with respect to $\\preceq$. In particular, the special fiber $\\calF[n-1]$ is Koszul.\n\\end{Corollary}\nIn establishing the main theorem (1) one in fact shows that the special fiber of $I_n(\\calH[n-1])$ is isomorphic to the special fiber of the ideal of $2$-minors of\n\\[\n\\begin{pmatrix}\n    x_1 & x_2 &  x_3 & \\cdots & x_{n+2}\\\\\n    x_2 & x_3 &  \\cdots & x_{n+2}& 0\n\\end{pmatrix},\n\\]\n(an ideal in $\\mathscr{H}_{n+1,0}$ in the notation of \\cite{RS}). One then “conclude[s] by studying the birationality of the map associated with a special reduction of the ideal $I_n(H[n-1])$,” and the birationality result is highlighted as yielding “the multiplicity of the special fiber of a coordinate section of the gradient ideal.”\n\nFor the main theorem (2), in the case where exactly one variable is set to zero, one shows that “the special fiber is Gorenstein and is generated by the Pl\\\"ucker relations together with exactly one additional relation of degree $n$,” arising from “the vanishing of an $n^2$-minor in the variables $x_i$,” namely:\n\\begin{Theorem}\\label{thm:eqSFr=1} The defining ideal of the special fiber of $I_n(H[1])$ is $\\calK[1]=\\mathscr{P}_{n,n+2}+(f_{\\Lap})$.\n\n\\end{Theorem}\nMoreover, one proves “that the ideal has linear powers and is of fiber type,” giving an explicit description of the equations of the Rees algebra, i.e.:\n\\begin{Proposition}\\label{prop:r=1 fiber type}\n    The Rees algebra $\\calR[1]$ is of fiber type and $I_n(H[1])$ has linear powers. In particular, its defining ideal $\\calJ[1]$ is generated by $f_{\\Lap}$ together with the Eagon\u0013Northcott relations \\eqref{eq:ENeq} and the Pl\u000fccker relations \\eqref{eq:general-plucker}.\n\\end{Proposition}",
+    "theorem_type": [
+      "Universal",
+      "Classification or Bijection"
+    ],
+    "question": "Let\n\\[\n\\mathcal H[1]=\\begin{pmatrix}\n x_1&x_2&\\cdots &x_n&x_{n+1}\\\\\n x_2&x_3&\\cdots &x_{n+1}&x_{n+2}\\\\\n \\vdots&\\vdots&\\ddots&\\vdots&\\vdots\\\\\n x_n&x_{n+1}&\\cdots &x_{2n-1}&x_{2n}\\\\\n x_{n+1}&x_{n+2}&\\cdots &x_{2n}&0\n\\end{pmatrix}\n\\]\nbe the \\((n+1)\\times(n+1)\\) Hankel-type matrix with bottom-right entry equal to \\(0\\), and let \\(I=I_n(\\mathcal H[1])\\) be the ideal generated by its \\(n\\times n\\) minors. Which description gives the complete minimal generating set of the defining ideal of the special fiber ring \\(\\mathcal F(I)\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "It is minimally generated by the Pl\\\"ucker relations together with exactly one additional relation of degree $n$, namely the relation coming from the vanishing of the determinant of the associated square matrix $\\mathcal L[1]$ of size $n^2$."
+      },
+      {
+        "label": "B",
+        "text": "It is minimally generated by the Pl\\\"ucker relations together with a family of quadratic Laplace relations indexed by the relevant \\((n-2)\\)-subsets; in particular, no minimal generator of degree greater than \\(2\\) is needed."
+      },
+      {
+        "label": "C",
+        "text": "In addition to the Pl\\\"ucker relations, the defining ideal has at least one further equation of degree \\(n\\), namely the one obtained from the vanishing of \\(\\det(\\mathcal L[1])\\), where \\(\\mathcal L[1]\\) is the associated square matrix of size \\(n^2\\)."
+      },
+      {
+        "label": "D",
+        "text": "It is minimally generated by the Pl\\\"ucker relations together with exactly one additional relation of degree \\(n\\), but that relation comes from the vanishing of the determinant of an associated square matrix of size \\(n(n+1)\\), not \\(n^2\\)."
+      },
+      {
+        "label": "E",
+        "text": "It is generated by the Pl\\\"ucker relations, the Eagon-Northcott relations coming from the symmetric algebra, and exactly one further relation of degree \\(n\\) arising from the vanishing of \\(\\det(\\mathcal L[1])\\)."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "It is minimally generated by the Pl\\\"ucker relations together with exactly one additional relation of degree $n$, namely the relation coming from the vanishing of the determinant of the associated square matrix $\\mathcal L[1]$ of size $n^2$."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202512_final.json"
+  },
+  {
+    "id": "202602:15",
+    "month": "202602",
+    "no": 15,
+    "paper_link": "http://arxiv.org/abs/2602.05303v1",
+    "theorem": "\\label{thm1}\n   Let \\( x: \\Sigma \\rightarrow \\mathbb{S}^2 \\times \\mathbb{S}^2 \\) be a minimal-Willmore surface. Then either \\( x \\) is a special complex curve given by a slice or a diagonal; or, up to an isometry, is contained in a totally geodesic submanifold $\\mathbb{S}^2 \\times \\mathbb{S}^1$, and can be described by a solution of the sinh-Gordon equation in one variable.",
+    "sketch": "Using the local characterization of Tobarro--Urbano \\cite{Urbano} for minimal surfaces in $\\mathbb{S}^2\\times\\mathbb{S}^2$ with no complex points, the surface is described \"in terms of a pair of solutions $v$ and $w$ to the sinh-Gordon equation\" $$v_{z\\bar z}+\\tfrac12\\sinh(2v)=0.$$ \"Within this framework, the Willmore condition introduces a new partial differential equation linking $v$ and $w,\" namely\n\\begin{equation}\\label{eq-mwill}\n    e^{it}\\cosh^3(v-w)(v+w)_{\\bar{z}} = \\cosh^3(v+w)(v-w)_z.\n    \\end{equation}\nThe proof then proceeds by \"analyzing this coupled system\" (the sinh-Gordon equation together with the additional PDE imposed by the Willmore condition). To prove the main theorem, one shows that this analysis yields the stated classification.",
+    "theorem_type": [
+      "Classification or Bijection",
+      "Universal"
+    ],
+    "question": "Let \\(x:\\Sigma\\to \\mathbb S^2\\times \\mathbb S^2\\) be a minimal-Willmore surface (that is, a surface that is both minimal and Willmore, where a Willmore surface is a critical point of the Willmore functional). Which description gives the complete classification of such surfaces?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Either \\(x\\) is a special complex curve given by a slice \\(\\mathbb S^2\\times\\{p\\}\\) or \\(\\{p\\}\\times\\mathbb S^2\\) for some \\(p\\in\\mathbb S^2\\), or by the diagonal \\(\\{(q,q):q\\in\\mathbb S^2\\}\\); otherwise, up to an isometry, \\(x\\) is contained in a totally geodesic submanifold \\(\\mathbb S^2\\times\\mathbb S^1\\subset \\mathbb S^2\\times\\mathbb S^2\\) (with \\(\\mathbb S^1\\subset\\mathbb S^2\\) a great circle) and is described by a solution of the sinh-Gordon equation in one variable."
+      },
+      {
+        "label": "B",
+        "text": "Either \\(x\\) is a special complex curve given by a slice \\(\\mathbb S^2\\times\\{p\\}\\) or \\(\\{p\\}\\times\\mathbb S^2\\) for some \\(p\\in\\mathbb S^2\\), or by the diagonal \\(\\{(q,q):q\\in\\mathbb S^2\\}\\); otherwise, up to an isometry, \\(x\\) is contained in a totally geodesic submanifold \\(\\mathbb S^2\\times\\mathbb S^1\\subset \\mathbb S^2\\times\\mathbb S^2\\) (with \\(\\mathbb S^1\\subset\\mathbb S^2\\) a great circle) and is determined by a pair of one-variable solutions of the sinh-Gordon equation, one for each factor, with no further relation between them."
+      },
+      {
+        "label": "C",
+        "text": "Either \\(x\\) is a special complex curve given by a slice \\(\\mathbb S^2\\times\\{p\\}\\) or \\(\\{p\\}\\times\\mathbb S^2\\) for some \\(p\\in\\mathbb S^2\\), or by the diagonal \\(\\{(q,q):q\\in\\mathbb S^2\\}\\); otherwise, up to an isometry, \\(x\\) is described by a solution of the sinh-Gordon equation in one variable."
+      },
+      {
+        "label": "D",
+        "text": "Either \\(x\\) is a special complex curve given by a slice \\(\\mathbb S^2\\times\\{p\\}\\) or \\(\\{p\\}\\times\\mathbb S^2\\) for some \\(p\\in\\mathbb S^2\\), or by the diagonal \\(\\{(q,q):q\\in\\mathbb S^2\\}\\); otherwise, up to an isometry, \\(x\\) is contained in a totally geodesic submanifold \\(\\mathbb S^2\\times\\mathbb S^1\\subset \\mathbb S^2\\times\\mathbb S^2\\) (with \\(\\mathbb S^1\\subset\\mathbb S^2\\) a great circle) and is described by a solution of the sinh-Gordon equation in one variable, and conversely every such one-variable solution produces a closed minimal-Willmore surface."
+      },
+      {
+        "label": "E",
+        "text": "Either \\(x\\) is a complex curve given by a slice \\(\\mathbb S^2\\times\\{p\\}\\) or \\(\\{p\\}\\times\\mathbb S^2\\) for some \\(p\\in\\mathbb S^2\\), or by the diagonal \\(\\{(q,q):q\\in\\mathbb S^2\\}\\), or by a Weierstrass torus; otherwise, up to an isometry, \\(x\\) is contained in a totally geodesic submanifold \\(\\mathbb S^2\\times\\mathbb S^1\\subset \\(\\mathbb S^2\\times\\mathbb S^2\\) (with \\(\\mathbb S^1\\subset\\mathbb S^2\\) a great circle) and is described by a solution of the sinh-Gordon equation in one variable."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "Either \\(x\\) is a special complex curve given by a slice \\(\\mathbb S^2\\times\\{p\\}\\) or \\(\\{p\\}\\times\\mathbb S^2\\) for some \\(p\\in\\mathbb S^2\\), or by the diagonal \\(\\{(q,q):q\\in\\mathbb S^2\\}\\); otherwise, up to an isometry, \\(x\\) is contained in a totally geodesic submanifold \\(\\mathbb S^2\\times\\mathbb S^1\\subset \\mathbb S^2\\times\\mathbb S^2\\) (with \\(\\mathbb S^1\\subset\\mathbb S^2\\) a great circle) and is described by a solution of the sinh-Gordon equation in one variable."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202602_final.json"
+  },
+  {
+    "id": "202602:6",
+    "month": "202602",
+    "no": 6,
+    "paper_link": "http://arxiv.org/abs/2602.01571v1",
+    "theorem": "\\label{theorem:main}\n    Let $f$ be a cuspidal modular form of weight $k$ on $\\SL_2(\\BZ)$. For any integers $l\\geq2$ and $d\\geq1$ and $dl>4$, one has\n    \\[\\sum_{n\\leq x}  \\lambda^l_{\\Sym^d f}(n)=xP_{d,l}(\\log x)+O\\left(x^{\\theta_{d,l}+\\epsilon}\\right).\\]\n    Here $P_{d,l}$ is a polynomial of degree $K_{0,d,l}-1$, where $K_{i,d,l}$ denote the Kostka number defined in sections \\ref{section:Weylmod} and \\ref{section:Kostka number}. The exponent $\\theta_{d, l}$ is given by\n    $$\\theta_{d,l}=1-1/\\left((d+1)^l/2-4K_{0,d,l}/21-K_{1,d,l}/3-5K_{2,d,l}/14\\right).$$,",
+    "sketch": "The post-theorem introduction contains a \\subsection{Proof Sketch} explaining the strategy for Theorem~\\ref{theorem:main}:\n\n- **Perron's formula / contour integral reduction.** The “starting point is Perron's formula,” which converts estimating \\(\\sum_{n\\le x}\\lambda^l_{\\Sym^d f}(n)\\) into evaluating “a contour integral of the associated Dirichlet series” \\(\\sum_{n\\ge1}\\lambda^l_{\\Sym^d f}(n)n^{-s}\\).\n\n- **Relate the Dirichlet series to an \\(L\\)-function via Euler product.** This Dirichlet series is “intimately related via its Euler product” to \\(L((\\Sym^d f)^{\\otimes l},s)\\), corresponding to the \\(\\ell\\)-adic representation \\(\\Sym^d(\\rho_f)^{\\otimes l}\\) (cf. Proposition~\\ref{proposition:dirichletseriescomp}).\n\n- **Decompose the tensor representation and factor the \\(L\\)-function.** A “key insight” is decomposing the “high-dimensional tensor representation into a direct sum of irreducible constituents,” which are “of the form \\(\\Sym^i\\rho_f\\).” Hence\n  \\[\n  L\\bigl((\\Sym^d f)^{\\otimes l},s\\bigr)=\\prod_{i=0}^{ld} L(\\Sym^i f,s)^{K_{i,d,l}}.\n  \\]\n\n- **Use automorphy/entireness and subconvexity to get the asymptotic.** The “automorphy and entirety of these symmetric power \\(L\\)-functions,” due to Newton--Thorne, are “crucial,” and the “final asymptotic formulas are then derived by combining this factorization with established subconvexity bounds for the involved \\(L\\)-functions.”\n\n(An additional sketch is given for the binary quadratic form theorem \\(\\ref{thm:binary}\\): one studies \\(\\sum \\lambda^l_{\\Sym^d f}(n)r(n,Q)n^{-s}\\), expresses \\(\\sum r(n,Q)n^{-s}\\) via \\(\\zeta_F(s)\\) when \\(h(D)=1\\) or as a finite sum of Hecke \\(L\\)-functions in general, reducing to Rankin--Selberg type \\(L\\)-functions \\(L((\\Sym^d f)^{\\otimes l}\\otimes \\rho_{f_\\chi},s)\\), and then applies subconvexity to their decomposed components.)",
+    "theorem_type": [
+      "Asymptotic or Limit",
+      "Universal"
+    ],
+    "question": "Let \\(f\\) be a cuspidal modular form of weight \\(k\\) on \\(\\mathrm{SL}_2(\\mathbb Z)\\). For the \\(d\\)-th symmetric-power \\(L\\)-function, write\n\\[\nL(s,\\mathrm{Sym}^d f)=\\sum_{n=1}^\\infty \\lambda_{\\mathrm{Sym}^d f}(n)n^{-s},\n\\]\nand set \\(\\lambda^l_{\\mathrm{Sym}^d f}(n):=(\\lambda_{\\mathrm{Sym}^d f}(n))^l\\). Fix integers \\(l\\ge 2\\) and \\(d\\ge 1\\) with \\(dl>4\\), and let \\(K_{i,d,l}\\) for \\(i=0,1,2\\) denote the Kostka numbers in this setting. As \\(x\\to\\infty\\), what is the strongest statement that can be proved about the partial sums \\(\\sum_{n\\le x}\\lambda^l_{\\mathrm{Sym}^d f}(n)\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "\\[\n\\sum_{n\\le x}\\lambda^l_{\\Sym^d f}(n)=xP_{d,l}(\\log x)+O\\left(x^{\\theta_{d,l}+\\epsilon}\\right),\n\\]\nwhere \\(P_{d,l}\\) is a polynomial of degree \\(K_{0,d,l}\\), and\n\\[\n\\theta_{d,l}=1-\\frac{1}{(d+1)^l/2-4K_{0,d,l}/21-K_{1,d,l}/3-5K_{2,d,l}/14}.\n\\]"
+      },
+      {
+        "label": "C",
+        "text": "There exists a polynomial \\(P_{d,l}\\) of degree at most \\(K_{0,d,l}-1\\) such that\n\\[\n\\sum_{n\\le x}\\lambda^l_{\\Sym^d f}(n)=xP_{d,l}(\\log x)+O\\left(x^{\\theta_{d,l}+\\epsilon}\\right),\n\\]\nwhere\n\\[\n\\theta_{d,l}=1-\\frac{1}{(d+1)^l/2-4K_{0,d,l}/21-K_{1,d,l}/3-5K_{2,d,l}/14}.\n\\]"
+      },
+      {
+        "label": "D",
+        "text": "\\[\n\\sum_{n\\le x}\\lambda^l_{\\Sym^d f}(n)=xP_{d,l}(\\log x)+O\\left(x^{\\theta_{d,l}+\\epsilon}\\right),\n\\]\nwhere \\(P_{d,l}\\) is a polynomial of degree \\(K_{0,d,l}-1\\), and\n\\[\n\\theta_{d,l}=1-\\frac{1}{(d+1)^l/2-4K_{0,d,l}/21-K_{1,d,l}/2-5K_{2,d,l}/14}.\n\\]"
+      },
+      {
+        "label": "E",
+        "text": "For every pair of integers \\(l\\ge 2\\) and \\(d\\ge 1\\) with \\(dl\\ge 4\\), one has\n\\[\n\\sum_{n\\le x}\\lambda^l_{\\Sym^d f}(n)=xP_{d,l}(\\log x)+O\\left(x^{\\theta_{d,l}+\\epsilon}\\right),\n\\]\nwhere \\(P_{d,l}\\) is a polynomial of degree \\(K_{0,d,l}-1\\), and\n\\[\n\\theta_{d,l}=1-\\frac{1}{(d+1)^l/2-4K_{0,d,l}/21-K_{1,d,l}/3-5K_{2,d,l}/14}.\n\\]"
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202602_final.json"
+  },
+  {
+    "id": "202512:46",
+    "month": "202512",
+    "no": 46,
+    "paper_link": "http://arxiv.org/abs/2512.05945v1",
+    "theorem": "\\label{thm:main}\nLet $M,N\\in\\mathbb{N}$, with $\\lcm(M,N)$ not\ndivisible by $2^4$ or the square of an odd prime.\nLet $f\\in S_k^{\\rm new}(\\Gamma_0(M))$ and $g\\in S_\\ell^{\\rm new}(\\Gamma_0(N))$\nbe non-zero cusp forms with real Fourier coefficients\n$a_f(n),a_g(n)$. Then the following are equivalent:\n\\begin{enumerate}\n\\item $a_f(n)a_g(n)\\ge0$ for all sufficiently large $n\\in\\mathbb{N}$;\n\\item $(M,k)=(N,\\ell)$ and $f/g$ is a positive constant.\n\\end{enumerate}\nThus if $f$ and $g$ are not proportional then\n$\\{n\\in\\mathbb{N}:\\epsilon a_f(n)a_g(n)>0\\}$\nis infinite for each $\\epsilon\\in\\{\\pm1\\}$.,",
+    "sketch": "Our proof uses the joint Sato--Tate equidistribution of any two non-CM, twist-inequivalent newforms (Wong), based on Barnet-Lamb et al.  Writing for primes $p$\n\\[\na_\\varphi(p)=2p^{\\frac{k-1}{2}}\\cos(2\\pi\\theta_\\varphi(p)),\\qquad a_\\psi(p)=2p^{\\frac{\\ell-1}{2}}\\cos(2\\pi\\theta_\\psi(p)),\\qquad (\\theta_\\varphi(p),\\theta_\\psi(p))\\in[0,\\tfrac12]^2,\n\\]\nWong’s theorem gives equidistribution of $(\\theta_\\varphi(p),\\theta_\\psi(p))$ in $[0,\\tfrac12]^2$ with respect to density $(4\\sin(2\\pi u)\\sin(2\\pi v))^2\\,du\\,dv$.  As noted, “it follows that $1$, $\\theta_\\varphi(p)$, and $\\theta_\\psi(p)$ are linearly independent over $\\mathbb{Q}$ for all $p$ in a set of density $1$”, i.e.\n\\begin{lemma}\\label{lem:linindep}\nThere is a set $S\\subseteq\\{p\\text{ prime}:p\\nmid M\\}$ of natural density $1$\nsuch that, for any $p\\in S$ and any pair $i\\ne j$, the numbers\n$1$, $\\theta_i(p)$, and $\\theta_j(p)$ are linearly independent\nover $\\Q$.\n\\end{lemma}\n\nBecause “mutual independence of the angles $\\theta_\\varphi$ for more than two newforms is not known,” this “presents an obstacle to proving the main theorem using only information on $a_f(p)a_g(p)$ at primes $p$” (except that “we will however give such a proof when $f$ and $g$ have different weights or levels”).  Instead, the approach is to show that “for almost any tuple of distinct primes $p_1,\\ldots,p_d$, where $d=\\dim S_k^{\\rm new}(\\Gamma_0(M))$, the non-zero $f\\in S_k^{\\rm new}(\\Gamma_0(M))$ with real coefficients are determined modulo scalars by the signs of $a_f(n)$ for $n\\in\\{p_1^{k_1}\\cdots p_d^{k_d}:k_1,\\ldots,k_d\\ge0\\}$,” and for the precise statement we use the following proposition.\n\\begin{proposition}\\label{prop:dense}\nLet $p_1,\\ldots,p_d\\in S$ be distinct primes. Then\n\\[\n\\bigl\\{\n\\bigl[a_1\\bigl(p_1^{k_1}\\cdots p_d^{k_d}\\bigr):\\cdots:a_d\\bigl(p_1^{k_1}\\cdots p_d^{k_d}\\bigr)\\bigl]\\in\\RP^{d-1}:\nk_1,\\ldots,k_d\\ge0\n\\bigl\\}\n\\]\nis dense in $\\RP^{d-1}$.\n\\end{proposition}",
+    "theorem_type": [
+      "Biconditional or Equivalence",
+      "Implication"
+    ],
+    "question": "Let $M,N\\in\\mathbb{N}$ be such that $\\operatorname{lcm}(M,N)$ is divisible by neither $2^4$ nor the square of any odd prime. Let $f\\in S_k^{\\rm new}(\\Gamma_0(M))$ and $g\\in S_\\ell^{\\rm new}(\\Gamma_0(N))$ be nonzero new cusp forms with real Fourier coefficients $a_f(n)$ and $a_g(n)$, where $S_w^{\\rm new}(\\Gamma_0(L))$ denotes the space of weight-$w$ new cusp forms on $\\Gamma_0(L)$. Which statement is equivalent to the condition that $a_f(n)a_g(n)\\ge 0$ for all sufficiently large $n\\in\\mathbb{N}$?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "It is equivalent to requiring that $(M,k)=(N,\\ell)$ and $f/g$ is a nonzero real constant."
+      },
+      {
+        "label": "C",
+        "text": "It implies that $(M,k)=(N,\\ell)$ and $f/g$ is a constant."
+      },
+      {
+        "label": "D",
+        "text": "It is equivalent to requiring that $a_f(p)a_g(p)\\ge 0$ for all sufficiently large primes $p$; in that case one must have $(M,k)=(N,\\ell)$ and $f/g$ a positive constant."
+      },
+      {
+        "label": "E",
+        "text": "It is equivalent to requiring that $(M,k)=(N,\\ell)$ and there exists a constant $c>0$ such that $|a_f(n)|=c\\,|a_g(n)|$ for all sufficiently large $n\\in\\mathbb{N}$."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202512_final.json"
+  }
+]

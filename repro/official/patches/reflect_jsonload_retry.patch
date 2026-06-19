@@ -1,0 +1,34 @@
+--- a/skillopt/gradient/reflect.py
++++ b/skillopt/gradient/reflect.py
+@@ -24,6 +24,7 @@
+ import json
+ import os
+ import random
++import time
+ import traceback
+ from concurrent.futures import ThreadPoolExecutor, as_completed
+ 
+@@ -137,8 +138,21 @@
+         conv_path = os.path.join(prediction_dir, tid, "conversation.json")
+         if not os.path.exists(conv_path):
+             continue
+-        with open(conv_path) as f:
+-            conversation = json.load(f)
++        # Robust read: a concurrent rollout writer may leave conversation.json
++        # transiently half-written (read-during-write). The official harness did
++        # a bare json.load here, so one such transient hit raised JSONDecodeError
++        # and crashed the whole arm (rc=1). Retry briefly; if still unreadable,
++        # skip this one trajectory rather than abort the run. Higher rollout
++        # concurrency (e.g. parallel beam sel-eval) makes the race more likely.
++        conversation = None
++        for _attempt in range(4):
++            try:
++                with open(conv_path) as f:
++                    conversation = json.load(f)
++                break
++            except (json.JSONDecodeError, ValueError):
++                if _attempt < 3:
++                    time.sleep(0.25)
+         if not conversation:
+             continue
+ 

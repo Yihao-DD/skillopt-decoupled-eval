@@ -1,0 +1,4 @@
+# 数据物化 + 运行 TDD 测试需要（不在官方核心依赖内）
+datasets>=2.19.0
+huggingface_hub>=0.23.0
+pytest>=8.0.0

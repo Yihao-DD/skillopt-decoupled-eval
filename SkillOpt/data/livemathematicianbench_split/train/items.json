@@ -1,0 +1,1398 @@
+[
+  {
+    "id": "202602:22",
+    "month": "202602",
+    "no": 22,
+    "paper_link": "http://arxiv.org/abs/2602.10700v1",
+    "theorem": "\\label{thm:global_existence_cauchy}\nLet $N=2$ or $N=3$. Assume that $\\gamma$ satisfies\n\\begin{equation}\n    \\begin{cases}\n        \\gamma \\in [1, \\infty) & \\text{if } N=2, \\\\\n        \\gamma \\in [1, 8/3) & \\text{if } N=3.\n    \\end{cases}\n\\end{equation}\nLet $\\bar{\\rho} > 0$ be the far field behavior of density. Assume that the initial data $(\\rho_0, u_0)$ satisfies\n\\begin{equation}\n    0 < \\underline{\\varrho} \\le \\rho_0 \\le \\bar{\\varrho}, \\quad (\\rho_0 - \\bar{\\rho}) \\in H^3(\\mathbb{R}^N), \\quad u_0 \\in H^2(\\mathbb{R}^N),\n\\end{equation}\nwhere $\\underline{\\varrho}$ and $\\bar{\\varrho}$ are positive constants. Then the Cauchy problem\n\\begin{equation}\\label{NSK_simplified} \\begin{cases} \\partial_t \\rho + \\nabla \\cdot(\\rho u) = 0, \\\\ \\partial_t (\\rho u) + \\nabla \\cdot(\\rho u \\otimes u) + \\nabla P(\\rho) = \\nabla \\cdot \\left(2 \\rho \\mathcal{D}(u) \\right) + \\nabla \\cdot (\\rho \\nabla \\nabla \\log \\rho). \\end{cases} \\end{equation}\n\\begin{equation}\\label{far field}\n    \\rho \\left( x,t \\right) \\rightarrow \\bar{\\rho}>0,\\quad u\\left( x,t \\right) \\rightarrow 0,\\quad \\mathrm{as}\\, |x|\\rightarrow \\infty .\n\\end{equation}\nadmits a unique global strong solution $(\\rho, u)$ satisfying for any $0 < T < \\infty$ and $(x,t) \\in \\mathbb{R}^N \\times [0, T]$,\n\\begin{equation}\n    (C(T))^{-1} \\le \\rho(x,t) \\le C(T),\n\\end{equation}\nand\n\\begin{equation}\n\\begin{aligned}\n    &(\\rho - \\bar{\\rho}) \\in C([0, T]; H^3) \\cap L^2(0, T; H^4), \\quad \\rho_t \\in C([0, T]; H^1) \\cap L^2(0, T; H^2), \\\\\n    &u \\in C([0, T]; H^2) \\cap L^2(0, T; H^3), \\quad u_t \\in L^\\infty(0, T; L^2) \\cap L^2(0, T; H^1),\n\\end{aligned}\n\\end{equation}\nwhere the constant $C(T) > 0$ depends on the initial data and $T$.",
+    "sketch": "To prove the main theorem, the authors assume the density stays strictly positive and introduce the \\emph{effective velocity} $v=u+\\nabla\\log\\rho$, which transforms\n\\begin{equation}\\label{NSK} \\begin{cases} \\partial_t \\rho + \\nabla \\cdot(\\rho u) = 0, \n\\\\ \\partial_t (\\rho u) + \\nabla \\cdot(\\rho u \\otimes u) + \\nabla P(\\rho) =\\nabla \\cdot \\mathbb{S} + \\nabla \\cdot \\mathbb{K}. \\end{cases} \\end{equation}\ninto the parabolic system \\eqref{parabolic_system}. They then “outline the main strategy” in three parts: “establishing the density upper bound, deriving the density lower bound, and finally, improving the regularity of the solution.”\n\n(1) \\textbf{Upper bound of $\\rho$.} They “fully exploit the parabolic structure of the system and employ maximal regularity estimates for the heat equation.” Closing the estimate requires bounding $\\|\\rho^{1/(q+2)}v\\|_{L^{q+2}}$ for some $q>1$. We first use the following proposition.\n\\begin{proposition}\\label{PRO3.4}\nFor any $\\gamma \\in (1, \\frac{8}{3})$, there exists $q \\in (1, 4)$ such that\n\\begin{equation}\n     \\gamma \\le \\frac{2q+6}{q+2}.\n\\end{equation}\n    For this fixed $q$, there exists a positive constant $C$, depending on $T$, $q$, $\\gamma$, $E_0$, and the initial data $\\|\\rho_0^{1/(q+2)} v_0\\|_{L^{q+2}}$, such that\n\\begin{equation}\\label{L^{q+2}}\n\\sup_{0 \\le t \\le T} \\|\\rho^{\\frac{1}{q+2}} v\\|_{L^{q+2}} \\le C.\n\\end{equation}\n\\end{proposition}\nIn particular, for any $\\gamma\\in(1,\\frac{8}{3})$ one can choose such a $q$ so that $\\|\\rho^{\\frac{1}{q+2}}v\\|_{L^{q+2}}$ is bounded.\n\n(2) \\textbf{Lower bound of $\\rho$.} They explain that Haspot’s route would need $\\|\\rho^{\\frac{1}{p+2}}v\\|_{L^\\infty_T L^{p+2}}$ bounded uniformly in $p$, but here it “tends to infinity as $p\\to\\infty$.” Instead they use the Huang–Meng–Zhang idea relating “$\\|v\\|_{L^\\infty}$ and $\\sqrt{\\log( e^{\\frac{25}{9}}+\\|\\rho^{-1}\\|_{L^\\infty})}$,” but since the periodic-domain method “fails in the whole space” with nonzero far-field density, they “developed a novel truncated De Giorgi iteration method.” They define truncations and energies\n\\[\n\\rho^{-1}_{(k_n)}:=\\max\\{\\rho^{-1}-k_n,0\\},\\qquad\nU_n^T:=\\|\\rho^{-1}_{(k_n)}\\|_{L_T^\\infty L^2}^2+\\|\\nabla\\rho^{-1}_{(k_n)}\\|_{L_T^2 L^2}^2,\n\\]\nwith truncation levels $k_n:=M(1-2^{-n})+2\\|\\rho_0^{-1}\\|_{L^\\infty}$, choosing $k_0=2\\|1/\\rho_0\\|_{L^\\infty}$ so that $U_0^T$ meets a convergence condition $U_0^T\\le K^{-1/\\nu}A^{-1/\\nu^2}$. They “choose a suitable $T$ to bound the solution on $[0,T]$ and then employ a shifted iteration sequence for $[T,2T]$,” and with a uniform time step this yields boundedness up to the maximal lifespan $T^*$, giving a “time-dependent lower bound of the density.”\n\n(3) \\textbf{Completion / global existence.} After establishing density upper and lower bounds, they complete the proof of the main theorem by using the established density upper and lower bounds as blow-up criteria (Sections 5–6), together with the earlier steps (Sections 3–4: maximal regularity for the upper bound; extending the $q$-range, then Moser to control $\\|v\\|_{L^\\infty}$ by $\\sqrt{\\log V_T}$, and De Giorgi for the lower bound up to $T^*$).",
+    "theorem_type": [
+      "Existence",
+      "Uniqueness"
+    ],
+    "question": "Let \\(N=2\\) or \\(N=3\\). Assume \\(\\gamma\\in[1,\\infty)\\) when \\(N=2\\), and \\(\\gamma\\in[1,8/3)\\) when \\(N=3\\). Let \\(\\bar\\rho>0\\), and let the initial data \\((\\rho_0,u_0)\\) satisfy \\(0<\\underline\\varrho\\le \\rho_0\\le \\bar\\varrho\\) for some positive constants \\(\\underline\\varrho,\\bar\\varrho\\), with \\(\\rho_0-\\bar\\rho\\in H^3(\\mathbb R^N)\\) and \\(u_0\\in H^2(\\mathbb R^N)\\). Consider the Cauchy problem on \\(\\mathbb R^N\\)\n\\[\n\\partial_t\\rho+\\nabla\\cdot(\\rho u)=0,\n\\qquad\n\\partial_t(\\rho u)+\\nabla\\cdot(\\rho u\\otimes u)+\\nabla P(\\rho)=\\nabla\\cdot\\bigl(2\\rho\\mathcal D(u)\\bigr)+\\nabla\\cdot\\bigl(\\rho\\nabla\\nabla\\log\\rho\\bigr),\n\\]\nwith pressure law \\(P(\\rho)=\\rho^\\gamma\\) and far-field behavior \\(\\rho(x,t)\\to\\bar\\rho>0\\) and \\(u(x,t)\\to0\\) as \\(|x|\\to\\infty\\), where \\(\\mathcal D(u)=(\\nabla u+\\nabla u^T)/2\\). What is the strongest statement that can be proved about the global existence and uniqueness of strong solutions for this problem?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "There exists a unique global strong solution \\((\\rho,u)\\) such that for every \\(T>0\\) there is a constant \\(C(T)>0\\), depending on \\(T\\) and the initial data, with \\((C(T))^{-1}\\le \\rho(x,t)\\le C(T)\\) for all \\((x,t)\\in\\mathbb R^N\\times[0,T]\\), and\n\\[\n\\rho-\\bar\\rho\\in C([0,T];H^3(\\mathbb R^N))\\cap L^2(0,T;H^4(\\mathbb R^N)),\n\\]\n\\[\n\\rho_t\\in C([0,T];H^1(\\mathbb R^N))\\cap L^2(0,T;H^2(\\mathbb R^N)),\n\\]\n\\[\nu\\in C([0,T];H^2(\\mathbb R^N))\\cap L^2(0,T;H^3(\\mathbb R^N)),\n\\qquad\nu_t\\in L^\\infty(0,T;L^2(\\mathbb R^N))\\cap L^2(0,T;H^1(\\mathbb R^N)).\n\\]"
+      },
+      {
+        "label": "B",
+        "text": "There exists a unique global strong solution \\((\\rho,u)\\) such that there is a constant \\(C>0\\), depending on the initial data but not on \\(T\\), with \\(C^{-1}\\le \\rho(x,t)\\le C\\) for all \\((x,t)\\in\\mathbb R^N\\times[0,\\infty)\\), and for every \\(T>0\\),\n\\[\n\\rho-\\bar\\rho\\in C([0,T];H^3(\\mathbb R^N))\\cap L^2(0,T;H^4(\\mathbb R^N)),\n\\]\n\\[\n\\rho_t\\in C([0,T];H^1(\\mathbb R^N))\\cap L^2(0,T;H^2(\\mathbb R^N)),\n\\]\n\\[\\nu\\in C([0,T];H^2(\\mathbb R^N))\\cap L^2(0,T;H^3(\\mathbb R^N)),\n\\qquad\n\\nu_t\\in L^\\infty(0,T;L^2(\\mathbb R^N))\\cap L^2(0,T;H^1(\\mathbb R^N)).\n\\]"
+      },
+      {
+        "label": "C",
+        "text": "There exists a global strong solution \\((\\rho,u)\\) such that for every \\(T>0\\) there is a constant \\(C(T)>0\\), depending on \\(T\\) and the initial data, with \\((C(T))^{-1}\\le \\rho(x,t)\\le C(T)\\) for all \\((x,t)\\in\\mathbb R^N\\times[0,T]\\), and\n\\[\n\\rho-\\bar\\rho\\in C([0,T];H^3(\\mathbb R^N))\\cap L^2(0,T;H^4(\\mathbb R^N)),\n\\qquad\n\\nu\\in C([0,T];H^2(\\mathbb R^N))\\cap L^2(0,T;H^3(\\mathbb R^N)).\n\\]"
+      },
+      {
+        "label": "D",
+        "text": "There exists a unique global strong solution \\((\\rho,u)\\) such that for every \\(T>0\\) there is a constant \\(C(T)>0\\), depending on \\(T\\) and the initial data, with \\((C(T))^{-1}\\le \\rho(x,t)\\le C(T)\\) for all \\((x,t)\\in\\mathbb R^N\\times[0,T]\\), and\n\\[\n\\rho-\\bar\\rho\\in C([0,T];H^3(\\mathbb R^N))\\cap L^2(0,T;H^4(\\mathbb R^N)),\n\\]\n\\[\n\\rho_t\\in C([0,T];H^2(\\mathbb R^N))\\cap L^2(0,T;H^3(\\mathbb R^N)),\n\\]\n\\[\\nu\\in C([0,T];H^2(\\mathbb R^N))\\cap L^2(0,T;H^3(\\mathbb R^N)),\n\\qquad\n\\nu_t\\in L^\\infty(0,T;H^1(\\mathbb R^N))\\cap L^2(0,T;H^2(\\mathbb R^N)).\n\\]"
+      },
+      {
+        "label": "E",
+        "text": "There exists a unique global strong solution \\((\\rho,u)\\) such that for every \\(T>0\\) there is a constant \\(C(T)>0\\), depending on \\(T\\) and the initial data, and there is a constant \\(c_0>0\\), depending only on the initial data, with \\(c_0\\le \\rho(x,t)\\le C(T)\\) for all \\((x,t)\\in\\mathbb R^N\\times[0,T]\\), and\n\\[\n\\rho-\\bar\\rho\\in C([0,T];H^3(\\mathbb R^N))\\cap L^2(0,T;H^4(\\mathbb R^N)),\n\\]\n\\[\n\\rho_t\\in C([0,T];H^1(\\mathbb R^N))\\cap L^2(0,T;H^2(\\mathbb R^N)),\n\\]\n\\[\\nu\\in C([0,T];H^2(\\mathbb R^N))\\cap L^2(0,T;H^3(\\mathbb R^N)),\n\\qquad\n\\nu_t\\in L^\\infty(0,T;L^2(\\mathbb R^N))\\cap L^2(0,T;H^1(\\mathbb R^N)).\n\\]"
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "There exists a unique global strong solution \\((\\rho,u)\\) such that for every \\(T>0\\) there is a constant \\(C(T)>0\\), depending on \\(T\\) and the initial data, with \\((C(T))^{-1}\\le \\rho(x,t)\\le C(T)\\) for all \\((x,t)\\in\\mathbb R^N\\times[0,T]\\), and\n\\[\n\\rho-\\bar\\rho\\in C([0,T];H^3(\\mathbb R^N))\\cap L^2(0,T;H^4(\\mathbb R^N)),\n\\]\n\\[\n\\rho_t\\in C([0,T];H^1(\\mathbb R^N))\\cap L^2(0,T;H^2(\\mathbb R^N)),\n\\]\n\\[\nu\\in C([0,T];H^2(\\mathbb R^N))\\cap L^2(0,T;H^3(\\mathbb R^N)),\n\\qquad\nu_t\\in L^\\infty(0,T;L^2(\\mathbb R^N))\\cap L^2(0,T;H^1(\\mathbb R^N)).\n\\]"
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202602_final.json"
+  },
+  {
+    "id": "202512:8",
+    "month": "202512",
+    "no": 8,
+    "paper_link": "http://arxiv.org/abs/2512.08863v1",
+    "theorem": "To prove the main theorem, let $X$ be an equidimensional projective scheme over a field $\\mathbb{k}$.\n\t\\label{thmA}\n\tLet $\\mathscr{L}$ be an ample line bundle on $X$ and $W \\subseteq Z$ be two closed subschemes of $X$.\n\tThen the following three conditions are equivalent:\n\t\\begin{enumerate}[\\;\\;\\rm (a)]\n\t\t\\item $\\II_W$ is integral over $\\II_Z$.\n\t\t\\item $s(Z, X) = s(W, X)$ viewed in $A_*(X)$.\n\t\t\\item $\\deg_\\mathscr{L}\\left(s^i(Z, X)\\right) = \\deg_\\mathscr{L}\\left(s^i(W, X)\\right)$ for all $i \\ge 0$.\n\t\\end{enumerate}",
+    "sketch": "The post-theorem introduction indicates that, in establishing the main theorem, the proof \\emph{relies on van Gastel’s foundational result} \\cite{VanGastel}, which \"establishes the connection between Fulton–MacPherson’s intersection theory\" \\cite{FULTON_INTER} and \"St\\\"uckrad–Vogel’s intersection theory\" \\cite{VOGEL,FOV}. The stated \\emph{starting point} is \"van Gastel’s result expressing Segre classes in terms of Vogel cycles, and conversely expressing Vogel cycles in terms of Segre classes.\" The introduction further explains the strategy/advantage: \"considering the Vogel cycle\" allows one to apply \"technical positivity results, including the one established in the following proposition.\" \\begin{proposition}\n\t\\label{prop_hard}\n\tAssume that $\\Rees(\\II_W)$ is not of finite type as a module over $\\Rees(\\II_Z)$.\n\t Then we have the following strict inequality \n\t $$\n\t \\lim_{n \\to \\infty} \\frac{h^0\\left(X, \\II_W^{n}/\\II_Z^{n} \\otimes \\LL^{\\otimes 2pn} \\right)}{n^d} \\;>\\; 0.\n\t $$\n\\end{proposition} (The full proof is deferred: the proof of the main theorem is given later.)",
+    "theorem_type": [
+      "Biconditional or Equivalence",
+      "Classification or Bijection"
+    ],
+    "question": "Let $X$ be an equidimensional projective scheme over a field $\\mathbb{k}$, let $\\mathscr{L}$ be an ample line bundle on $X$, and let $W \\subseteq Z$ be closed subschemes of $X$. Suppose (i) the ideal sheaf $\\mathcal{I}_W$ is integral over $\\mathcal{I}_Z$, and (ii) the Segre classes satisfy $s(Z,X)=s(W,X)$ in the Chow group $A_*(X)$. Writing $s^i(Y,X)$ for the codimension-$i$ component of the Segre class $s(Y,X)$, and for $\\alpha\\in A_d(X)$ writing $\\deg_{\\mathscr{L}}(\\alpha):=\\deg\\!\big(c_1(\\mathscr{L})^d\\smallfrown \\alpha\\big)$, which statement is equivalent to both (i) and (ii)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "It is equivalent to require that the alternating total \\(\\mathscr{L}\\)-degree of the Segre classes agree, namely\n\\[\n\\sum_{i\\ge 0}(-1)^i\\deg_{\\mathscr{L}}\\!\\big(s^i(Z,X)\\big)\n=\n\\sum_{i\\ge 0}(-1)^i\\deg_{\\mathscr{L}}\\!\\big(s^i(W,X)\\big).\n\\]"
+      },
+      {
+        "label": "C",
+        "text": "It follows from (i) and (ii) that\n\\[\n\\deg_{\\mathscr{L}}\\!\\big(s^i(Z,X)\\big)=\\deg_{\\mathscr{L}}\\!\\big(s^i(W,X)\\big)\n\\quad\\text{for every } i\\ge 0.\n\\]"
+      },
+      {
+        "label": "D",
+        "text": "It is equivalent to require that there exists an ample line bundle \\(\\mathscr{M}\\) on \\(X\\) such that\n\\[\n\\deg_{\\mathscr{M}}\\!\\big(s^i(Z,X)\\big)=\\deg_{\\mathscr{M}}\\!\\big(s^i(W,X)\\big)\n\\quad\\text{for every } i\\ge 0.\n\\]"
+      },
+      {
+        "label": "E",
+        "text": "It is equivalent to require that \\(W\\) and \\(Z\\) have the same underlying closed subset of \\(X\\), and that\n\\[\n\\deg_{\\mathscr{L}}\\!\\big(s^i(Z,X)\\big)=\\deg_{\\mathscr{L}}\\!\\big(s^i(W,X)\\big)\n\\quad\\text{for every } i>0.\n\\]"
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202512_final.json"
+  },
+  {
+    "id": "202511:16",
+    "month": "202511",
+    "no": 16,
+    "paper_link": "http://arxiv.org/abs/2511.15668v1",
+    "theorem": "\\label{Th:Main1-Existence}\nSuppose that (G1)--(G5) are satisfied. \n\\begin{enumerate}\n\\item[(a)] There exists a nontrivial solution $u_0 \\in X^1 (\\mathbb{R}^N)$ of\n\\begin{equation}\\label{eq:main}\n-\\Delta u - \\frac{(N-2)^2}{4|x|^2} u  = g(u),  \\quad \\mbox{in } \\R^N \\setminus \\{0\\}.\n\\end{equation}\nthat satisfies the Poho\\v{z}aev constraint ${\\mathcal M}$. \n\\item[(b)] $u_0$ is a minimizer of the energy functional $J$ on ${\\mathcal M}$.\n\\item[(c)] Every solution $u\\in X^1(\\mathbb{R}^N)$ of the equation above belongs to $C^{1,\\alpha}_{\\mathrm{loc}} (\\mathbb{R}^N \\setminus \\{0\\})$ for some $\\alpha \\in (0,1)$.\n\\item[(d)] If, in addition, $g$ is H\\\"older continuous, every solution $u\\in X^1(\\mathbb{R}^N)$ of the equation above is of the class $C^2 (\\mathbb{R}^N\\setminus \\{0\\})$.\n\\item[(e)] If, in addition, $g$ is odd, there exists a nontrivial, nonnegative, radial and radially nonincreasing solution in $X^1 (\\mathbb{R}^N) \\cap C^2 (\\mathbb{R}^N \\setminus \\{0\\})$ of the equation above, which is a minimizer of $J$ on ${\\mathcal M}$.\n\\item[(f)] Every nonnegative solution of the equation above in $X^1(\\mathbb{R}^N) \\cap C^2 (\\mathbb{R}^N \\setminus\\{0\\})$ does not belong to $H^1 (\\mathbb{R}^N)$.\n\\end{enumerate}",
+    "sketch": "A full proof sketch is not given, but the introduction outlines the strategy for establishing the main theorem as follows:\n\n- A direct minimization on ${\\mathcal M}$ is problematic (even in the radial setting when $g$ is odd), since it is \"unclear whether a minimizing sequence on ${\\mathcal M}$ ... is bounded.\"\n\n- To address minimizing sequences, the paper uses \"a profile decomposition approach, which is based on the concentration-compactness principle in the spirit of Lions.\" The intended decomposition of minimizing sequences (as in \\\\cite{Nawa, Gerard}) is described as \"challenging\" because $X^1(\\mathbb{R}^N)$ \"is not translation-invariant\" and, after translations, a weak limit \"should be a solution to the limiting problem without the singular potential,\" whose natural energy space is $H^1(\\mathbb{R}^N)$ rather than $X^1(\\mathbb{R}^N)$.\n\n- The proof components are distributed across the paper: next the profile decomposition is proved, then the existence of a nontrivial solution is shown (corresponding to point (a) in the main theorem), and later additional properties of the solution are proved (corresponding to points (b) and (c) in the main theorem).",
+    "theorem_type": [
+      "Existence",
+      "Implication"
+    ],
+    "question": "Let $N\\ge 3$, let $g:\\mathbb{R}\\to\\mathbb{R}$ satisfy hypotheses (G1)–(G5), and consider any solution $u\\in X^1(\\mathbb{R}^N)$ of\n\\[\n-\\Delta u-\\frac{(N-2)^2}{4|x|^2}u=g(u)\\quad\\text{in }\\mathbb{R}^N\\setminus\\{0\\}.\n\\]\nIf, in addition, $g$ is Hölder continuous, what is the strongest statement that can be proved about the regularity of every such solution?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "Every solution $u\\in X^1(\\mathbb{R}^N)$ of the equation belongs to $C^2(\\mathbb{R}^N)$."
+      },
+      {
+        "label": "C",
+        "text": "Every solution $u\\in X^1(\\mathbb{R}^N)$ of the equation belongs to $C^{1,\\alpha}_{\\mathrm{loc}}(\\mathbb{R}^N\\setminus\\{0\\})$ for some $\\alpha\\in(0,1)$."
+      },
+      {
+        "label": "D",
+        "text": "Every solution $u\\in X^1(\\mathbb{R}^N)$ of the equation belongs to $C^{2,\\alpha}_{\\mathrm{loc}}(\\mathbb{R}^N\\setminus\\{0\\})$ for some $\\alpha\\in(0,1)$."
+      },
+      {
+        "label": "E",
+        "text": "There exists a solution $u\\in X^1(\\mathbb{R}^N)$ of the equation that belongs to $C^2(\\mathbb{R}^N\\setminus\\{0\\})$."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202511_final.json"
+  },
+  {
+    "id": "202601:44",
+    "month": "202601",
+    "no": 44,
+    "paper_link": "http://arxiv.org/abs/2601.21267v1",
+    "theorem": "\\label{thm1}\n    Let $N$ be a positive integer. Then, \n    \\[ \\widetilde{\\Omega}_{N}=\\widetilde{\\Omega}_{N}\\cap \\left(\\widetilde{E}(N) \\oplus \\widetilde{S}^{\\mathrm{old}}(N)\\right). \\],",
+    "sketch": "The proof of Theorem \\ref{thm1} “is based on $\\ell$-adic Galois representations, especially the linear independence of characters of $G_{\\mathbb{Q}}$,” and is summarized as follows. Starting with $f\\in\\Omega_{N}$, one decomposes\n$$f=f_{E}+f_{S}^{\\mathrm{new}}+f_{S}^{\\mathrm{old}}$$\nusing\n$$\\widetilde{M}(N)=\\widetilde{E}(N)\\oplus\\widetilde{S}^{\\mathrm{new}}(N)\\oplus\\widetilde{S}^{\\mathrm{old}}(N).$$\n“To prove Theorem \\ref{thm1}, it suffices to show that $f_{S}^{\\mathrm{new}}=0$.” The “key idea” is to interpret (after a “certain reduction process”) the relations $a_{f}(p)=0$ for $p\\nmid N\\ell$ as “a linear combination of traces of pairwise nonisomorphic representations of $G_{\\mathbb{Q}}=\\mathrm{Gal}(\\overline{\\mathbb{Q}}/\\mathbb{Q})$ at $\\mathrm{Frob}_{p}$,” and then apply “the linear independence of characters.”",
+    "theorem_type": [
+      "Universal",
+      "Equality or Bound"
+    ],
+    "question": "For every positive integer $N$, let $\\widetilde{\\Omega}_N$ be the paper’s space of prime-detecting quasimodular forms on $\\Gamma_0(N)$, let $\\widetilde{E}(N)$ be the space of quasimodular Eisenstein series on $\\Gamma_0(N)$, and let $\\widetilde{S}^{\\mathrm{old}}(N)$ be the old subspace of quasimodular cusp forms on $\\Gamma_0(N)$; here $\\oplus$ denotes direct sum. What is the strongest statement that can be proved about $\\widetilde{\\Omega}_N$ for every such $N$?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "$\\widetilde{\\Omega}_N=\\widetilde{\\Omega}_N\\cap\\widetilde{E}(N)$."
+      },
+      {
+        "label": "C",
+        "text": "$\\widetilde{\\Omega}_N\\subseteq \\widetilde{E}(N)\\oplus\\widetilde{S}^{\\mathrm{old}}(N)$."
+      },
+      {
+        "label": "D",
+        "text": "$\\widetilde{\\Omega}_N=\\widetilde{\\Omega}_N\\cap\\left(\\widetilde{E}(N)\\oplus\\widetilde{S}^{\\mathrm{new}}(N)\\right)$."
+      },
+      {
+        "label": "E",
+        "text": "$\\widetilde{\\Omega}_N\\cap\\left(\\widetilde{E}(N)\\oplus\\widetilde{S}^{\\mathrm{old}}(N)\\right)=\\widetilde{E}(N)\\oplus\\widetilde{S}^{\\mathrm{old}}(N)$."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202601_final.json"
+  },
+  {
+    "id": "202511:14",
+    "month": "202511",
+    "no": 14,
+    "paper_link": "http://arxiv.org/abs/2511.13447v1",
+    "theorem": "\\label{introthm:transserial_char}\n    The following are equivalent for an exponential o-minimal theory $T$:\n    \\begin{enumerate}[ref=(\\arabic*)]\n        \\item\\label{introthmenum:transserial} $T$ is transserial;\n        \\item\\label{introthmenum:exp-bdd_gne_at_special} $T$ is exponentially bounded and for all $(\\mathbb E, \\mathcal{O}) \\models T_\\mathrm{convex}$, all $\\mathcal{O} < b <\\mathbb E^{>\\mathcal{O}}$, for every $y \\in \\mathbb E \\langle b \\rangle$ there is a $\\mathbb E$-definable gne $g$, such that $y \\equiv_\\mathbb E g(b)$;\n        \\item\\label{introthmenum:gne_wim_1} all 1-$\\dcl_T$-dimensional wim-constructible extension of models of $T_\\mathrm{convex}$ have the gne-property;\n        \\item\\label{introthmenum:gne_res_1} all 1-$\\dcl_T$-dimensional res-constructible extensions of models of $T_\\mathrm{convex}$ have the gne property;\n        \\item\\label{introthmenum:gne_wim} all wim-constructible extensions of models of $T_\\mathrm{convex}$ have the gne property;\n        \\item\\label{introthmenum:gne_res} all res-constructible extensions of models of $T_\\mathrm{convex}$ have the gne property.\n    \\end{enumerate}",
+    "sketch": "The post-theorem introduction does not give a full step-by-step proof of the main theorem, but it does describe the main ingredients and framework used.\n\n- The results (including the main theorem) are obtained by “an analysis of the ordered differential valued fields $(\\mathbb E\\langle x\\rangle, \\cO_x, \\partial_x)$” satisfying:\n  (C1) $\\mathbb E\\langle x\\rangle:=\\dcl_T(\\mathbb E,x)$ is a 1-$\\dcl_T$-dimensional elementary extension of $\\mathbb E\\models T$ and $\\cO_x$ is a $T$-convex valuation subring;\n  (C2) $\\partial_x$ is the “unique non-trivial $\\mathbb E$-linear $T$-derivation with $\\partial_x(x)=1$”; and\n  (C3) $\\val_{\\cO_x}(x-\\mathbb E)\\subseteq \\val_{\\cO_x}(\\mathbb E)$.\n  This “comprises the cases in which $(\\mathbb E\\langle x\\rangle,\\cO_x)\\succ (\\mathbb E,\\mathcal O)$ is wim-constructible or res-constructible.”\n\n- A “key ingredient in the main theorem” is the following criterion.\n\n\\begin{proposition}\\label{prop:height_over_absorbed}\n    If $\\partial\\br(\\partial) \\prec 1$, then\n    \\[\\height(x,\\partial)=\\inf\\{k\\in \\omega: \\val(\\lder^k(\\partial x))\\in \\val(\\bE)\\}\\in \\omega+1.\\]\n    \\begin{proof}\n        Set $a=\\partial x$. Clearly the height of $x$ is $0$ if and only if $\\val(a)\\in \\val(\\bE)$.\n\n        It suffices to show that for all $m\\ge 0$, there is an essential approximate logarithmic scale $(y_k)_{k < m}$ with $a \\sim \\partial y_0$ (in the case $m>0$) if and only if $\\val(\\lder^k(a))\\notin \\val(\\bE)$ for all $k<m$.\n\n        If there is such a sequence, then $(\\partial y_i)_{i<m}$ is a $\\lder$-sequence by Lemma~\\ref{lem:essential_log-scales_are_dagger_seq}, so $\\lder^k(\\partial x)\\sim \\lder(\\partial y_0) \\sim \\partial y_k$ and we have $\\val(\\lder^k(a))\\notin \\val(\\bE)$ for all $k<m$.\n\n        Conversely if by $\\val(\\lder^k(a))\\notin \\val(\\bE)$ for all $k<m$, then by Lemma~\\ref{lem:essential_log-scales_are_dagger_seq}(2), there is an essential approximate $\\partial$-logarithmic scale $(y_{k})_{k<m}$ with $\\partial y_{0}\\sim a=\\partial x$.\n    \\end{proof}\n\\end{proposition}\n\n  In the above setting, when $T$ is exponential, for $y\\in\\mathbb E\\langle x\\rangle$,\n  \\[\n  y\\text{ is of the form }g(z)\\text{ for a }\\mathbb E\\text{-definable gne and }z\\text{ with }\\mathbf v(z-\\mathbb E)\\subseteq \\mathbf v(\\mathbb E)\n  \\]\n  “if and only if there is a natural number $m$ such that $\\mathbf v(\\lder_x^m\\partial_x(y))\\in \\mathbf v(\\mathbb E)$.”\n\n- The treatment isolates “general properties” of such $(\\mathbb E\\langle x\\rangle,\\cO_x,\\partial_x)$ and introduces convexity conditions on derivations (order-convex / logarithmically order-convex; valuation-convex / logarithmically valuation-convex) as “traces of the mean-value theorem,” used to control behavior even when “$\\mathrm{tp}(x/\\mathbb E)$ is not a definable type.”\n\n- Under “suitable convexity assumptions,” the condition $\\mathbf v(x-\\mathbb E)\\subseteq \\mathbf v(\\mathbb E)$ is reformulated via an ‘absorbed’ condition on $\\partial_x$.\n\n\\begin{definition}\\label{def:absorbed-type-der}\n    Let $(\\bE_*, \\cO_*)$ be a valued field, $\\partial$ be an almost $\\cO_*$-Lioville-convex derivation on $\\bE_*$. Let $\\bE\\coloneqq\\Kr(\\partial)$.\n    We will say that $\\partial$ is \\emph{weakly $\\cO_*$-absorbed} if $\\partial(\\br_{\\cO_*}(\\partial))\\prec 1$. We will say that it is \\emph{$\\cO_*$-absorbed} if furthermore there is $x\\in \\bE_* \\setminus \\bE$ such that $\\val(x-\\bE)\\subseteq \\val(\\bE)$. \n\\end{definition}\n\n  In particular, such absorbed derivations are said to be “at the center of several arguments.”",
+    "theorem_type": [
+      "Biconditional or Equivalence",
+      "Universal–Existential"
+    ],
+    "question": "Let $T$ be an exponential o-minimal theory, and let $T_{\\mathrm{convex}}$ denote the complete theory of models of $T$ expanded by a predicate for a non-trivial $T$-convex valuation subring $\\mathcal O$. Call $T$ transserial if it satisfies the following axiom: for every $n\\in\\mathbb N$ and every $(n+1)$-ary $T$-definable function $f$, writing $\\dagger_n f(\\bar x,t)=\\frac{\\partial f(\\bar x,t)/\\partial t}{f(\\bar x,t)}$ when defined and $\\infty$ otherwise, and $G_m^f(\\bar x,t):=\\min\\{|(\\dagger_n^k f)(\\bar x,t)|:k\\le m\\}$, there is some $m\\in\\mathbb N$ such that\n$$T_{\\mathrm{convex}}\\models \\forall \\bar x\\,\\exists r\\in\\mathcal O\\,\\forall t\\in\\mathcal O\\,(t>r\\to G_m^f(\\bar x,t)<1).$$\nAlso, $\\mathbb E\\langle b\\rangle$ denotes the $T$-substructure generated by $\\mathbb E\\cup\\{b\\}$, $y\\equiv_{\\mathbb E} g(b)$ means that $y$ and $g(b)$ have the same complete type over $\\mathbb E$, and $\\mathbb E^{>\\mathcal O}:=\\{x\\in\\mathbb E:x>a\\text{ for all }a\\in\\mathcal O\\}$ (so $\\mathcal O<b<\\mathbb E^{>\\mathcal O}$ is interpreted pointwise). Consider the following conditions:\n(1) $T$ is transserial.\n(2) $T$ is exponentially bounded and, for every $(\\mathbb E, \\mathcal O) \\models T_{\\mathrm{convex}}$, every $b$ with $\\mathcal O < b < \\mathbb E^{>\\mathcal O}$, and every $y \\in \\mathbb E\\langle b\\rangle$, there exists an $\\mathbb E$-definable gne $g$ such that $y \\equiv_{\\mathbb E} g(b)$.\n(3) Every $1$-$\\dcl_T$-dimensional wim-constructible extension of a model of $T_{\\mathrm{convex}}$ has the gne-property.\n(4) Every $1$-$\\dcl_T$-dimensional res-constructible extension of a model of $T_{\\mathrm{convex}}$ has the gne-property.\n(5) Every wim-constructible extension of a model of $T_{\\mathrm{convex}}$ has the gne-property.\n(6) Every res-constructible extension of a model of $T_{\\mathrm{convex}}$ has the gne-property.\nWhich statement about these six conditions is valid?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "Conditions (1), (2), (3), and (4) are equivalent. Moreover, each of conditions (5) and (6) implies these four, but the converse implications from the 1-dimensional cases to the arbitrary constructible cases need not hold."
+      },
+      {
+        "label": "C",
+        "text": "If any one of the six conditions holds, then conditions (2), (3), (4), (5), and (6) all hold."
+      },
+      {
+        "label": "D",
+        "text": "Conditions (2), (3), and (4) are equivalent, and each of them follows from condition (1); however, to obtain either of the full constructibility statements (5) or (6) one needs an additional argument not forced by the first four conditions, so (5) and (6) may fail even when (1)–(4) hold."
+      },
+      {
+        "label": "E",
+        "text": "All six conditions are equivalent, and in condition (2) the witnessing \\(\\mathbb E\\)-definable gne \\(g\\) can always be chosen so that \\(y=g(b)\\), not just \\(y\\equiv_{\\mathbb E} g(b)\\)."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202511_final.json"
+  },
+  {
+    "id": "202602:30",
+    "month": "202602",
+    "no": 30,
+    "paper_link": "http://arxiv.org/abs/2602.16692v1",
+    "theorem": "[\\cite{wagner}]\n\t\\label{wagner-thm}\n\tIf a graph $G$ is maximal $K_5$-minor-free, then $G$ can be built by a sequence of $2$-sums and \n\t$3$-sums, without deleting edges, starting from maximal planar graphs and copies of $M_8$.",
+    "sketch": "To prove the Main Theorem, the authors “would like to reduce to the case of planar graphs and copies of $M_8$” using Wagner’s decomposition, but they note they “must ensure that [the] disjoint $\\MM$-colorings $\\vph_1,\\vph_2,\\vph_3$ agree on the copies of $K_2$ and $K_3$ where we perform our 2-sums and 3-sums,” which “motivates the following slightly stronger lemmas.” They “handle the copies of $M_8$ first, even for 6 disjoint $\\MM$-colorings, since this step is easy”: for $M_8$ they “use induction on the number $n'$ of uncolored vertices,” with base case “$n'=0$” trivial, and the induction step because “$M_8$ is 3-degenerate, by Lemma~\\ref{ext-lem} with $s:=6$ and $t:=6$,” yielding disjoint colorings that can be chosen to extend prescribed disjoint colorings on a specified $K_2$.\n\nFor planar graphs, they aim to prove Lemma~\\ref{planar-lem} (extending prescribed disjoint $\\MM$-colorings on a $K_3$), and state that “the key to the proof of Lemma~\\ref{planar-lem} is proving a still stronger statement, given below in the Key Lemma, that more easily facilitates proof by induction,” using a “Thomassen-style” inductive method on plane near-triangulations with specified outer-face structure and list conditions.",
+    "theorem_type": [
+      "Implication",
+      "Algorithmic or Constructive"
+    ],
+    "question": "Let $G$ be a maximal $K_5$-minor-free graph, meaning that $G$ has no $K_5$ minor and adding any missing edge to $G$ creates a $K_5$ minor. Here a $2$-sum or $3$-sum means identifying two graphs along a common clique of size $2$ or $3$, respectively; a maximal planar graph is a planar graph to which no edge can be added while preserving planarity; and $M_8$ denotes the $8$-vertex Möbius ladder. What is the strongest statement that can be proved about the structure of $G$?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "Every maximal $K_5$-minor-free graph $G$ can be obtained by a sequence of $2$-sums and $3$-sums, without deleting edges, starting from maximal planar graphs alone."
+      },
+      {
+        "label": "C",
+        "text": "Every maximal $K_5$-minor-free graph $G$ can be obtained by a sequence of clique-sums of order at most $3$, without deleting edges, starting from maximal planar graphs and copies of $M_8$."
+      },
+      {
+        "label": "D",
+        "text": "Every maximal $K_5$-minor-free graph $G$ can be obtained by a sequence of $3$-sums, without deleting edges, starting from maximal planar graphs and copies of $M_8$."
+      },
+      {
+        "label": "E",
+        "text": "Every maximal $K_5$-minor-free graph $G$ can be obtained by a sequence of $2$-sums, without deleting edges, starting from maximal planar graphs and copies of $M_8$."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202602_final.json"
+  },
+  {
+    "id": "202602:2",
+    "month": "202602",
+    "no": 2,
+    "paper_link": "http://arxiv.org/abs/2602.22933v1",
+    "theorem": "\\label{T1.1}\nLet \\(s \\geq 2\\) and \\(u \\in C([0,T_{u_0}^*);X^s(\\mathbb{R}^2)) \\cap C^1([0,T_{u_0}^*);X^{s-2}(\\mathbb{R}^2))\\) be the unique solution to the system\n\\begin{align}\\label{eq:3}\n\\begin{cases}u_t+\\gamma uu_x+G*\\partial_x\\left(\\frac12\\:g(u)+\\frac\\gamma2\\:u_x^2-\\frac\\gamma2u^2\\right)+G*v_y=0,\\:(x,y)\\in\\mathbb{R}^2,\\\\\n\\nu_y=v_x,\\\\\n\\nu|_{t=0}=u_0(x,y),\\:(x,y)\\in\\mathbb{R}^2.\n\\end{cases}\n\\end{align}\nwith initial condition $u_0 \\in X^s(\\mathbb{R}^2)$. If the maximal existence time $T_{u_0}^* < \\infty$, then\n\\begin{align}\\label{eq:4}\n\\int_0^{T_{u_0}^*}\\left\\|\\nabla u(\\tau)\\right\\|_{L^\\infty(\\mathbb{R}^2)}^2\\mathrm{d}\\tau=\\infty.\n\\end{align}",
+    "sketch": "To prove the main theorem, the authors state that they \"employ convolution estimates, energy estimates, and an analysis of Riccati-type dynamics along characteristics\" and that they \"first overcome the technical challenges posed by the general nonlinearity to establish a blow-up criterion.\" They further indicate (in the paper roadmap) that the following part is dedicated to the proof of this blow-up criterion.",
+    "theorem_type": [
+      "Implication",
+      "Asymptotic or Limit"
+    ],
+    "question": "Let \\(g\\in C^\\infty(\\mathbb R)\\) with \\(g(0)=0\\). For \\(s>0\\), define\n\\[\nX^s(\\mathbb R^2):=\\{f\\in H^s(\\mathbb R^2):\\partial_x^{-1}f\\in H^s(\\mathbb R^2),\\ \\partial_x f\\in H^s(\\mathbb R^2)\\},\n\\]\nwhere \\(\\partial_x^{-1}f\\) is the Fourier multiplier with symbol \\((i\\xi)^{-1}\\). Let \\(s\\ge 2\\), let \\(u_0\\in X^s(\\mathbb R^2)\\), and let\n\\[\n u\\in C([0,T_{u_0}^*);X^s(\\mathbb R^2))\\cap C^1([0,T_{u_0}^*);X^{s-2}(\\mathbb R^2))\n\\]\nbe the unique solution on its maximal existence interval \\([0,T_{u_0}^*)\\) of\n\\[\n\\begin{cases}\nu_t+\\gamma u u_x+G*\\partial_x\\left(\\frac12 g(u)+\\frac\\gamma2 u_x^2-\\frac\\gamma2 u^2\\right)+G*v_y=0,\\quad (x,y)\\in\\mathbb R^2,\\\\\n\\nu_y=v_x,\\\\\nu\\big|_{t=0}=u_0(x,y),\\quad (x,y)\\in\\mathbb R^2.\n\\end{cases}\n\\]\nAssume that the maximal existence time is finite, \\(T_{u_0}^*<\\infty\\). Writing \\(\\nabla u=(u_x,u_y)\\), what is the strongest statement that can be proved about the blow-up behavior of \\(u\\) as \\(t\\to T_{u_0}^{*-}\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Necessarily,\n\\[\n\\int_0^{T_{u_0}^*}\\|\\nabla u(\\tau)\\|_{L^\\infty(\\mathbb R^2)}^2\\,d\\tau=\\infty.\n\\]"
+      },
+      {
+        "label": "B",
+        "text": "Necessarily,\n\\[\n\\int_0^{T_{u_0}^*}\\|\\nabla u(\\tau)\\|_{L^\\infty(\\mathbb R^2)}\\,d\\tau=\\infty.\n\\]"
+      },
+      {
+        "label": "C",
+        "text": "Necessarily,\n\\[\n\\limsup_{t\\to T_{u_0}^{* -}}\\|\\nabla u(t)\\|_{L^\\infty(\\mathbb R^2)}=\\infty.\n\\]"
+      },
+      {
+        "label": "D",
+        "text": "Necessarily, for every \\(\\varepsilon\\in(0,1)\\),\n\\[\n\\int_0^{T_{u_0}^*}\\|\\nabla u(\\tau)\\|_{L^\\infty(\\mathbb R^2)}^{2-\\varepsilon}\\,d\\tau=\\infty.\n\\]"
+      },
+      {
+        "label": "E",
+        "text": "Necessarily,\n\\[\n\\int_0^{T_{u_0}^*}\\|u_x(\\tau)\\|_{L^\\infty(\\mathbb R^2)}^2\\,d\\tau=\\infty.\n\\]"
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "Necessarily,\n\\[\n\\int_0^{T_{u_0}^*}\\|\\nabla u(\\tau)\\|_{L^\\infty(\\mathbb R^2)}^2\\,d\\tau=\\infty.\n\\]"
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202602_final.json"
+  },
+  {
+    "id": "202601:41",
+    "month": "202601",
+    "no": 41,
+    "paper_link": "http://arxiv.org/abs/2601.01164v1",
+    "theorem": "\\label{cycle}\nLet $G$ be a connected outerplanar $C_\\ell$-free graph of order $n$ with $\\ell\\ge 3$. Then $q(G)\\le q(K_1\\vee (\\alpha P_{\\ell-2}\\cup P_{r}))$ with equality if and only if $G\\cong K_1\\vee (\\alpha P_{\\ell-2}\\cup P_{r})$, where $\\alpha =\\lfloor\\frac{n-1}{\\ell-2}\\rfloor$ and $r=n-1-\\alpha(\\ell-2)$.",
+    "sketch": "To prove Theorem~\\ref{cycle} (and Theorem~\\ref{path}), the authors first \"establish a structural theorem for the extremal graphs\" (Theorem~\\ref{str}). Specifically, Theorem~\\ref{str} states that if $G$ maximizes the $Q$-index among all connected $n$-vertex $F$-free outerplanar graphs (with $F=C_\\ell$ or $F=tP_k$), then $G$ \"contains a vertex $u$ of degree $n-1$\" and the induced subgraph on its neighborhood satisfies that \"$G[N(u)]$ consists of paths.\" The organization then indicates the proof route: Section 3 proves Theorem~\\ref{str}, and Section 4 uses it to prove Theorems~\\ref{cycle} and~\\ref{path}.",
+    "theorem_type": [
+      "Biconditional or Equivalence",
+      "Inequality or Bound"
+    ],
+    "question": "Let \\(q(G)\\) denote the largest eigenvalue of the signless Laplacian of a graph \\(G\\). Suppose \\(G\\) is a connected outerplanar graph of order \\(n\\) (that is, with \\(n\\) vertices) that is \\(C_\\ell\\)-free, where \\(\\ell\\ge 3\\). Let \\(P_t\\) be the path on \\(t\\) vertices, let \\(\\alpha P_{\\ell-2}\\) mean the disjoint union of \\(\\alpha\\) copies of \\(P_{\\ell-2}\\), let \\(\\cup\\) denote disjoint union, and let \\(\\vee\\) denote graph join. Define\n\\[\n\\alpha=\\left\\lfloor \\frac{n-1}{\\ell-2}\\right\\rfloor,\\qquad r=n-1-\\alpha(\\ell-2),\n\\]\nand, if \\(r=0\\), interpret \\(P_r=P_0\\) as the empty graph. Which quantitative estimate holds for \\(q(G)\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "\\(q(G)\\le q\\bigl(K_1\\vee (\\alpha P_{\\ell-2}\\cup rP_1)\\bigr)\\), where \\(rP_1\\) denotes the disjoint union of \\(r\\) copies of \\(P_1\\); with equality if and only if \\(G\\cong K_1\\vee (\\alpha P_{\\ell-2}\\cup rP_1)\\)."
+      },
+      {
+        "label": "C",
+        "text": "\\(q(G)\\le q\\bigl(K_1\\vee (\\alpha P_{\\ell-2}\\cup P_r)\\bigr)\\)."
+      },
+      {
+        "label": "D",
+        "text": "\\(q(G)\\le q\\bigl(K_1\\vee (\\alpha P_{\\ell-2}\\cup P_r)\\bigr)\\), with equality if and only if \\(G\\) has a dominating vertex \\(v\\) such that the components of \\(G-v\\) have orders \\(\\ell-2,\\ldots,\\ell-2,r\\)."
+      },
+      {
+        "label": "E",
+        "text": "\\(q(G)\\le q\\bigl(K_1\\vee (\\alpha P_{\\ell-2}\\cup P_r)\\bigr)\\), and equality holds whenever \\(G\\) has the same degree sequence as \\(K_1\\vee (\\alpha P_{\\ell-2}\\cup P_r)\\)."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202601_final.json"
+  },
+  {
+    "id": "202601:23",
+    "month": "202601",
+    "no": 23,
+    "paper_link": "http://arxiv.org/abs/2601.02528v1",
+    "theorem": "[H\\\"older regularity]\\label{thm:holder}\nLet $u$ be a locally bounded weak solution of the first equation in\n\\begin{equation}\\label{1.1}\n\\begin{cases}\\nu_t = \\operatorname{div}(\\nabla u^m) - \n\\operatorname{div}(\\n\\chi(u,v)u  \\nabla v), & \\text{in } \\mathbb{R}^N \\times (t>0), \\\\[6pt]\nv_t = \\Delta v - \\alpha v + u, & \\text{in } \\mathbb{R}^N \\times (t>0), \\\\[6pt]\n\\nu(x,0) = u_0(x) > 0,\\quad v(x,0) = v_0(x) \\geq 0, & \\text{in } \\mathbb{R}^N,\n\\end{cases}\n\\end{equation}\nThen $u$ is locally H\\\"older continuous in $\\mathbb{R}^N \\times (0,T]$. \nMore precisely, there exist constants $\\gamma>0$ and $\\alpha \\in (0,1)$, depending only on the data, such that for every compact set ${\\mathcal{K}} \\subset \\mathbb{R}^N$,\n\\[\n|u(x_1,t_1) - u(x_2,t_2)| \\leq \n\\gamma \\Big( |x_1-x_2| + \\|u\\|_\\infty^{\\tfrac{m-1}{2}} |t_1-t_2|^{1/2} \\Big)^{\\alpha},\n\\]\nfor all $(x_1,t_1), (x_2,t_2) \\in {\\mathcal K} \\times (0,T]$.",
+    "sketch": "Sections~3--6 are devoted to prove suitable energy estimates in order to adaptat De Giorgi--Di Benedetto method (\\cite{degiorgi, DIB}) to the chemotaxis system. Next we prove logarithmic estimates. Then we prove our main H\\\"older continuity result.",
+    "theorem_type": [
+      "Existential–Universal",
+      "Inequality or Bound"
+    ],
+    "question": "Let \\(N\\ge 1\\), let \\(m\\) satisfy \\(\\frac{(N-2)_+}{N+2}<m<1\\) (where \\((N-2)_+:=\\max\\{N-2,0\\}\\)), let \\(\\beta>0\\), and assume the chemotactic flux has the form \\(\\chi(u,v)u=\\chi u^{\\mathfrak q-1}\\) for some constant \\(\\chi>0\\) and some exponent \\(1<\\mathfrak q<\\frac{(m+1)(N+2)}{2N}\\). Let \\((u,v)\\) satisfy the system\n\\[\n\\begin{cases}\nu_t = \\operatorname{div}(\\nabla u^m)-\\operatorname{div}(\\chi(u,v)u\\nabla v),\\\\[4pt]\nv_t = \\Delta v-\\beta v+u,\n\\end{cases}\n\\qquad \\text{in } \\mathbb{R}^N\\times(0,\\infty),\n\\]\nwith initial data \\(u(x,0)=u_0(x)>0\\) and \\(v(x,0)=v_0(x)\\ge 0\\) on \\(\\mathbb{R}^N\\), and assume that \\(u\\) is a locally bounded weak solution of the first equation. Fix \\(T>0\\), let \\({\\mathcal K}\\subset \\mathbb{R}^N\\) be compact, and write \\(\\|u\\|_\\infty\\) for the essential supremum of \\(u\\) on the region under consideration. What is the strongest statement that can be proved about the quantitative estimate for \\(u\\) on \\({\\mathcal K}\\times(0,T]\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "There exist constants \\(\\gamma>0\\) and \\(\\theta\\in(0,1)\\), depending only on the data, such that for every compact set \\({\\mathcal K}\\subset \\mathbb{R}^N\\) and all \\((x_1,t_1),(x_2,t_2)\\in {\\mathcal K}\\times(0,T]\\),\n\\[\n|u(x_1,t_1)-u(x_2,t_2)|\\le \\gamma\\Big(|x_1-x_2|+\\|u\\|_\\infty^{\\frac{1-m}{2}}|t_1-t_2|^{1/2}\\Big)^{\\theta}.\n\\]"
+      },
+      {
+        "label": "C",
+        "text": "There exist constants \\(\\gamma>0\\) and \\(\\theta\\in(0,1)\\), depending only on the data, such that for every compact set \\({\\mathcal K}\\subset \\mathbb{R}^N\\), all \\(x_1,x_2\\in {\\mathcal K}\\), and every \\(t\\in(0,T]\\),\n\\[\n|u(x_1,t)-u(x_2,t)|\\le \\gamma |x_1-x_2|^{\\theta}.\n\\]"
+      },
+      {
+        "label": "D",
+        "text": "There exist constants \\(\\gamma>0\\) and \\(\\theta\\in(0,1)\\), depending only on the data, such that for every compact set \\({\\mathcal K}\\subset \\mathbb{R}^N\\) and all \\((x_1,t_1),(x_2,t_2)\\in {\\mathcal K}\\times(0,T]\\),\n\\[\n|u(x_1,t_1)-u(x_2,t_2)|\\le \\gamma\\Big(|x_1-x_2|+\\|u\\|_\\infty^{\\frac{m-1}{2}}|t_1-t_2|^{\\frac{1}{m+1}}\\Big)^{\\theta}.\n\\]"
+      },
+      {
+        "label": "E",
+        "text": "There exist constants \\(\\gamma>0\\) and \\(\\theta\\in(0,1)\\), depending only on the data, such that for every compact set \\({\\mathcal K}\\subset \\mathbb{R}^N\\) and all \\((x_1,t_1),(x_2,t_2)\\in {\\mathcal K}\\times[0,T]\\),\n\\[\n|u(x_1,t_1)-u(x_2,t_2)|\\le \\gamma\\Big(|x_1-x_2|+\\|u\\|_\\infty^{\\frac{m-1}{2}}|t_1-t_2|^{1/2}\\Big)^{\\theta}.\n\\]"
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202601_final.json"
+  },
+  {
+    "id": "202511:20",
+    "month": "202511",
+    "no": 20,
+    "paper_link": "http://arxiv.org/abs/2511.02963v1",
+    "theorem": "[Ne{\\v{s}}et{\\v{r}}il \\& R{\\\"o}dl, 1976]\\label{thm_NR}\n\tFor every $k\\geq 2$ there is a graph $G$ such that\n\t$K_k \\nsubseteq G$ and $G\\rightarrow K_{k-1}$.",
+    "sketch": "The post-theorem introduction gives the following proof outline for the main theorem: it “combines probabilistic methods with the hypergraph container framework Balogh--Morris--Samotij, *Independent sets in hypergraphs* (2015) and Saxton--Thomason, *Hypergraph containers* (2015) and is inspired by ideas from Bollobás--Erdős, *Ramsey graphs* (2001).” The paper is then organized into steps: (1) Next, “with high probability … the graph $G$ obtained in a natural way from every ‘dense’ subhypergraph of a suitable $n$-vertex random $s$-uniform hypergraph satisfies $G\\rightarrow(K_s,K_{k-1})$ for $s=R(k)-1$.” (2) Then, “with high probability a suitable random hypergraph $\\mathcal{H}$ contains a dense subhypergraph $\\cH_0$ that will allow us to obtain a graph $G$ such that $G\\not\\rightarrow K_k$.” (3) “These results are then combined later” to produce a graph $G$ satisfying both $G\\not\\rightarrow K_k$ and $G\\rightarrow(K_s,K_{k-1})$ (with $s=R(k)-1$).",
+    "theorem_type": [
+      "Universal–Existential",
+      "Implication"
+    ],
+    "question": "Let $K_t$ denote the complete graph on $t$ vertices. For graphs $G$ and $H$, write $G\\rightarrow H$ to mean that every red-blue coloring of the edges of $G$ contains a monochromatic copy of $H$. What is the strongest statement that can be proved about this relation for every integer $k\\ge 2$?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "For every integer $k\\ge 2$ there is a graph $G$ such that $K_k\\nsubseteq G$ and $G\\rightarrow (K_k,K_{k-1})$."
+      },
+      {
+        "label": "C",
+        "text": "For every integer $k\\ge 2$ there is a graph $G$ such that $G\\rightarrow K_{k-1}$."
+      },
+      {
+        "label": "D",
+        "text": "For every integer $k\\ge 2$ there is a graph $G$ such that $K_k\\nsubseteq G$ and $G\\rightarrow (K_{R(k)-1},K_{k-1})$, where $R(k)$ denotes the Ramsey number of $K_k$."
+      },
+      {
+        "label": "E",
+        "text": "For every integer $k\\ge 2$ there is a graph $G$ such that $G\\nrightarrow K_k$ and $G\\rightarrow (K_{R(k)-1},K_k)$, where $R(k)$ denotes the Ramsey number of $K_k$."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202511_final.json"
+  },
+  {
+    "id": "202601:22",
+    "month": "202601",
+    "no": 22,
+    "paper_link": "http://arxiv.org/abs/2601.03984v1",
+    "theorem": "\\label{main:thm}\n    Fix a sign choice $\\pm$, $\\varepsilon>0$, and positive integers $k, H$. There exists a positive constant $c$ (depending on $\\pm, \\varepsilon, k, H$) such that for all sufficiently large $X$, there are at least $cX^{1-\\kappa-\\varepsilon}$ positive integers $d\\leq X$ such that the following hold:\n    \\begin{enumerate}\n        \\item For each $1\\leq i\\leq k$, if there exists a cubic field $K$ with $\\pm\\Delta_K=d+i$, then $h(K)>H$.\n\n        \\item We have \n        \\[\n        \\#\\{K \\text{ cubic field }\\mid \\pm \\Delta_K\\in\\{d+1,d+2,\\dots,d+k\\}\\}\\geq \\frac{k}{2}.\n         \\]\n\n    \\end{enumerate}",
+    "sketch": "We will prove this result in \\begin{theorem}\\label{thm:final}\n    Assume \\hyperref[def: set s]{Setting (S)}.  There exists a positive constant $c$ (depending on $\\pm, \\varepsilon, k, H$) such that for all sufficiently large $X$, there are at least $cX^{1-\\kappa-\\varepsilon}$ positive integers $t\\leq X$ such that the following hold:\n    \\begin{enumerate}\n        \\item[(1)] For each $1\\leq i\\leq k$, if there exists a cubic field $K$ with $\\pm\\Delta_K=a+tm+i$, then $h(K)>H$.\n        \\item[(2)] We have\n        \\[\n        \\#\\{K \\text{ cubic field }\\mid \\pm \\Delta_K\\in\\{a+tm+1,a+tm+2,\\dots,a+tm+k\\}\\}\\geq \\frac{k}{2}.\n        \\]\n\n    \\end{enumerate}\n\\end{theorem}, and the proof is described as constructive. The approach is:\n\\begin{itemize}\n\\item First, \"construct integers $0\\leq a< m$ such that whenever there exists a cubic field $K$ with $\\pm\\Delta_K=d+i$, where $d\\equiv a\\pmod m$, then $h(K)>H$.\" This is obtained \"by controlling the \\textit{genus number} which gives a lower bound for the size of the 2-torsion in the class group of $K$.\" The motivation given is that this \"sidesteps the difficult issue of estimating the regulator\" (so there is no need to \"restrict ourselves to a suitable family of cubic fields\"), though consequently \"we only show that the class numbers are larger than some prescribed bound.\"\n\\item Then, \"show that indeed there are many cubic fields with $ \\pm \\Delta_K\\in\\{d+1,d+2,\\dots,d+k\\}$, which also ensures that our first assertion is not vacuous.\"\n\\end{itemize}\nIt is also noted that, in counting the integers $d\\le X$ in establishing the main theorem, one must \"switch between counting cubic fields and cubic discriminants,\" and that \"non-isomorphic cubic fields can have the same discriminant,\" i.e. discriminants are counted with multiplicity when counting fields.",
+    "theorem_type": [
+      "Existential–Universal",
+      "Universal"
+    ],
+    "question": "For a cubic field (that is, a degree-3 number field) $K$, let $\\Delta_K$ denote its discriminant and $h(K)$ its class number. Fix once and for all either the plus sign or the minus sign, so that $\\pm\\Delta_K$ means $+\\Delta_K$ throughout or $-\\Delta_K$ throughout according to that choice; also fix a real number $\\varepsilon>0$ and positive integers $k$ and $H$, and let $\\kappa$ be the fixed constant appearing in the exponent below. What is the strongest statement that can be proved about the existence, for all sufficiently large $X$, of positive integers $d\\le X$ satisfying the corresponding uniform conditions on the values $d+1,d+2,\\dots,d+k$?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "There exists a positive constant $c$ depending on $\\pm,\\varepsilon,k,H$ such that for all sufficiently large $X$, there are at least $cX^{1-\\kappa-\\varepsilon}$ positive integers $d\\le X$ such that the following hold: for each $1\\le i\\le k$, if there exists a cubic field $K$ with $\\pm\\Delta_K=d+i$, then $h(K)>H$; and moreover\n\\[\n\\#\\{n\\in\\{d+1,d+2,\\dots,d+k\\}\\mid n\\text{ is a cubic discriminant with sign }\\pm\\}\\ge \\frac{k}{2}.\n\\]"
+      },
+      {
+        "label": "C",
+        "text": "There exists a positive constant $c$ depending on $\\pm,\\varepsilon,k,H$ such that for all sufficiently large $X$, there are at least $cX^{1-\\kappa-\\varepsilon}$ positive integers $d\\le X$ for which, for each $1\\le i\\le k$, if there exists a cubic field $K$ with $\\pm\\Delta_K=d+i$, then $h(K)>H$."
+      },
+      {
+        "label": "D",
+        "text": "There exists a positive constant $c$ depending on $\\pm,\\varepsilon,k,H$ such that for all sufficiently large $X$, there are at least $cX^{1-\\kappa-\\varepsilon}$ positive integers $d\\le X$ such that the following hold: for each $1\\le i\\le k$, if there exists a cubic field $K$ with $\\pm\\Delta_K=d+i$, then $h(K)>H$; and moreover\n\\[\n\\#\\{K\\text{ cubic field}\\mid \\pm\\Delta_K\\in\\{d+1,d+2,\\dots,d+k\\}\\}\\ge \\frac{k+1}{2}.\n\\]"
+      },
+      {
+        "label": "E",
+        "text": "There exists a positive constant $c$ depending on $\\pm,\\varepsilon,k,H$ such that for all sufficiently large $X$, there are at least $cX^{1-\\kappa}$ positive integers $d\\le X$ such that the following hold: for each $1\\le i\\le k$, if there exists a cubic field $K$ with $\\pm\\Delta_K=d+i$, then $h(K)>H$; and moreover\n\\[\n\\#\\{K\\text{ cubic field}\\mid \\pm\\Delta_K\\in\\{d+1,d+2,\\dots,d+k\\}\\}\\ge \\frac{k}{2}.\n\\]"
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202601_final.json"
+  },
+  {
+    "id": "202512:14",
+    "month": "202512",
+    "no": 14,
+    "paper_link": "http://arxiv.org/abs/2512.22459v1",
+    "theorem": "\\label{main} Let $G$ be a primitive permutation group with socle $\\hbox{\\rm PSU}(3,q)$, where $q=p^m\\ge 7$ for an odd prime $p$. Suppose a point-stabilizer\n  $M$ of $G$ contains $\\hbox{\\rm PSO}(3,q)$. Then $b(G)=2$ and either (i) $G=\\hbox{\\rm PSU}(3,q)$ and $M=\\hbox{\\rm SO}(3,q)$; or (ii) $G=\\hbox{\\rm PSU}(3,q)\\ZZ_{m_1}$ and  $M=\\hbox{\\rm SO}(3,q)\\ZZ_{m_1}$ $(m_1\\mid 2m$ and  $m_1\\ne  1)$. Further, the BG-Conjecture is valid for  case (i);\n  and for   $\\sqrt{q}\\geq 17$ or $45$,  if $3\\nmid (q+1)$  and $3\\bigm| (q+1)$, respectively in case (ii).",
+    "sketch": "Outline of the proof of the main theorem: Let $G$ be almost simple with socle $T=\\hbox{\\rm PSU}(3,q)$, so $T\\le G\\le \\hbox{\\rm Aut}(T)$, $q=p^m$. Let $\\alpha=M$ be a maximal subgroup of $G$ containing $M_0=\\hbox{\\rm PSO}(3,q)$ (up to conjugacy), and consider the primitive action of $G$ on the right cosets $[G\\!:\\!M]$. Then $q\\ge 7$ and either (i) $G=T$ and $M=M_0$, or (ii) $G=T\\ZZ_{m_1}$ and $M=M_0\\ZZ_{m_1}$ with $m_1\\mid 2m$ and $m_1\\ne 1$. In case (i), a common neighbor of $\\alpha$ and $\\alpha^g$ in the Saxl graph (for any $g\\in G$) is exhibited by a direct geometric construction developed earlier. This geometric construction does not extend to case (ii), so a new approach is developed later.\n\nWe first prove the following theorem.\n\\begin{theorem} \\label{main1}  Let $G=\\PSU(3,q)$ and $M=\\PSO(3,q),$ a maximal subgroup of $G$, where $q=p^m\\ge 7$ for an odd prime $p$.\nConsider the primitive right multiplication action  of $G$ on the set of right cosets $\\Omega =[G:M]$.  Then $b(G)=2$ and the BG-Conjecture holds.\n  \\end{theorem}\n\nWe also prove the following theorem.\n\\begin{theorem} \\label{main2}  Let $G=\\PSU(3,q)\\ZZ_{m_1}$ and\n    $\\a=M=\\PSO(3,q)\\ZZ_{m_1}\\le G$, with  $q=p^m\\ge 7$ for an odd prime $p$,  $m_1\\mid 2m$ and $m_1\\ne 1$.\nUnder the primitive right multiplication action of $G$ on $\\Omega=[G:M]$, we have $b(G)=2$ and the BG-Conjecture is true, provided $\\sqrt{q}\\geq 17$ or $45$ if $3\\nmid (q+1)$ and $3\\di (q+1)$, respectively.\n  \\end{theorem}\n\nIn establishing the main theorem, we combine Theorem~\\ref{main1} and Theorem~\\ref{main2}. The proof of Theorem~\\ref{main2} depends crucially on estimates for $|\\Gamma_r(\\alpha)|$ and $|\\Gamma_{nr}(\\alpha)\\cap \\Gamma_{nr}(\\alpha')|$, developed later, where $\\Gamma_r(\\alpha)$ (resp. $\\Gamma_{nr}(\\alpha)$) is the union of regular (resp. non-regular) suborbits of $G$ relative to $\\alpha$.",
+    "theorem_type": [
+      "Implication",
+      "Classification or Bijection"
+    ],
+    "question": "Let $G$ be a primitive permutation group, acting on a set $\\Omega$, with socle $\\mathrm{PSU}(3,q)$, where $q=p^m\\ge 7$ for an odd prime $p$, and let $M$ be a point stabilizer of $G$ containing $\\mathrm{PSO}(3,q)$. (Here $b(G)$ denotes the base size of $G$, i.e. the minimum size of a subset $\\Delta\\subseteq\\Omega$ whose pointwise stabilizer $G_{(\\Delta)}$ is trivial, and $\\mathbb Z_{m_1}$ denotes a cyclic group of order $m_1$.) Which description gives the complete list of possible pairs $(G,M)$ together with the value of the base size $b(G)$?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One has $b(G)=2$, and exactly two possibilities occur: either $G=\\mathrm{PSU}(3,q)$ and $M=\\mathrm{SO}(3,q)$, or $G=\\mathrm{PSU}(3,q)\\,\\mathbb Z_{m_1}$ and $M=\\mathrm{SO}(3,q)\\,\\mathbb Z_{m_1}$ for some $m_1$ dividing $2m$ with $m_1\\ne 1$."
+      },
+      {
+        "label": "B",
+        "text": "One has $b(G)=2$, and exactly two possibilities occur: either $G=\\mathrm{PSU}(3,q)$ and $M=\\mathrm{SO}(3,q)$, or $G=\\mathrm{PSU}(3,q)\\,\\mathbb Z_{m_1}$ and $M=\\mathrm{SO}(3,q)\\,\\mathbb Z_{m_1}$ for some $m_1$ dividing $m$ with $m_1\\ne 1$."
+      },
+      {
+        "label": "C",
+        "text": "One has $b(G)=2$, and the only families that occur are the untwisted case $G=\\mathrm{PSU}(3,q)$ with $M=\\mathrm{SO}(3,q)$, and cyclic extensions of the form $G=\\mathrm{PSU}(3,q)\\,\\mathbb Z_{m_1}$ with $M=\\mathrm{SO}(3,q)\\,\\mathbb Z_{m_1}$ for some integer $m_1>1$."
+      },
+      {
+        "label": "D",
+        "text": "One has $b(G)=2$, and exactly two possibilities occur: either $G=\\mathrm{PSU}(3,q)$ and $M=\\mathrm{SO}(3,q)$, or $G=\\mathrm{PSU}(3,q)\\,\\mathbb Z_{m_1}$ and $M=\\mathrm{SO}(3,q)\\,\\mathbb Z_{m_1}$ for some even divisor $m_1$ of $2m$."
+      },
+      {
+        "label": "E",
+        "text": "One has $b(G)=2$, and exactly two possibilities occur: either $G=\\mathrm{PSU}(3,q)$ and $M=\\mathrm{SO}(3,q)$, or $G=\\mathrm{PSU}(3,q)\\,\\mathbb Z_{m_1}$ and $M=\\mathrm{SO}(3,q)\\,\\mathbb Z_{m_1}$ for some $m_1$ dividing $2m$ with $m_1\\ne 1$; conversely, every such divisor $m_1$ actually occurs."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One has $b(G)=2$, and exactly two possibilities occur: either $G=\\mathrm{PSU}(3,q)$ and $M=\\mathrm{SO}(3,q)$, or $G=\\mathrm{PSU}(3,q)\\,\\mathbb Z_{m_1}$ and $M=\\mathrm{SO}(3,q)\\,\\mathbb Z_{m_1}$ for some $m_1$ dividing $2m$ with $m_1\\ne 1$."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202512_final.json"
+  },
+  {
+    "id": "202511:26",
+    "month": "202511",
+    "no": 26,
+    "paper_link": "http://arxiv.org/abs/2511.07817v1",
+    "theorem": "\\label{thm:main}\n $\\mathsf{Frob}$ is a Poisson embedding.,",
+    "sketch": "Work with $Y_0:=Y-f^{-1}(B)$ and the Poisson (on the smooth locus) character variety $\\mathcal{M}_r(Y_0)=\\mathrm{Hom}(\\pi_1(Y_0),G_r)/\\!\\!/G_r$. Since $Y_0\\subset Y$ there is a natural surjection $\\iota:\\pi_1(Y_0)\\to\\pi_1(Y)$ (any loop in $Y$ can be homotoped to avoid $f^{-1}(B)$ because $\\dim f^{-1}(B)=0$), hence $\\iota$ has a right inverse.\n\nDefine the “restriction” map $\\mathsf{Res}:\\mathcal{M}_r(Y)\\to\\mathcal{M}_r(Y_0)$ by $\\mathsf{Res}([h])=[h\\circ\\iota]$. If $\\mathsf{Res}([h_1])=\\mathsf{Res}([h_2])$ then $[h_1\\circ\\iota]=[h_2\\circ\\iota]$, and since $\\iota$ has a right inverse this implies $[h_1]=[h_2]$; thus $\\mathsf{Res}$ is an embedding. The inclusion $Y_0\\subset Y$ “preserves transversality of based loops” and hence by \\cite[Theorem A]{BHJL} $\\mathsf{Res}$ is Poisson.\n\nBecause $f:Y_0\\to X-B$ is an unramified $d$--sheeted cover, $\\pi_1(Y_0)$ is a subgroup of finite index $d$ in $\\pi_1(X-B)$. Define an induction map $\\mathsf{Ind}:\\mathcal{M}_r(Y_0)\\to\\mathcal{M}_{dr}(X-B)$ by $\\mathsf{Ind}([h])=[\\mathsf{ind}(h)]$, where $\\mathsf{ind}(h):\\pi_1(X-B)\\to G_{dr}$ is the induced representation via the action of $\\pi_1(X-B)$ on $\\oplus_{i=1}^d\\gamma_i\\mathbb{C}^r\\cong\\mathbb{C}^{dr}$; thus $\\mathsf{ind}(h)$ lands in $\\mathsf{Sym}_d\\times G_r\\subset G_{dr}$. By construction of the direct image sheaf, $\\mathsf{Frob}=\\mathsf{Ind}\\circ\\mathsf{Res}$.\n\nConsequently $\\mathsf{Frob}$ is algebraic. By the Mackey Formula \\cite{Mackey}, $\\mathsf{Ind}$ is injective, hence $\\mathsf{Frob}$ is an embedding. In Section \\ref{sec3} it is shown that $\\mathsf{Ind}$ is Poisson. With both $\\mathsf{Res}$ and $\\mathsf{Ind}$ injective and Poisson, this outlines the proof of the main theorem, i.e. that $\\mathsf{Frob}$ is a Poisson embedding.",
+    "theorem_type": [
+      "Universal"
+    ],
+    "question": "Let \\(G_m=\\mathrm{GL}(m,\\mathbb C)\\). Define the character varieties \\(\\mathcal M_r(Y):=\\mathrm{Hom}(\\pi_1(Y),G_r)/\\!/G_r\\) and \\(\\mathcal M_{dr}(X-B):=\\mathrm{Hom}(\\pi_1(X-B),G_{dr})/\\!/G_{dr}\\), whose smooth loci carry holomorphic Poisson structures. Let \\(\\mathsf{Frob}:\\mathcal M_r(Y)\\to\\mathcal M_{dr}(X-B)\\) be the natural map induced by sending the holonomy of \\((V,\\nabla)\\) to the holonomy of its direct image \\((f_*V,f_*\\nabla)\\). What is the strongest statement that can be proved about \\(\\mathsf{Frob}\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "\\(\\mathsf{Frob}\\) is a Poisson embedding."
+      },
+      {
+        "label": "B",
+        "text": "\\(\\mathsf{Frob}\\) is a Poisson isomorphism from \\(\\mathcal M_r(Y)\\) onto a symplectic leaf of the smooth locus of \\(\\mathcal M_{dr}(X-B)\\)."
+      },
+      {
+        "label": "C",
+        "text": "\\(\\mathsf{Frob}\\) is an embedding."
+      },
+      {
+        "label": "D",
+        "text": "\\(\\mathsf{Frob}\\) is a Poisson map on the smooth loci, but induction from the finite-index subgroup can identify distinct conjugacy classes, so \\(\\mathsf{Frob}\\) need not be injective."
+      },
+      {
+        "label": "E",
+        "text": "\\(\\mathsf{Frob}\\) is an algebraic embedding of character varieties, but its Poisson compatibility holds only after restricting to the loci of irreducible representations."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "\\(\\mathsf{Frob}\\) is a Poisson embedding."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202511_final.json"
+  },
+  {
+    "id": "202511:3",
+    "month": "202511",
+    "no": 3,
+    "paper_link": "http://arxiv.org/abs/2511.11409v1",
+    "theorem": "\\label{thm-characterization}\nLet $(M, \\varphi)$ be a diffuse separable $\\mathrm{W}^*$-probability space. The following assertions are equivalent:\n\\begin{enumerate}[{\\rm (i)}]\n\\item $(M, \\varphi)$ is selfless.\n\n\\item The first factor inclusion $(M, \\varphi) \\subset (M, \\varphi) \\ast (N, \\psi)$ is existentially closed for some nontrivial $\\mathrm{W}^*$-probability space $(N, \\psi)$.\n\n\\item The first factor inclusion $(M, \\varphi) \\subset (M, \\varphi) \\ast (\\operatorname{ L}(\\mathbb{Z}), \\tau_\\mathbb{Z})$ is existentially closed, where $\\tau_\\mathbb{Z}$ is the canonical trace on $\\operatorname{ L}(\\mathbb{Z})$. \n\n\\item $\\operatorname{B}(M, \\varphi) = \\mathbb{C} 1$.\n\\end{enumerate}",
+    "sketch": "The post-theorem introduction explicitly says: ``the proof of Theorem \\label{thm-characterization} relies on \\cite[Theorem A]{HI14} combined with a diagonal argument.'' No further steps or outline are provided there.",
+    "theorem_type": [
+      "Biconditional or Equivalence",
+      "Classification or Bijection"
+    ],
+    "question": "Let $(M,\\varphi)$ be a diffuse separable $\\mathrm{W}^*$-probability space (that is, a von Neumann algebra with a faithful normal state). Recall that $(M,\\varphi)$ is called selfless if the first-factor inclusion $(M,\\varphi)\\subset (M,\\varphi)\\ast (M,\\varphi)$, where $\\ast$ denotes the free product of $\\mathrm{W}^*$-probability spaces, is existentially closed; and that an inclusion $(M,\\varphi)\\subset (N,\\psi)$ is existentially closed if for some nonprincipal ultrafilter $\\mathcal U$ one has $(M,\\varphi)\\subset (N,\\psi)\\subset (M,\\varphi)^{\\mathcal U}$ via the diagonal inclusion. Which statement gives a complete characterization of when $(M,\\varphi)$ is selfless?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "Exactly that for every nontrivial $\\mathrm{W}^*$-probability space $(N,\\psi)$, the first-factor inclusion $(M,\\varphi) \\subset (M,\\varphi) \\ast (N,\\psi)$ is existentially closed."
+      },
+      {
+        "label": "C",
+        "text": "It is characterized by the existence of some nontrivial $\\mathrm{W}^*$-probability space $(N,\\psi)$ such that the first-factor inclusion $(M,\\varphi) \\subset (M,\\varphi) \\ast (N,\\psi)$ is existentially closed."
+      },
+      {
+        "label": "D",
+        "text": "Exactly that the first-factor inclusion $(M,\\varphi) \\subset (M,\\varphi) \\ast (\\operatorname{L}(\\mathbb{Z}),\\tau_{\\mathbb{Z}})$ is existentially closed for every nonprincipal ultrafilter $\\mathcal U$, in the sense that $(M,\\varphi) \\ast (\\operatorname{L}(\\mathbb{Z}),\\tau_{\\mathbb{Z}})$ embeds into $(M,\\varphi)^{\\mathcal U}$ over $(M,\\varphi)$ via the diagonal inclusion."
+      },
+      {
+        "label": "E",
+        "text": "Exactly that the free product $(M,\\varphi) \\ast (\\operatorname{L}(\\mathbb{Z}),\\tau_{\\mathbb{Z}})$ itself is selfless."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202511_final.json"
+  },
+  {
+    "id": "202601:33",
+    "month": "202601",
+    "no": 33,
+    "paper_link": "http://arxiv.org/abs/2601.07747v1",
+    "theorem": "[Monotonicity]\\label{monotonicity}\n    For all $f \\in \\Rb\\wspc{T}$, the function $x \\mapsto f \\circ x$ for $x \\in \\mathbb{U}^{>\\mathbb{R}}$ is strictly increasing if $f' > 0$, strictly decreasing if $f' < 0$, and constant if $f' = 0$.",
+    "sketch": "A proposed route to prove the main theorem is a “naive proof by induction” on the generation of $\\Rb\\wspc{T}$ from $T$: verify the conclusion in base cases ($f=T$, $f=\\log(T)$, $\\ldots$); then for a general series $f=\\sum_{i<\\alpha} r_i e^{\\gamma_i}$, assume the conclusion for each map $x\\mapsto \\gamma_i\\circ x$ and try to deduce monotonicity of $x\\mapsto f\\circ x$. This induction “works very well for $f\\in\\Jb_\\mathfrak{O}^{>0}$”; more precisely:\n\\begin{prop}\\label{monotonicity-J}\n  For all $\\gamma \\in \\Jb^{>0}$, the map $x \\mapsto \\gamma \\circ x$ is strictly increasing.\n\\end{prop}\nbut “falls short for the general case,” so one additionally uses a “very weak form of mean value property”: for $\\gamma\\in\\Jb_\\mathfrak{O}^{>0}$ and $x>y>\\mathbb R$,\n\\[\n\\frac{\\gamma\\circ x-\\gamma\\circ y}{x-y}\\preceq \\gamma'\\circ y\\quad \\text{at least when}\\quad \\gamma\\circ x-\\gamma\\circ y\\preceq 1\\ \\text{or}\\ (\\gamma'\\circ y)(x-y)\\prec 1.\n\\]\nThis condition is “almost trivial” in the base cases $T,\\log(T),\\ldots$ because the corresponding functions $x\\mapsto \\log^{\\circ n}(x)$ are “strictly increasing and \\emph{concave}.” With this weak mean value property in hand, the rest of the induction is then relatively straightforward; in particular, one uses the following lemma:\n\\begin{lem}\\label{weak-mvp}\n  For all $\\gamma \\in \\Jb^{>0}$ and all $x, y \\in \\Ub$ with $x > y > \\Rb$, we have:\n  \\begin{enumerate}\n      \\item\\label{weak-mvp-small} if $\\gamma \\circ x - \\gamma \\circ y \\preceq 1$, then $\\frac{\\gamma \\circ x - \\gamma \\circ y}{x - y} \\preceq \\gamma' \\circ y$,\n      \\item\\label{weak-mvp-large} if $\\gamma \\circ x - \\gamma \\circ y \\succeq 1$, then $(\\gamma' \\circ y)(x - y) \\succeq 1$.\n  \\end{enumerate}\n\\end{lem}\nyielding “a fairly short proof of the main theorem.”",
+    "theorem_type": [
+      "Universal",
+      "Implication"
+    ],
+    "question": "Let \\(T>1\\) be a fixed transseries, and let \\(\\mathbb{R}\\wspc{T}\\) denote the corresponding field of omega-series in \\(T\\). Let \\(\\mathbb{U}^{>\\mathbb{R}}\\) be the ordered set of inputs \\(x\\) for which the composition \\(f\\circ x\\) is defined. For a given \\(f\\in \\mathbb{R}\\wspc{T}\\), consider the map \\(x\\mapsto f\\circ x\\) on \\(\\mathbb{U}^{>\\mathbb{R}}\\). What is the strongest statement that can be proved about the monotonicity of this map when \\(f'\\) is everywhere positive, everywhere negative, or identically zero?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "The sign of \\(f'\\) gives the stated monotonicity conclusion for omega-series obtained from \\(T\\) by finitely many applications of \\(\\exp\\) and \\(\\log\\), but for genuinely infinite omega-series one can in general conclude only non-strict monotonicity."
+      },
+      {
+        "label": "C",
+        "text": "If \\(f'>0\\), then the map \\(x\\mapsto f\\circ x\\) is increasing; if \\(f'<0\\), then it is decreasing; and if \\(f'=0\\), then it is constant."
+      },
+      {
+        "label": "D",
+        "text": "The map \\(x\\mapsto f\\circ x\\) is strictly increasing if \\(f'>0\\), strictly decreasing if \\(f'<0\\), and only locally constant on \\(\\mathbb{U}^{>\\mathbb{R}}\\) if \\(f'=0\\), with no global constancy conclusion in general."
+      },
+      {
+        "label": "E",
+        "text": "The sign of \\(f'\\) determines the monotonicity of \\(x\\mapsto f\\circ x\\) only for those \\(f\\) that satisfy an additional weak mean-value estimate; for arbitrary omega-series, the derivative sign alone does not suffice."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202601_final.json"
+  },
+  {
+    "id": "202602:7",
+    "month": "202602",
+    "no": 7,
+    "paper_link": "http://arxiv.org/abs/2602.22912v1",
+    "theorem": "\\label{thm:main:intro:ReductionToOneEnd:doubleRays}\n    The consistently oriented double ray is ubiquitous if and only if it is ubiquitous restricted to the class of one-ended digraphs.",
+    "sketch": "As a major step in the proof of Theorem~\\ref{thm:main:intro:ReductionToOneEnd:doubleRays}, the authors \"verify Problem~\\ref{prob:ubiquity:doubleRays} for a large, but technical, class of digraphs\" (see Theorem~\\ref{thm:ubiquity:doubleRays}).",
+    "theorem_type": [
+      "Biconditional or Equivalence"
+    ],
+    "question": "A consistently oriented double ray is a two-way infinite directed path whose edges all point coherently along the path, and a one-ended digraph is a digraph whose underlying undirected graph has exactly one end. Here, saying that the consistently oriented double ray is ubiquitous means that whenever a digraph contains, for every n\\in\\mathbb{N}, n pairwise disjoint copies of a consistently oriented double ray, it must contain infinitely many pairwise disjoint such copies. Which statement is equivalent to saying that the consistently oriented double ray is ubiquitous?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "The consistently oriented double ray is ubiquitous when restricted to the class of strongly connected one-ended digraphs."
+      },
+      {
+        "label": "C",
+        "text": "If the consistently oriented double ray is ubiquitous, then it is ubiquitous when restricted to the class of one-ended digraphs."
+      },
+      {
+        "label": "D",
+        "text": "The consistently oriented double ray is ubiquitous when restricted to the class of one-ended digraphs in which every vertex has finite indegree and finite outdegree."
+      },
+      {
+        "label": "E",
+        "text": "For every fixed n\\in\\mathbb{N}, every one-ended digraph containing n pairwise disjoint copies of a consistently oriented double ray contains infinitely many pairwise disjoint such copies."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202602_final.json"
+  },
+  {
+    "id": "202602:27",
+    "month": "202602",
+    "no": 27,
+    "paper_link": "http://arxiv.org/abs/2602.13968v1",
+    "theorem": "\\label{thm:intro-cap-comp} \nLet $\\Omega \\subset \\subset \\mathbb{C}^n$ be a strictly pseudoconvex domain. \n\\begin{itemize}\n\\item[(a)] There exists a constant $A>0$ such that for every Borel set $E\\subset \\Omega$,\n$$\n\t{\\tt c}(E) \\leq A [cap(E,\\Omega)]^\\frac{1}{n}.\n$$\n\\item[(b)]\nAssume $D \\subset \\subset \\Omega$ be a subdomain. There exists a constant $A'$ such that for every Borel set $E\\subset D$,\n$$\n\t\\frac{1}{A'} cap(E,\\Omega) \\leq {\\tt c} (E).\n$$\n\\end{itemize}\nMoreover, the above inequalities are sharp as far as the exponents are concerned.,",
+    "sketch": "To prove the main theorem, the text says that its statements are provided by the following lemmas and remarks.\n\n\\begin{lem}[dominated by Bedford-Taylor capacity]  \\label{lem:c-cap} Assume $\\Om$ is strictly pseudoconvex. There exists a constant $A>0$ such that for every Borel set $E\\subset\\subset \\Om$,\n$$\n\t\\tc(E) \\leq A \\left[cap(E,\\Om)\\right]^\\frac{1}{n}.\n$$\n\\end{lem}\n\n\\begin{lem} \\label{lem:cap-c} Let $D \\subset \\subset \\Om$. There exists  a constant $A'$ depending  only on $D$ and $\\Om$ such that for every Borel set $E \\subset D$,\n$$\tcap(E,\\Om) \\leq A'\\, \\tc(E)\n$$\n\\end{lem}\n\n\\begin{remark}\\label{rmk:inner-reg} The relative compactness condition of $E$ will be removed later after proving that $\\tc(\\cdot,\\Om)$ is a capacity in the sense of Choquet (Theorem~\\ref{thm:choquet-c}).\n\\end{remark}\n\n\\begin{remark}[Proof of the last statement in Theorem~\\ref{thm:intro-cap-comp}]\n\\label{rmk:sharp-exp} The Alexander-Taylor inequality \\cite{AT84} reads\n$$\n\t\\exp (-A_r/cap(K,\\Om)) \\leq T_R(K) \\leq \\exp(-2\\pi/[cap(K,\\Om)]^\\frac{1}{n}),\n$$\nwhere the exponents in both inequalities are sharp (\\cite[Remark~2]{AT84}).\nTogether with $cap(K) \\leq A_r \\tc(K)$ in Lemma~\\ref{lem:cap-c}\nand the first inequality in Lemma~\\ref{lem:AT-type} we derive \n$$\n\t\\exp (-A/cap(K,\\Om)) \\leq \\exp (-A/\\tc(K,\\Om))    \\leq \\exp(-2\\pi/[cap(K,\\Om)]^\\frac{1}{n})\n$$\nwith the sharp exponents. So are the ones in Lemma~\\ref{lem:c-cap} and Lemma~\\ref{lem:cap-c}.\n\\end{remark}\n\nIn the local setting, “the key idea in the proof of the first inequality is making use of Cegrell's inequality \\cite{Ce04}” while “the one for the second inequality comes from the comparison principle.” The “optimality of the exponents is extracted from the Alexander-Taylor type inequality which is proved in the following lemma.”\n\n\\begin{lem} \\label{lem:AT-type} There exist positive constants $A_r$ and $A_R$ depending on $r,R$ respectively such that for every compact  set $K\\subset B_r$,\n$$ \\exp(- A_R \\; \\tc (K,B_R)^{-1}) \\leq  T_R(K) \\leq \t\\exp(- A_r\\;\\tc (K, B_R)^{-1/n}).\n$$ \nEquivalently,\n\\[\\label{eq:AT}\n\t\\frac{1}{A_r} \\frac{1}{M_K^n} \\leq \\tc (K,B_R) \\leq \\frac{A_R }{M_K}.\n\\]\n\\end{lem}",
+    "theorem_type": [
+      "Existential–Universal",
+      "Inequality or Bound"
+    ],
+    "question": "Let \\(\\Omega\\Subset \\mathbb C^n\\) be a strictly pseudoconvex domain. For a Borel set \\(E\\subset \\Omega\\), define its relative capacity by\n\\[\ncap(E,\\Omega)=\\sup\\left\\{\\int_E (dd^c u)^n: u\\in PSH(\\Omega),\\ -1\\le u\\le 0\\right\\},\n\\]\nand define\n\\[\n{\\tt c}(E)=\\inf\\left\\{\\|v\\|_*^2: v\\in W^*(\\Omega),\\ v\\le 0,\\ \\{v\\le -1\\}^o\\supset E\\right\\},\n\\]\nwhere \\(\\{v\\le -1\\}^o\\supset E\\) means that \\(v\\le -1\\) almost everywhere in a neighborhood of \\(E\\). What is the strongest statement that can be proved about the uniform comparison between \\({\\tt c}(E)\\) and \\(cap(E,\\Omega)\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "There exists a constant \\(A>0\\) such that for every Borel set \\(E\\subset \\Omega\\), \\[{\\tt c}(E)\\le A\\,[cap(E,\\Omega)]^{1/n}.\\] Moreover, for every subdomain \\(D\\Subset \\Omega\\), there exists a constant \\(A'>0\\) such that for every Borel set \\(E\\subset D\\), \\[\\frac{1}{A'}\\,cap(E,\\Omega)\\le {\\tt c}(E).\\]"
+      },
+      {
+        "label": "B",
+        "text": "There exists a constant \\(A>0\\) such that for every Borel set \\(E\\subset \\Omega\\), \\[{\\tt c}(E)\\le A\\,cap(E,\\Omega).\\] Moreover, for every subdomain \\(D\\Subset \\Omega\\), there exists a constant \\(A'>0\\) such that for every Borel set \\(E\\subset D\\), \\[\\frac{1}{A'}\\,cap(E,\\Omega)\\le {\\tt c}(E).\\]"
+      },
+      {
+        "label": "C",
+        "text": "There exists a constant \\(A>0\\) such that for every Borel set \\(E\\subset \\Omega\\), \\[{\\tt c}(E)\\le A\\,[cap(E,\\Omega)]^{1/n}.\\]"
+      },
+      {
+        "label": "D",
+        "text": "There exists a constant \\(A>0\\) such that for every Borel set \\(E\\subset \\Omega\\), \\[{\\tt c}(E)\\le A\\,[cap(E,\\Omega)]^{1/n}.\\] Moreover, there exists a constant \\(A'>0\\) such that for every Borel set \\(E\\subset \\Omega\\), \\[\\frac{1}{A'}\\,cap(E,\\Omega)\\le {\\tt c}(E).\\]"
+      },
+      {
+        "label": "E",
+        "text": "There exists a constant \\(A>0\\) such that for every Borel set \\(E\\subset \\Omega\\), \\[{\\tt c}(E)\\le A\\,[cap(E,\\Omega)]^{1/n}.\\] Moreover, for every subdomain \\(D\\Subset \\Omega\\), there exists a constant \\(A'>0\\) such that for every Borel set \\(E\\subset D\\), \\[\\frac{1}{A'}\\,cap(E,D)\\le {\\tt c}(E).\\]"
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "There exists a constant \\(A>0\\) such that for every Borel set \\(E\\subset \\Omega\\), \\[{\\tt c}(E)\\le A\\,[cap(E,\\Omega)]^{1/n}.\\] Moreover, for every subdomain \\(D\\Subset \\Omega\\), there exists a constant \\(A'>0\\) such that for every Borel set \\(E\\subset D\\), \\[\\frac{1}{A'}\\,cap(E,\\Omega)\\le {\\tt c}(E).\\]"
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202602_final.json"
+  },
+  {
+    "id": "202602:31",
+    "month": "202602",
+    "no": 31,
+    "paper_link": "http://arxiv.org/abs/2602.15528v1",
+    "theorem": "\\label{thm:main} For all $p\\ge 1$, \n\\[\\sup_{\\substack{f\\in \\cS(\\bbR^2)\\\\ \\|f\\|_{p} \\le 1 } }\\big\\|V_2^I A f\\|_{L^p(\\bbR^2)} =\\infty. \\],",
+    "sketch": "In the range $2<p\\le 4$ the theorem is obtained “as an immediate consequence of a more quantitative version” (Theorem~\\ref{thm:kakeya}). The argument is to “test $V^I_2A$ on $L^p$-functions of exponential type,” i.e. $f\\in E(\\lambda)$ with $\\widehat f$ supported in $\\{\\xi:|\\xi|\\le \\lambda\\}$, and to study the growth of\n\\[\nB_p(\\lambda)=\\sup\\{\\|V_2^I A f\\|_{L^p}:\\ \\|f\\|_{L^p}\\le 1,\\ f\\in E(\\lambda)\\}.\n\\]\nWhile $B_p(\\lambda)$ is finite (e.g. $\\|V_2^IA f\\|_p\\lesssim \\sup_{1\\le t\\le 2}\\|\\partial_t A_t f\\|_p\\lesssim \\lambda\\|f\\|_p$ for $f\\in E(\\lambda)$), the quantification asserts a lower bound $B_p(\\lambda)\\ge c(\\log\\lambda)^{\\frac12-\\frac1p}$ for $p>2$ and large $\\lambda$. In proving this quantitative bound, the authors “reduce matters to lower bounds for multipliers of the form $\\chi(|\\xi|-\\lambda)$ for large $\\lambda$, with nonnegative $\\chi\\in C_c^\\infty(\\mathbb R)$,” invoking that C\\'ordoba showed (for $4/3\\le p\\le 4$) the corresponding convolution operator norms have logarithmic size and that this “matches the lower bound in the following lemma.”\n\n\\begin{lemma}\\label{lem:aux2} There exist $\\eps>0$, $\\la_1=\\la_1(p)>1$ and $c>0$  such that for all $\\la>\\la_1$ the following holds for $p>2$: \n\nFor all nonnegative $L^\\infty$ functions $u$ supported in $[-2\\eps^2,2\\eps^2]$ that are bounded below by $1$ in $[-\\eps^2,\\eps^2]$,  and all integers $n\\geq 10$,\n\\Be\\label{eq:lowerbd-Cord}\\| u(|D|-2^{2n})\\|_{L^p(\\bbR^2)\\to L^p(\\bbR^2)}  \\ge c  n^{\\frac 12-\\frac 1p}\\,.\n\\Ee\n\\end{lemma}",
+    "theorem_type": [
+      "Universal",
+      "Nonexistence"
+    ],
+    "question": "Let $p\\ge 1$, let $\\mathcal S(\\mathbb R^2)$ denote the Schwartz class on $\\mathbb R^2$, and let $\\|\\cdot\\|_p$ denote the usual $L^p(\\mathbb R^2)$ norm. For $t>0$, define the circular averaging operators\n\\[\nA_t f(x)=\\frac1{2\\pi}\\int_0^{2\\pi} f(x_1-t\\cos\\alpha,\\,x_2-t\\sin\\alpha)\\,d\\alpha,\n\\]\nand let $V_2^I A f$ denote the $2$-variation in the parameter $t$ over a fixed interval $I$ of the family $\\{A_t f\\}_{t\\in I}$. What is the strongest statement that can be proved about $V_2^I A f$ acting on $f\\in \\mathcal S(\\mathbb R^2)$?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "For every $p\\ge 1$, \\[\\sup_{\\substack{f\\in \\mathcal S(\\mathbb R^2)\\\\ \\|f\\|_p\\le 1}} \\|V_2^I A f\\|_{L^p(\\mathbb R^2)}=\\infty.\\]"
+      },
+      {
+        "label": "B",
+        "text": "For every $p>2$, \n\\[\n\\sup_{\\substack{f\\in \\mathcal S(\\mathbb R^2)\\\\ \\|f\\|_p\\le 1}} \\|V_2^I A f\\|_{L^p(\\mathbb R^2)}=\\infty,\n\\]\nwhereas for every $1\\le p\\le 2$ one has\n\\[\n\\sup_{\\substack{f\\in \\mathcal S(\\mathbb R^2)\\\\ \\|f\\|_p\\le 1}} \\|V_2^I A f\\|_{L^p(\\mathbb R^2)}<\\infty.\n\\]"
+      },
+      {
+        "label": "C",
+        "text": "For every $p>2$, \n\\[\n\\sup_{\\substack{f\\in \\mathcal S(\\mathbb R^2)\\\\ \\|f\\|_p\\le 1}} \\|V_2^I A f\\|_{L^p(\\mathbb R^2)}=\\infty.\n\\]"
+      },
+      {
+        "label": "D",
+        "text": "For every $p>2$ there exist constants $C_p<\\infty$ and $\\lambda_0(p)\\ge 1$ such that, whenever $\\lambda\\ge \\lambda_0(p)$ and $f\\in \\mathcal S(\\mathbb R^2)$ satisfies $\\|f\\|_p\\le 1$ and $\\operatorname{supp}\\widehat f\\subseteq \\{\\xi\\in\\mathbb R^2:|\\xi|\\le \\lambda\\}$, one has\n\\[\n\\|V_2^I A f\\|_{L^p(\\mathbb R^2)}\\le C_p\\,(\\log \\lambda)^{\\frac14-\\frac1{2p}}.\n\\]"
+      },
+      {
+        "label": "E",
+        "text": "Whenever $I$ is a fixed compact subinterval of $(0,\\infty)$, the smooth dependence of $A_t f$ on $t$ implies that for every $p\\ge 1$ there is a constant $C_{p,I}<\\infty$ such that\n\\[\n\\|V_2^I A f\\|_{L^p(\\mathbb R^2)}\\le C_{p,I}\\,\\|f\\|_{L^p(\\mathbb R^2)}\n\\quad\\text{for all }f\\in \\mathcal S(\\mathbb R^2).\n\\]"
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "For every $p\\ge 1$, \\[\\sup_{\\substack{f\\in \\mathcal S(\\mathbb R^2)\\\\ \\|f\\|_p\\le 1}} \\|V_2^I A f\\|_{L^p(\\mathbb R^2)}=\\infty.\\]"
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202602_final.json"
+  },
+  {
+    "id": "202602:41",
+    "month": "202602",
+    "no": 41,
+    "paper_link": "http://arxiv.org/abs/2602.10707v1",
+    "theorem": "\\label{thm:intro}\nThe group of homeomorphisms of the real projective plane $\\mathbb{R}\\mathrm{P}^2$ and Möbius strip $M$ which are isotopic to the identity is stably unbounded with respect to commutator length in the sense of \\cite{BIP}.",
+    "sketch": "To prove the main theorem, the introduction says the \"central tool is Bavard duality\" (linking commutator length to the existence of \"non-trivial homogeneous quasi-morphisms\"). The strategy follows the quasi-morphism constructions of Brooks and their generalisation by Bestvina--Fujiwara via actions on hyperbolic spaces, and the analogous approach of Bowden--Hensel--Webb using the action of $\\operatorname{Homeo}_0$ on a (fine) curve graph. Concretely, the paper is organised to (1) combine results of \\cite{kuno-hyperbolicity} and \\cite{BHW1} to show the Möbius strip and $\\mathbb{R}\\mathrm{P}^2$ have \"hyperbolic and unbounded fine curve graphs\", and then (2) use that result together with the methods of \\cite{BHW2} to prove that both surfaces have \"stably unbounded $\\operatorname{Homeo}_0$\" (hence stably unbounded commutator length).",
+    "theorem_type": [
+      "Universal",
+      "Inequality or Bound"
+    ],
+    "question": "Let \\(\\mathrm{Homeo}_0(S)\\) denote the group of homeomorphisms of a surface \\(S\\) that are isotopic to the identity. For \\(G=\\mathrm{Homeo}_0(S)\\), let \\([G,G]\\) denote its commutator subgroup, and for \\(g\\in [G,G]\\), let \\(\\operatorname{cl}_G(g)\\) be the commutator length of \\(g\\), i.e. the least number of commutators in \\(G\\) whose product is \\(g\\). For \\(S\\in\\{\\mathbb{R}\\mathrm{P}^2, M\\}\\), where \\(M\\) is the Möbius strip, what is the strongest statement that can be proved about commutator length on \\([\\mathrm{Homeo}_0(S),\\mathrm{Homeo}_0(S)]\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "For each \\(S\\in\\{\\mathbb{R}\\mathrm{P}^2, M\\}\\), the group \\(\\mathrm{Homeo}_0(S)\\) is stably unbounded with respect to commutator length: there exists \\(g\\in [\\mathrm{Homeo}_0(S),\\mathrm{Homeo}_0(S)]\\) such that \\(\\lim_{n\\to\\infty} \\operatorname{cl}_{\\mathrm{Homeo}_0(S)}(g^n)/n>0\\) (equivalently, some element has positive stable commutator length)."
+      },
+      {
+        "label": "B",
+        "text": "For each \\(S\\in\\{\\mathbb{R}\\mathrm{P}^2, M\\}\\), there exists \\(g\\in [\\mathrm{Homeo}_0(S),\\mathrm{Homeo}_0(S)]\\) such that \\(\\lim_{n\\to\\infty} \\operatorname{cl}_{\\mathrm{Homeo}_0(S)}(g^n)/n=\\infty\\)."
+      },
+      {
+        "label": "C",
+        "text": "For each \\(S\\in\\{\\mathbb{R}\\mathrm{P}^2, M\\}\\), the commutator length on \\([\\mathrm{Homeo}_0(S),\\mathrm{Homeo}_0(S)]\\) is unbounded: for every \\(N\\) there exists \\(g\\in [\\mathrm{Homeo}_0(S),\\mathrm{Homeo}_0(S)]\\) with \\(\\operatorname{cl}_{\\mathrm{Homeo}_0(S)}(g)\\ge N\\)."
+      },
+      {
+        "label": "D",
+        "text": "For each \\(S\\in\\{\\mathbb{R}\\mathrm{P}^2, M\\}\\), commutator length on \\([\\mathrm{Homeo}_0(S),\\mathrm{Homeo}_0(S)]\\) is unbounded, but stable commutator length vanishes identically: for every \\(g\\in [\\mathrm{Homeo}_0(S),\\mathrm{Homeo}_0(S)]\\), one has \\(\\lim_{n\\to\\infty} \\operatorname{cl}_{\\mathrm{Homeo}_0(S)}(g^n)/n=0\\)."
+      },
+      {
+        "label": "E",
+        "text": "For each \\(S\\in\\{\\mathbb{R}\\mathrm{P}^2, M\\}\\), commutator length is bounded on \\([\\mathrm{Homeo}_0(S),\\mathrm{Homeo}_0(S)]\\): there exists \\(N(S)\\) such that every \\(g\\in [\\mathrm{Homeo}_0(S),\\mathrm{Homeo}_0(S)]\\) satisfies \\(\\operatorname{cl}_{\\mathrm{Homeo}_0(S)}(g)\\le N(S)\\)."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "For each \\(S\\in\\{\\mathbb{R}\\mathrm{P}^2, M\\}\\), the group \\(\\mathrm{Homeo}_0(S)\\) is stably unbounded with respect to commutator length: there exists \\(g\\in [\\mathrm{Homeo}_0(S),\\mathrm{Homeo}_0(S)]\\) such that \\(\\lim_{n\\to\\infty} \\operatorname{cl}_{\\mathrm{Homeo}_0(S)}(g^n)/n>0\\) (equivalently, some element has positive stable commutator length)."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202602_final.json"
+  },
+  {
+    "id": "202512:25",
+    "month": "202512",
+    "no": 25,
+    "paper_link": "http://arxiv.org/abs/2512.04531v1",
+    "theorem": "\\label{A}\nThere exists a continuum sized family $\\{G_x\\}_{x\\in \\{0,1\\}^\\mathbb N}$ of pairwise non-measure equivalent  ICC countable groups\n which have property (T) (and hence are finitely generated).\n\nMoreover, each $G_x$ satisfies $\\beta^{(2)}_k(G_x)=0$, for every $k\\geq 1$, and can be taken torsion-free.,",
+    "sketch": "In the remaining of the introduction, we outline the proof of the main theorem. The groups $\\{G_x\\}_{x\\in\\{0,1\\}^{\\mathbb N}}$ are constructed as wreath-like products (in the sense of \\cite{CIOS23a,CIOS23b}) and the construction relies on four ingredients:\n\\begin{enumerate}\n\\item \\begin{proposition}\\label{torsion-free-family}\nThere exists a countably infinite family $\\{B_d\\}_{d\\geq 1}$  of torsion-free, $4$-generated ICC groups in the class $\\mathcal{C}$ which are pairwise not measure equivalent. \n\\end{proposition}\n\n\\item \\begin{proposition}\\label{WR}\nFor every $n\\in\\mathbb N$,  there exists a property (T) group $V\\in\\mathcal W\\mathcal R(\\mathbb F_n^{(\\mathbb N)},B)$, where $B$ is a torsion-free (hence, ICC) hyperbolic group.\n\nMoreover, if $\\{A_k\\}_{k=1}^\\infty$ is a sequence of $n$-generated groups, then there exists a property (T) group belonging to $\\mathcal W\\mathcal R(\\bigoplus_{k=1}^\\infty A_k,B)$.\n\\end{proposition}\n\n\\item We first use the following theorem.\n\n\\begin{theorem}\\label{descend}\nLet $A$ and $C$ be any countable groups,  and $B$ and $D$ be ICC hyperbolic groups. Assume that $G\\in\\mathcal W\\mathcal R(A,B)$ and $H\\in \\mathcal{W}\\mathcal{R}(C,D)$ are measure equivalent groups. Then the groups $A^{(B)}$ and $C^{(D)}$ are measure equivalent.\n\\end{theorem}\n\n\\item We first use the following theorem.\n\n\\begin{theorem}\\label{thm:MSinfiniteICCsum}\nSuppose $G _i$, $i\\in I$, and $H _j$, $j\\in J$, are ICC groups in the class $\\mathcal{C}$, where $I,J$ are countable. If $G \\coloneqq \\bigoplus _{i\\in I}G _i$ and $H \\coloneqq \\bigoplus _{j\\in J} H _j$ are measure equivalent then $|I|=|J|$ and there exists a bijection $t:I\\rightarrow J$ such that $G _i$ is measure equivalent with $H_{t(i)}$ for all $i\\in I$.\n\\end{theorem}\n\\end{enumerate}\nThen the ingredients are combined as follows. Let $\\{A_k\\}_{k\\geq 1}$ be as in (1). For $x\\in\\{0,1\\}^{\\mathbb N}$ (viewed as a subset of $\\mathbb N$), set $D_x=\\bigoplus_{k\\in x}A_k$. By (2) there exists a property (T) group $G_x\\in\\mathcal W\\mathcal R(D_x,B)$, and it is torsion-free since it is built from the torsion-free groups $\\{A_k\\}$ and $B$. If $G_x$ and $G_y$ are measure equivalent, then by the theorem above one gets that $D_x^{(\\mathbb N)}\\cong\\oplus_{k\\in x}A_k^{(\\mathbb N)}$ and $D_y^{(\\mathbb N)}\\cong\\oplus_{k\\in y}A_k^{(\\mathbb N)}$ are measure equivalent. Using the defining properties of the sequence $\\{A_k\\}$ from (1), the theorem above forces $x=y$, yielding a continuum family of pairwise non-measure equivalent groups $\\{G_x\\}$ as in the main theorem.",
+    "theorem_type": [
+      "Existence",
+      "Universal"
+    ],
+    "question": "Here, two countable groups are called measure equivalent if they admit commuting actions on an infinite measure space such that both actions have fundamental domains of finite measure. Also, ICC means that every nontrivial conjugacy class is infinite, a continuum-sized family means a family indexed by the Cantor set \\(\\{0,1\\}^{\\mathbb N}\\), and \\(\\beta_k^{(2)}(G)\\) denotes the \\(k\\)-th \\(\\ell^2\\)-Betti number of \\(G\\). What is the strongest statement that can be proved about the existence of continuum-sized families of pairwise non-measure-equivalent ICC countable groups with property \\((T)\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "There exists a continuum-sized family \\(\\{G_x\\}_{x\\in \\{0,1\\}^{\\mathbb N}}\\) of pairwise non-measure-equivalent ICC countable groups such that each \\(G_x\\) has property \\((T)\\), each satisfies \\(\\beta^{(2)}_1(G_x)>0\\), and the groups can be chosen torsion-free."
+      },
+      {
+        "label": "C",
+        "text": "There exists a continuum-sized family \\(\\{G_x\\}_{x\\in \\{0,1\\}^{\\mathbb N}}\\) of pairwise non-measure-equivalent ICC countable groups such that each \\(G_x\\) has property \\((T)\\), and the groups can be chosen torsion-free."
+      },
+      {
+        "label": "D",
+        "text": "There exists a continuum-sized family \\(\\{G_x\\}_{x\\in \\{0,1\\}^{\\mathbb N}}\\) of pairwise non-measure-equivalent ICC countable groups such that each \\(G_x\\) has property \\((T)\\), each satisfies \\(\\beta_k^{(2)}(G_x)=0\\) for every \\(k\\ge 1\\), the groups can be chosen torsion-free, and for every distinct \\(x,y\\) the groups \\(G_x\\) and \\(G_y\\) contain isomorphic finite-index subgroups."
+      },
+      {
+        "label": "E",
+        "text": "There exists a continuum-sized family \\(\\{G_x\\}_{x\\in \\{0,1\\}^{\\mathbb N}}\\) of pairwise non-measure-equivalent ICC countable groups such that each \\(G_x\\) has property \\((T)\\), each satisfies \\(\\beta_k^{(2)}(G_x)=0\\) for every \\(k\\ge 1\\), the groups can be chosen torsion-free, and each \\(G_x\\) has a finite-index subgroup \\(H_x\\leq G_x\\) such that all the groups \\(H_x\\) are measure equivalent to one another."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202512_final.json"
+  },
+  {
+    "id": "202602:10",
+    "month": "202602",
+    "no": 10,
+    "paper_link": "http://arxiv.org/abs/2602.17863v1",
+    "theorem": "For $3$-manifolds obtained by Dehn surgery on a $(1,1)$ knot in $S^3$, the implications\n\\[\n(a)\\Leftrightarrow(c)\\quad\\text{and}\\quad (a)\\Leftarrow(b)\n\\]\nhold in the L-space conjecture.",
+    "sketch": "The post-theorem introduction does not give a proof sketch for the stated implications in the theorem. It only notes that the remaining implication $(a)\\Rightarrow(b)$ is open, and then describes the authors' overall construction/organization: they ``first pinch the Seifert surface to obtain a simpler branched surface, and then perform splittings,'' use a ``greedy splitting algorithm of linear complexity'' given by\n\n\\begin{algorithm}[!htbp]\n\\caption{Construction of the curves}\n\\label{alg:brick-curve}\n\\begin{algorithmic}[1]\n\\Require A positive braid diagram $D\\subset S^1\\times I$ and its associated brick diagram\n\\Ensure Simple closed curves satisfying Properties~\\ref{G1}--\\ref{G8}\n\n\\State Choose a non-vertex point $q$ in the $i$-th row lying on a component of $L$ which is not the unknot, with $i$ minimal.\n\\State $A\\gets q$, $B\\gets q$, $\\gamma\\gets\\{q\\}$, $\\Gamma\\gets\\varnothing$\n\\While{$d_{\\mathrm{up}}(B,A)=2$}\n    \\State \\Call{StepBelow}{$A,B,\\gamma$}\n\\EndWhile\n\\State \\Call{CrossBrickStep}{$A,B,\\gamma$} \\label{line:CrossBrickStep}\n\\While{$A$ is not on the last row}\n    \\If{$d_{\\mathrm{up}}(B,A)\\ge2$}\n        \\State \\Call{StepBelow}{$A,B,\\gamma$}\n    \\Else\n        \\State \\Call{CloseAndStore}{$\\gamma,\\Gamma,[B,A]$} \\label{line:close-1}\n        \\State \\Call{RestartBelow}{$A,B,\\gamma$} \\label{line:restart-below}\n    \\EndIf\n\\EndWhile\n\\State \\Call{CloseAndStore}{$\\gamma,\\Gamma,[B,A]$}\\label{line:close-2}\n\\If{$q$ is not on the first row}\n    \\State $A\\gets q$, $B\\gets q$\n    \\State \\Call{RestartAbove}{$A,B,\\gamma$}\\label{line:restart-above1}\n    \\While{$A$ is not on the first row}\n        \\If{$d_{\\mathrm{up}}(A,B)\\ge2$}\n            \\State \\Call{StepAbove}{$A,B,\\gamma$}\n        \\Else\n            \\State \\Call{CloseAndStore}{$\\gamma,\\Gamma,[A,B]$}\\label{line:close-3}\n            \\State \\Call{RestartAbove}{$A,B,\\gamma$}\\label{line:restart-above2}\n        \\EndIf\n    \\EndWhile\n    \\State \\Call{CloseAndStore}{$\\gamma,\\Gamma,[A,B]$}\\label{line:close-4}\n\\EndIf\n\n\\State \\Return $\\Gamma$\n\\end{algorithmic}\n\n\\end{algorithm}\n\nto produce a laminar branched surface, and outlines the later sections: next they construct $B$; then they split $B$ into laminar $B'$ assuming curves $\\gamma_1,\\dots,\\gamma_k$ satisfying the following properties:\n\n\\begin{enumerate}[label=(G\\arabic*)]\n    \\item\\label{G1} Each curve $\\gamma_i$ is transverse to every vertical line and hence intersects each vertical line $\\{x\\}\\times I$ once.\n    \\item\\label{G2} Each curve $\\gamma_i$ is composed of two arcs: one arc connects the two vertices of a bigon in the complement of $\\tau$, while the other arc lies on the train track $\\tau$.\n    \\item\\label{G3} For each vertical line $\\{x\\}\\times I$ with $x\\in S^1$, the intersection point\n    $\\gamma_i \\cap (\\{x\\}\\times I)$ lies above or coincides with\n    $\\gamma_{i+1} \\cap (\\{x\\}\\times I)$ for all $i=1,\\ldots,k-1$.\n    \\item\\label{G4} The bigons associated to the curves $\\gamma_1,\\gamma_2, \\ldots, \\gamma_k$ are pairwise distinct.\n    \\item\\label{G5} There exists a point $p\\in \\gamma_1$ such that $p$ lies on an under-type arc of $\\tau$, and there is no bigon directly above $p$.\n    \\item\\label{G6} There exists a point $p\\in \\gamma_k$ such that $p$ lies on an under-type arc of $\\tau$, and there is no bigon directly below $p$.\n    \\item\\label{G7} For each $1\\le i\\le k-1$, there exists a vertical segment connecting a point $p_1 \\in \\gamma_i$ to a point $p_2 \\in \\gamma_{i+1}$ whose interior is disjoint from $\\tau$, such that one of the points $p_1,p_2$ lies on an under-type arc of $\\tau$ and the other does not lie on $\\tau$.\n    \\item\\label{G8} For each under-arc of $D$, there exists a point $p\\in \\tau$ lying on an under-type arc of $\\tau$ arising from that under-arc, such that $p\\notin \\gamma_i$ for all $1\\le i\\le k$.\n\\end{enumerate}\n\nAfter that they produce these curves; then they analyze the boundary train track; and finally they ``combine these ingredients to prove the main theorem.'' No step-by-step argument establishing $(a)\\Leftrightarrow(c)$ and $(a)\\Leftarrow(b)$ is stated here.",
+    "theorem_type": [
+      "Implication",
+      "Biconditional or Equivalence"
+    ],
+    "question": "Let \\(Y\\) be a closed 3-manifold obtained by Dehn surgery on a \\((1,1)\\) knot in \\(S^3\\) (that is, a knot admitting a 1-bridge presentation with respect to a genus-1 Heegaard splitting of \\(S^3\\)). In the usual formulation of the L-space conjecture, let \\((a)\\) mean that \\(Y\\) is not an L-space, \\((b)\\) mean that \\(\\pi_1(Y)\\) is left-orderable, and \\((c)\\) mean that \\(Y\\) admits a coorientable taut foliation. Which relation among \\((a)\\), \\((b)\\), and \\((c)\\) holds for such \\(Y\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "\\((a)\\) is equivalent to \\((c)\\), and \\((b)\\) implies \\((a)\\)."
+      },
+      {
+        "label": "B",
+        "text": "\\((b)\\) implies \\((a)\\), and \\((b)\\) is equivalent to \\((c)\\)."
+      },
+      {
+        "label": "C",
+        "text": "\\((c)\\) implies \\((a)\\)."
+      },
+      {
+        "label": "D",
+        "text": "\\((a)\\) is equivalent to \\((c)\\), and \\((a)\\) implies \\((b)\\)."
+      },
+      {
+        "label": "E",
+        "text": "\\((a)\\), \\((b)\\), and \\((c)\\) are all equivalent."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "\\((a)\\) is equivalent to \\((c)\\), and \\((b)\\) implies \\((a)\\)."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202602_final.json"
+  },
+  {
+    "id": "202602:16",
+    "month": "202602",
+    "no": 16,
+    "paper_link": "http://arxiv.org/abs/2602.02723v1",
+    "theorem": "\\label{maintheo}Let $(M, g)$ be a Lorentzian manifold of dimension at least $3$ and let $\\bf P$ be its pseudo-group of local conformal transformations, that is the collection \n of all conformal diffeomorphisms between open subsets of $M$. We assume $M$ locally conformally homogeneous, i.e.~$M$ is an orbit of $\\bf P$. Then one of the following possibilities holds:\n\n \\begin{enumerate}\n\n \\item $\\bf P$ preserves a Lorentzian metric in the $g$-conformal class.\n\n \\item $(M, g)$ is conformally flat. \n\n \\item $(M, g)$ is locally conformally equivalent to a plane wave that is isometrically locally homogeneous.  More precisely, there exists a homogeneous plane wave $X$, such that \n $(M, [g])$ is modeled on $(\\Conf(X), X)$.\n \\end{enumerate}",
+    "sketch": "To prove the main theorem, the argument is described as follows.\n\n- Define the weakly essential case: when the pseudo-group $\\mathbf{P}$ does not preserve any metric in the $g$-conformal class.\n\n- As in \\cite{AlekseevskyGalaev25}, start by using weak essentiality to get “the existence of an element in the isotropy group that is not contained in $\\mathbf{SO}(T_pM)$.” The earlier approach relied on connectedness of the isotropy group to “provide a specific element in its Lie algebra,” but “in our setting … we cannot directly conclude the existence of such an element.”\n\n- Use a different approach: “work only with the local isotropy of local conformal transformations,” and apply “powerful tools from Gromov's theory of rigid transformations … and from algebraic groups,” which “allow us to reduce the problem to the Lie algebra level … and in particular to obtain a hyperbolic element in the isotropy algebra that is not in $\\mathfrak{so}(T_pM)$.”\n\n- Because only local homogeneity is assumed, “pass to the universal cover, where weak essentiality is preserved.” On a “simply connected real-analytic manifold, local conformal vector fields extend to global ones,” so one can “work with the Lie algebra of conformal vector fields on the universal cover.”\n\n- Then “use the decomposition of the Lie algebra of conformal vector fields induced by the hyperbolic element to derive the existence of a codimension-one lightlike foliation of \\textit{Heisenberg type}, i.e., with a transitive action of a Heisenberg algebra.”\n\n- Finally, combine this with “the new characterization of plane waves obtained later,” which “leads to the generalization in the main theorem.”",
+    "theorem_type": [
+      "Classification or Bijection",
+      "Universal"
+    ],
+    "question": "Let $(M,g)$ be a Lorentzian manifold of dimension at least $3$. Assume that $M$ is locally conformally homogeneous, meaning that its local conformal pseudogroup (the collection of conformal diffeomorphisms between open subsets of $M$) acts transitively on $M$. Which description gives the complete case-by-case classification of such manifolds?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Every such $(M,g)$ satisfies at least one of these three alternatives: the local conformal pseudogroup preserves some Lorentzian metric in the conformal class $[g]$ of $g$; or $(M,g)$ is conformally flat; or $(M,g)$ is locally conformally equivalent to an isometrically locally homogeneous plane wave, equivalently to a homogeneous plane wave $X$ in the sense that every point of $M$ has a neighborhood conformally diffeomorphic to an open subset of $X$."
+      },
+      {
+        "label": "B",
+        "text": "Every such $(M,g)$ satisfies at least one of these three alternatives: the local conformal pseudogroup preserves some Einstein Lorentzian metric in the conformal class $[g]$ of $g$; or $(M,g)$ is conformally flat; or $(M,g)$ is locally conformally equivalent to an isometrically locally homogeneous plane wave, equivalently to a homogeneous plane wave $X$ in the sense that every point of $M$ has a neighborhood conformally diffeomorphic to an open subset of $X$."
+      },
+      {
+        "label": "C",
+        "text": "Every such $(M,g)$ satisfies at least one of these three alternatives: the local conformal pseudogroup preserves some Lorentzian metric in the conformal class $[g]$ of $g$; or $(M,g)$ is conformally flat; or $(M,g)$ is locally conformally equivalent to a plane wave, in the sense that every point of $M$ has a neighborhood conformally diffeomorphic to an open subset of some plane wave."
+      },
+      {
+        "label": "D",
+        "text": "Every such $(M,g)$ satisfies at least one of these three alternatives: the local conformal pseudogroup preserves some Lorentzian metric in the conformal class $[g]$ of $g$; or $(M,g)$ is conformally flat; or the universal cover of $M$ is locally conformally equivalent to an isometrically locally homogeneous plane wave, equivalently to a homogeneous plane wave $X$ in the sense that every point of the universal cover has a neighborhood conformally diffeomorphic to an open subset of $X$."
+      },
+      {
+        "label": "E",
+        "text": "Every such $(M,g)$ satisfies at least one of these three alternatives: the local conformal pseudogroup preserves some Lorentzian metric in the conformal class $[g]$ of $g$; or $(M,g)$ is conformally flat; or $(M,g)$ is locally conformally equivalent to a locally symmetric plane wave, equivalently to a homogeneous plane wave $X$ with parallel curvature tensor such that every point of $M$ has a neighborhood conformally diffeomorphic to an open subset of $X$."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "Every such $(M,g)$ satisfies at least one of these three alternatives: the local conformal pseudogroup preserves some Lorentzian metric in the conformal class $[g]$ of $g$; or $(M,g)$ is conformally flat; or $(M,g)$ is locally conformally equivalent to an isometrically locally homogeneous plane wave, equivalently to a homogeneous plane wave $X$ in the sense that every point of $M$ has a neighborhood conformally diffeomorphic to an open subset of $X$."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202602_final.json"
+  },
+  {
+    "id": "202512:16",
+    "month": "202512",
+    "no": 16,
+    "paper_link": "http://arxiv.org/abs/2512.11601v1",
+    "theorem": "\\label{thm:K2}\n  The set of $\\mathcal{P}$-positions of the variant of Wythoff game where the set of terminal positions is $\\{(x,y)\\mid x+y\\le 2\\}$,  is exactly \\begin{equation}\\label{eq:Ppos}\n  \\left\\{ (\\lfloor n\\phi\\rfloor +g(n)-1, \\lfloor n \\phi^2\\rfloor +g(n))\\mid n\\ge 0\\right\\} \\cup\n  \\left\\{ (\\lfloor n \\phi^2\\rfloor +g(n), (\\lfloor n\\phi\\rfloor +g(n)-1)\\mid n\\ge 0\\right\\}\n\\end{equation}\nwhere $g:\\mathbb{N}\\to\\mathbb{N}$ is defined as follows: \\begin{definition}\\label{def:fg}\n  We let $g(0)=1$, $g(1)=0$ and\n  \\[\n    g(n)=\\left\\{\n      \\begin{array}{ll}\n        1-g(m),& \\text{ if }\\lfloor n\\phi\\rfloor= \\lfloor m(\\phi+1)\\rfloor+1 \\text{ for some }m\\ge 0;\\\\\n        1,& \\text{ otherwise}.\n      \\end{array}\\right.\n  \\]\n\n\\end{definition}",
+    "sketch": "To prove the main theorem, the authors “provide a classical proof … by showing that the set of $\\mathcal{P}$-positions described by \\begin{equation}\\label{eq:Ppos}\n  \\left\\{ (\\lfloor n\\phi\\rfloor +g(n)-1, \\lfloor n \\phi^2\\rfloor +g(n))\\mid n\\ge 0\\right\\} \\cup\n  \\left\\{ (\\lfloor n \\phi^2\\rfloor +g(n), (\\lfloor n\\phi\\rfloor +g(n)-1)\\mid n\\ge 0\\right\\}\n\\end{equation}\n is both stable and absorbing (see \\begin{definition}\\label{def:stab}\nA set $S$ of positions is {\\em stable} if, for all $s,t\\in S$, $s\\neq t$, there is no move between $s$ and $t$. A set $S$ of positions is {\\em absorbing}, if for all $t\\not\\in S$, there exists $s\\in S$ such that there is a move from $t$ to $s$ (or, $t$ has an option in $S$).  \n\\end{definition}).” They note that “the proof is quite long and requires a detailed case analysis.” They also indicate that, “once the set in the equation above has been conjectured,” an alternative route is to “produce an automated proof” (e.g., “if the set can be handled by {\\tt Walnut}”).",
+    "theorem_type": [
+      "Classification or Bijection",
+      "Equivalence"
+    ],
+    "question": "Consider the following variant of Wythoff's game. A position is a pair (x,y) of nonnegative integers. From (x,y), a legal move is to (x-n,y) with 0<n\\le x, to (x,y-n) with 0<n\\le y, or to (x-n,y-n) with 0<n\\le \\min\\{x,y\\}. The terminal positions are exactly those with x+y\\le 2; if a player moves to a terminal position, that player wins. A \\(\\mathcal P\\)-position means a position from which the player to move loses under optimal play.\n\nLet \\(\\phi=(1+\\sqrt5)/2\\), and define \\(g\\) on \\(n\\ge 0\\) by \\(g(0)=1\\), \\(g(1)=0\\), and for \\(n\\ge 0\\),\n\n\\(g(n)=1-g(m)\\) if \\(\\lfloor n\\phi\\rfloor=\\lfloor m(\\phi+1)\\rfloor+1\\) for some \\(m\\ge 0\\), and \\(g(n)=1\\) otherwise.\n\nWhich explicit set gives the complete classification of the game's \\(\\mathcal P\\)-positions?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "With the standard convention that one lists only ordered pairs with \\(x\\le y\\), the \\(\\mathcal P\\)-positions are exactly\n\\[\n\\left\\{(\\lfloor n\\phi\\rfloor+g(n)-1,\\ \\lfloor n\\phi^2\\rfloor+g(n))\\mid n\\ge 0\\right\\}.\n\\]"
+      },
+      {
+        "label": "C",
+        "text": "Every position of the form\n\\[\n\\left(\\lfloor n\\phi\\rfloor+g(n)-1,\\ \\lfloor n\\phi^2\\rfloor+g(n)\\right)\\qquad(n\\ge 0)\n\\]\nis a \\(\\mathcal P\\)-position."
+      },
+      {
+        "label": "D",
+        "text": "\\[\n\\left\\{(\\lfloor n\\phi\\rfloor+g(n)-1,\\ \\lfloor n\\phi^2\\rfloor+g(n))\\mid n\\ge 0\\right\\}\n\\cup\n\\left\\{(\\lfloor n\\phi^2\\rfloor+g(n)-1,\\ \\lfloor n\\phi\\rfloor+g(n))\\mid n\\ge 0\\right\\}.\n\\]"
+      },
+      {
+        "label": "E",
+        "text": "\\[\n\\left\\{(\\lfloor n\\phi\\rfloor+g(n)-1,\\ \\lfloor n\\phi^2\\rfloor+g(n))\\mid n\\ge 1\\right\\}\n\\cup\n\\left\\{(\\lfloor n\\phi^2\\rfloor+g(n),\\ \\lfloor n\\phi\\rfloor+g(n)-1)\\mid n\\ge 1\\right\\}\n\\cup\\{(0,0)\\}.\n\\]"
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202512_final.json"
+  },
+  {
+    "id": "202512:2",
+    "month": "202512",
+    "no": 2,
+    "paper_link": "http://arxiv.org/abs/2512.16120v1",
+    "theorem": "\\label{thm:main}\nSuppose that $X_1(M,MN)$ has genus zero, and suppose that $p$ is a prime divisor of $MN$. Then there exists an explicit constant $\\theta$ (see Table \\ref{tab:mean_variance_II}), depending only on $M$, $N$, $K$, and $p$, such that\n\\begin{equation}\\label{eq:main}\n\t\\limsup_{B\\to\\infty} \\frac{1}{\\# \\cE_{(M,MN)}(B; K)} \\sum_{E\\in \\cE_{(M,MN)}(B;K)} \\# \\Sel_p(E) \\gg \\log(B)^{\\theta}.\n\\end{equation}\nIf additionally\n\\begin{equation}\n(M,N, p, \\sG_{MN}(K))\\not\\in \n\\begin{Bmatrix}\n(1,5, 5, ({\\mathbb Z}/5{\\mathbb Z})^\\times), (1,7, 7, \\{1,4,7\\} \\text{ or } ({\\mathbb Z}/7{\\mathbb Z})^\\times), \\\\\n (1, 10, 5, ({\\mathbb Z}/10{\\mathbb Z})^\\times), (2,2, 2, \\ast), (2, 6, 3, ({\\mathbb Z}/6{\\mathbb Z})^\\times), \\\\ (3,3, 3, \\ast), (3,6, 3, \\ast), (4,4,2,({\\mathbb Z}/4{\\mathbb Z})^\\times), (5,5,5,\\ast)\n\\end{Bmatrix},\n\\end{equation}\nthen $\\theta$ is positive, implying that the average size of the $p$-Selmer group is unbounded.",
+    "sketch": "As in \\cite{KLO14, CHL19, CV25}, the strategy (to prove the main theorem) is to \"study the distribution of the ratios of sizes of certain Selmer groups,\" and to prove these ratios \"satisfy an analog of the celebrated Erd\\H{o}s--Kac theorem.\" The \"key new ingredient\" is \"a systematic approach to counting elliptic curves over arbitrary number fields having a prescribed torsion subgroup and satisfying prescribed local conditions,\" achieved by \"extending previous work ... on counting points of bounded height, satisfying various local conditions, on modular curves \\cite{Phi24+}.\" Concretely, the paper (i) relates \"ratios of certain Selmer groups\" to \"ratios of certain Tamagawa numbers\"; (ii) extends \\cite{Phi24+} to count elliptic curves over number fields with prescribed torsion and local conditions, using the following proposition.\n\n\\begin{proposition}\\label{prop:elliptic_count_general}\nLet $G\\leq \\GL_2(\\Z/N\\Z)$, and suppose that the modular curve $\\cX_G$ is isomorphic to the weighted projective stack $\\cP(w_0,w_1)$ over the number field $K$. \nLet $\\delta(G)$ denote the weighted degree of the morphism $\\phi_{O}:\\cX_G\\to\\cX(1)$ that forgets the level structure, and suppose that $\\gcd(w_0w_1, \\delta(G))=1$. Define\n\\begin{equation}\n \\alpha(G)\\defeq\\frac{w_0+w_1}{12 \\delta(G)}\\qquad \\text{ and }\\qquad\n \\beta(G)\\defeq \\frac{\\deg_{\\Q}(K)-\\min\\{w_0,w_1\\}}{12\\delta(G)\\deg_{\\Q}(K)}.\n \\end{equation}\nLet $v\\in \\Val_0(K)$ be a finite place not above $2$ or $3$, and let $\\Omega_v\\subseteq\\cP(w_0,w_1)(K_v)$ be a subset for which $\\Omega_v^{\\aff}$ is measurable and whose boundary has measure $m_v(\\partial \\Omega_v^{\\aff})=0$. \nThen there exists an explicit constant $\\kappa_G$, depending only on $G$ and $K$, such that\n\\begin{equation}\n\\cN_G(K,\\Omega_v; B) \n = m_v\\left(\\Omega_v^{\\aff}\\cap \\cO_{K,v}^{2}\\right)\\kappa_G B^{\\alpha(G)}\n  + O\\left(B^{\\beta(G)}\\right).\n\\end{equation}\n\\end{proposition}\n\nNext, (iii) proves the following theorem.\n\n\\begin{theorem}\\label{thm:selmer_erdos_kac_prime}\n\tConsider the family of elliptic curves $E$ over a number field $K$ with level structure $G=G(M,MN)$. Let $\\Phi$ be a subgroup of $\\Z/M\\Z$ of prime order, and let $m$ be as in Table \\ref{tab:mean_variance_II}. Let $\\sG = \\sG_m(K)$ denote the subgroup \n\\begin{equation}\n\t\\{a\\in (\\Z/m\\Z)^\\times : \\exists \\text{ infinitely many degree one primes $\\p$ with } N_{K/\\Q}(\\p)\\equiv a \\pmod{m}\\}.\n\\end{equation}\n\tLet $c_{\\E}(G,\\Phi,\\sG)$ and $\\c_{\\V}(G,\\Phi,sG)$ be the constants in Table \\ref{tab:mean_variance_II}. \n\tThen the logarithmic Selmer ratios $s(E)$ are normally distributed with mean\n\t\\begin{equation}\n\t\tc_{\\E}(G,\\Phi,\\sG)\\log\\log(B)+O(1)\n\t\\end{equation}\n\tand variance\n\t\\begin{equation}\n\t\tc_{\\V}(G,\\Phi,\\sG)\\log\\log(B)+O(1).\n\t\\end{equation}\n\\end{theorem}\n\nFinally, (iv) uses this to establish the main theorem (and the related Theorem~\\ref{thm:main2}), yielding the lower bound\n\\begin{equation}\\label{eq:main}\n\t\\limsup_{B\\to\\infty} \\frac{1}{\\# \\cE_{(M,MN)}(B; K)} \\sum_{E\\in \\cE_{(M,MN)}(B;K)} \\# \\Sel_p(E) \\gg \\log(B)^{\\theta}.\n\\end{equation}\nand (when \\(\\theta>0\\)) unboundedness of the average \\(p\\)-Selmer size.",
+    "theorem_type": [
+      "Implication",
+      "Asymptotic or Limit"
+    ],
+    "question": "Let $K$ be a number field, let $M,N\\ge 1$ be integers such that the modular curve $X_1(M,MN)$ has genus zero, and let $p$ be a prime divisor of $MN$. For each $B$, let $\\mathcal E_{(M,MN)}(B;K)$ denote the set of elliptic curves $E/K$ of naive height $\\mathrm{Ht}(E)\\le B$ for which there exist a point $P\\in E[MN](K)$ and a $\\mathrm{Gal}(\\overline K/K)$-stable cyclic subgroup $C\\le E[M](\\overline K)$ of order $M$ such that\n\\[\nE[M](\\overline K)=\\langle NP\\rangle\\oplus C,\n\\]\nso that $(E,P,C)$ defines a $K$-point of $\\mathcal Y_1(M,MN)$. Let $\\Sel_p(E)$ be the $p$-Selmer group of $E$. For $m>1$, let $\\mathcal G_m(K)\\subseteq (\\mathbb Z/m\\mathbb Z)^\\times$ be the subgroup of residue classes $a$ for which there exist infinitely many prime ideals $\\mathfrak p\\subset \\mathcal O_K$ with norm $N_{K/\\mathbb Q}(\\mathfrak p)=q$ a rational prime satisfying $q\\equiv a\\pmod m$. Here $A(B)\\gg (\\log B)^\\theta$ means a lower bound by a positive constant multiple of $(\\log B)^\\theta$ in the usual asymptotic sense. If, in addition, the quadruple $(M,N,p,\\mathcal G_{MN}(K))$ is not one of\n\\[\n\\begin{gathered}\n(1,5,5,({\\mathbb Z}/5{\\mathbb Z})^\\times),\\quad (1,7,7,\\{1,4,7\\}\\text{ or }({\\mathbb Z}/7{\\mathbb Z})^\\times),\\\\\n(1,10,5,({\\mathbb Z}/10{\\mathbb Z})^\\times),\\quad (2,2,2,\\ast),\\quad (2,6,3,({\\mathbb Z}/6{\\mathbb Z})^\\times),\\\\\n(3,3,3,\\ast),\\quad (3,6,3,\\ast),\\quad (4,4,2,({\\mathbb Z}/4{\\mathbb Z})^\\times),\\quad (5,5,5,\\ast),\n\\end{gathered}\n\\]\nwhat is the strongest statement that can be proved about\n\\[\n\\frac{1}{\\# \\mathcal E_{(M,MN)}(B; K)} \\sum_{E\\in \\mathcal E_{(M,MN)}(B;K)} \\# \\Sel_p(E)\n\\]\nas $B\\to\\infty$?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "There exists an explicit constant $\\theta>0$, depending only on $M,N,K,$ and $p$, such that\n\\[\n\\liminf_{B\\to\\infty}(\\log B)^{-\\theta}\\,\\frac{1}{\\# \\mathcal E_{(M,MN)}(B; K)} \\sum_{E\\in \\mathcal E_{(M,MN)}(B;K)} \\# \\Sel_p(E)>0.\n\\]"
+      },
+      {
+        "label": "C",
+        "text": "There exists an explicit constant $\\theta>0$, depending only on $M,N,K,$ and $p$, and a sequence $B_j\\to\\infty$ such that\n\\[\n\\frac{1}{\\# \\mathcal E_{(M,MN)}(B_j; K)} \\sum_{E\\in \\mathcal E_{(M,MN)}(B_j;K)} \\# \\Sel_p(E) \\gg (\\log B_j)^\\theta.\n\\]\nIn particular, the displayed averages are unbounded."
+      },
+      {
+        "label": "D",
+        "text": "There exist explicit constants $\\theta>0$ and $c>0$, depending only on $M,N,K,$ and $p$, such that\n\\[\n\\lim_{B\\to\\infty}(\\log B)^{-\\theta}\\,\\frac{1}{\\# \\mathcal E_{(M,MN)}(B; K)} \\sum_{E\\in \\mathcal E_{(M,MN)}(B;K)} \\# \\Sel_p(E)=c.\n\\]"
+      },
+      {
+        "label": "E",
+        "text": "There exists an explicit constant $\\theta>0$, depending only on $M,N,K,p,$ and $\\mathcal G_{MN}(K)$, such that\n\\[\n\\limsup_{B\\to\\infty} \\frac{1}{\\# \\mathcal E_{(M,MN)}(B; K)} \\sum_{E\\in \\mathcal E_{(M,MN)}(B;K)} \\# \\Sel_p(E) \\gg (\\log B)^\\theta,\n\\]\nand the same conclusion still holds even without excluding any of the listed exceptional quadruples."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202512_final.json"
+  },
+  {
+    "id": "202512:24",
+    "month": "202512",
+    "no": 24,
+    "paper_link": "http://arxiv.org/abs/2512.08391v1",
+    "theorem": "\\label{T2}\nAssume\n\\begin{align}\n&\\label{(2)}\nq>0,\\quad 0<\\theta<1,\\\\\n&\\label{(3)}\nf\\geq0,\\;\\; f\\not\\equiv0,\\quad f\\in L^{1}(\\Omega),\\\\\n&\\label{(4)}\n2\\leq p_{1}\\leq p_{2}\\leq ... \\leq p_{N-1}\\leq p_{N}\\quad \\mbox{and}\\quad 2\\leq \\overline{p}:=N\\left(\\sum\\limits_{j\\in J}\\frac{1}{p_{j}}\\right)^{-1}<N.\n\\end{align}\n--\n\\begin{align}\n&\\label{(5)}\n 0<\\alpha\\leq a(x)\\leq \\beta,\\\\\n&\\label{(6)}\n0<\\mu\\leq b(x)\\leq \\nu.\n\\end{align}\nhold. Then,\n\\begin{itemize}\n\\item[(i)] If $0<q<1-\\theta$, there exists a distributional solution $u\\in W_{0}^{1,(r_{j})}(\\Omega)$ to problem\n\\begin{equation}\n\\label{(1)}\n\\left\\{\\begin{array}{ll}\\displaystyle-\\sum\\limits_{j\\in J} D_{j}\\left(\\left[a(x)+u^{q}\\right]\\vert D_{j}u\\vert^{p_{j}-2} D_{j}u\\right)+b(x)\\sum\\limits_{j\\in J}\\frac{\\vert D_{j}u\\vert^{p_{j}}}{ u^{\\theta}}=f& \\hbox{in}\\;\\Omega, \\\\\nu>0& \\hbox{in}\\;\\Omega, \\\\\n u  =0 & \\hbox{on}\\; \\partial\\Omega, \\end{array}\n \\right.\n\\end{equation}\nsuch that\n\\begin{align}\n\\label{(17)}\nr_{j}=\\frac{N(\\overline{p}-\\theta)}{\\overline{p}(N-\\theta)}p_{j},\\quad \\forall \\; j\\in J.\n\\end{align}\n\\item[(ii)] If $1-\\theta<q\\leq1$, there exists a distributional solution $u\\in W_{0}^{1,(\\eta_{j})}(\\Omega)$ to the above problem such that\n\\begin{align}\n\\label{(017)}\nr_{j}<\\frac{N(\\overline{p}-1+q)}{\\overline{p}(N+q-1)}p_{j},\\quad \\forall \\; j\\in J.\n\\end{align}\n\\item[(iii)] If $q>1$, there exists a distributional solution $u\\in W_{0}^{1,(p_{j})}(\\Omega)$ to the above problem.\n\\end{itemize}",
+    "sketch": "To prove the main theorem, the authors give the following outline. First, they “remove the degeneracy of the principal operator and the singularity of the lower-order gradient term” by introducing “a sequence of approximate problems associated with\n\\begin{equation}\n\\label{(1)}\n\\left\\{\\begin{array}{ll}\\displaystyle-\\sum\\limits_{j\\in J} D_{j}\\left(\\left[a(x)+u^{q}\\right]\\vert D_{j}u\\vert^{p_{j}-2} D_{j}u\\right)+b(x)\\sum\\limits_{j\\in J}\\frac{\\vert D_{j}u\\vert^{p_{j}}}{ u^{\\theta}}=f& \\hbox{in}\\;\\Omega, \\\\\nu>0& \\hbox{in}\\;\\Omega, \\\\\n u  =0 & \\hbox{on}\\; \\partial\\Omega, \\end{array}\n \\right.\n\\end{equation}\n, where both difficulties are regularized.” Second, they “establish suitable a priori estimates for the approximate solutions”; the main difficulty is “to control the term\n$$-\\sum_{j \\in J} D_{j}\\left(u^{q}\\vert D_{j}u\\vert^{p_{j}-2}D_{j}u\\right)$$\nin an appropriate anisotropic Lebesgue space.” Finally, “by using Fatou’s lemma together with a standard compactness argument,” they “pass to the limit in the approximate problems and obtain a weak solution to the original equation.” They further indicate that the next part recalls tools on anisotropic Sobolev spaces and defines the approximate problem, then states the key a priori estimates and convergence results, and “finally we pass to the limit.”",
+    "theorem_type": [
+      "Implication",
+      "Existence"
+    ],
+    "question": "Let $\\Omega\\subset \\mathbb{R}^N$ ($N\\ge 3$) be a bounded open set, let $J=\\{1,\\dots,N\\}$, and write $D_j=\\partial_{x_j}$. Assume $q>0$, $0<\\theta<1$, $f\\in L^1(\\Omega)$ with $f\\ge 0$ and $f\\not\\equiv 0$, and numbers $p_1,\\dots,p_N$ satisfy $2\\le p_1\\le \\cdots \\le p_N$ and $2\\le \\overline p:=N\\left(\\sum_{j\\in J}\\frac1{p_j}\\right)^{-1}<N$. Assume also that the measurable coefficients satisfy $0<\\alpha\\le a(x)\\le \\beta$ and $0<\\mu\\le b(x)\\le \\nu$. Consider the boundary value problem\n\\[\n\\begin{cases}\n-\\displaystyle\\sum_{j\\in J} D_j\\!\\left(\\bigl[a(x)+u^q\\bigr]|D_j u|^{p_j-2}D_j u\\right)+b(x)\\displaystyle\\sum_{j\\in J}\\frac{|D_j u|^{p_j}}{u^{\\theta}}=f & \\text{in }\\Omega,\\\\[2mm]\nu>0 & \\text{in }\\Omega,\\\\\nu=0 & \\text{on }\\partial\\Omega.\n\\end{cases}\n\\]\nHere $W_0^{1,(s_j)}(\\Omega)$ denotes the anisotropic Sobolev space of zero-trace functions with $D_j u\\in L^{s_j}(\\Omega)$ for each $j$, and a distributional solution is understood in the usual weak sense for this problem. What is the strongest statement that can be proved about the existence and anisotropic Sobolev regularity of positive distributional solutions of this problem?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "The following piecewise existence result holds: if $0<q<1-\\theta$, then there exists a distributional solution $u\\in W_0^{1,(r_j)}(\\Omega)$, where $r_j=\\dfrac{N(\\overline p-\\theta)}{\\overline p(N-\\theta)}p_j$ for every $j\\in J$; if $1-\\theta<q\\le 1$, then there exists a distributional solution $u\\in W_0^{1,(\\eta_j)}(\\Omega)$ such that $r_j<\\dfrac{N(\\overline p-1+q)}{\\overline p(N+q-1)}p_j$ for every $j\\in J$; and if $q>1$, then there exists a distributional solution $u\\in W_0^{1,(p_j)}(\\Omega)$."
+      },
+      {
+        "label": "B",
+        "text": "The following piecewise existence result holds: if $0<q\\le 1-\\theta$, then there exists a distributional solution $u\\in W_0^{1,(r_j)}(\\Omega)$, where $r_j=\\dfrac{N(\\overline p-\\theta)}{\\overline p(N-\\theta)}p_j$ for every $j\\in J$; if $1-\\theta<q\\le 1$, then there exists a distributional solution $u\\in W_0^{1,(s_j)}(\\Omega)$ for exponents $s_j$ satisfying $s_j<\\dfrac{N(\\overline p-1+q)}{\\overline p(N+q-1)}p_j$ for every $j\\in J$; and if $q>1$, then there exists a distributional solution $u\\in W_0^{1,(p_j)}(\\Omega)$."
+      },
+      {
+        "label": "C",
+        "text": "A weaker existence statement holds: in each of the three regimes $0<q<1-\\theta$, $1-\\theta<q\\le 1$, and $q>1$, there exists a positive distributional solution of the problem; moreover, in the case $q>1$ one may choose a solution in $W_0^{1,(p_j)}(\\Omega)$."
+      },
+      {
+        "label": "D",
+        "text": "The following piecewise existence result holds: if $0<q<1-\\theta$, then there exists a distributional solution $u\\in W_0^{1,(r_j)}(\\Omega)$, where $r_j=\\dfrac{N(\\overline p-\\theta)}{\\overline p(N-\\theta)}p_j$ for every $j\\in J$; if $1-\\theta<q\\le 1$, then there exists a distributional solution $u\\in W_0^{1,(s_j)}(\\Omega)$, where $s_j=\\dfrac{N(\\overline p-1+q)}{\\overline p(N+q-1)}p_j$ for every $j\\in J$; and if $q>1$, then there exists a distributional solution $u\\in W_0^{1,(p_j)}(\\Omega)$."
+      },
+      {
+        "label": "E",
+        "text": "The following piecewise existence result holds: if $0<q<1-\\theta$, then there exists a distributional solution $u\\in W_0^{1,(r_j)}(\\Omega)$, where $r_j=\\dfrac{N(\\overline p-\\theta)}{\\overline p(N-\\theta)}p_j$ for every $j\\in J$; if $1-\\theta<q\\le 1$, then there exists a distributional solution $u\\in W_0^{1,(p_j)}(\\Omega)$; and if $q>1$, then there exists a distributional solution $u\\in W_0^{1,(s_j)}(\\Omega)$ for exponents $s_j$ satisfying $s_j<\\dfrac{N(\\overline p-1+q)}{\\overline p(N+q-1)}p_j$ for every $j\\in J$."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "The following piecewise existence result holds: if $0<q<1-\\theta$, then there exists a distributional solution $u\\in W_0^{1,(r_j)}(\\Omega)$, where $r_j=\\dfrac{N(\\overline p-\\theta)}{\\overline p(N-\\theta)}p_j$ for every $j\\in J$; if $1-\\theta<q\\le 1$, then there exists a distributional solution $u\\in W_0^{1,(\\eta_j)}(\\Omega)$ such that $r_j<\\dfrac{N(\\overline p-1+q)}{\\overline p(N+q-1)}p_j$ for every $j\\in J$; and if $q>1$, then there exists a distributional solution $u\\in W_0^{1,(p_j)}(\\Omega)$."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202512_final.json"
+  },
+  {
+    "id": "202512:32",
+    "month": "202512",
+    "no": 32,
+    "paper_link": "http://arxiv.org/abs/2512.23224v1",
+    "theorem": "[$=$\\,\\begin{thm} \\label{thm:QK-Whitney_A}\n\\begin{enu}\n\\item In $QK_{T}(\\FlC{n})[y]$, for $1 \\le k \\le n$, we have \n\\begin{equation} \\label{eq:QK-Whitney_1}\n\\lambda_{y}(\\CS_{k-1}) \\star \\lambda_{y}(\\CS_{k}/\\CS_{k-1}) = \\lambda_{y}(\\CS_{k}) - y \\frac{Q_{k-1}}{1-Q_{k-1}} [\\CS_{k}/\\CS_{k-1}] \\star (\\lambda_{y}(\\CS_{k-1}) - \\lambda_{y}(\\CS_{k-2})). \n\\end{equation}\n\n\\item In $QK_{T}(\\FlC{n})[y]$, for $1 \\le k \\le n$, we have\n\\begin{equation} \\label{eq:QK-Whitney_2}\n\\lambda_{y}(\\CS_{k-1}^{\\vee}) \\star \\lambda_{y}((\\CS_{k}/\\CS_{k-1})^{\\vee}) = \\lambda_{y}(\\CS_{k}^{\\vee}) - y \\frac{Q_{k-1}}{1-Q_{k-1}} [(\\CS_{k}/\\CS_{k-1})^{\\vee}] \\star (\\lambda_{y}(\\CS_{k-1}^{\\vee}) - \\lambda_{y}(\\CS_{k-2}^{\\vee})). \n\\end{equation}\n\\end{enu}\n\\end{thm}\\,+$\\,\\begin{thm} \\label{thm:QK-Whitney_B}\nIn $QK_{T}(\\FlC{n})[y]$, we have \n\\begin{equation} \\label{eq:QK-Whitney_3}\n\\begin{split}\n& \\lambda_{y}(\\CS_{n}) \\star \\lambda_{y}(\\CS_{n}^{\\vee}) = \\lambda_{y}(\\udBC^{2n}) \\\\ \n& \\qquad - y^{2} \\sum_{p=1}^{n} \\frac{Q_{p} \\cdots Q_{n}}{1-Q_{p-1}} (\\lambda_{y}(\\CS_{p-1}) - Q_{p-1} \\lambda_{y}(\\CS_{p-2})) \\star (\\lambda_{y}(\\CS_{p-1}^{\\vee}) - Q_{p-1} \\lambda_{y}(\\CS_{p-2}^{\\vee})). \n\\end{split}\n\\end{equation}\n\\end{thm}] \\label{ithm:QK-Whitney}\n\\begin{enu}\n\\item In $QK_{T}(\\FlC{n})[y]$, for $1 \\le k \\le n$, we have \n\\begin{equation} \\label{eq:QK-Whitney_1_intro}\n\\lambda_{y}(\\CS_{k-1}) \\star \\lambda_{y}(\\CS_{k}/\\CS_{k-1}) = \\lambda_{y}(\\CS_{k}) - y \\frac{Q_{k-1}}{1-Q_{k-1}} [\\CS_{k}/\\CS_{k-1}] \\star (\\lambda_{y}(\\CS_{k-1}) - \\lambda_{y}(\\CS_{k-2})). \n\\end{equation}\n\n\\item In $QK_{T}(\\FlC{n})[y]$, for $1 \\le k \\le n$, we have\n\\begin{equation} \\label{eq:QK-Whitney_2_intro}\n\\lambda_{y}(\\CS_{k-1}^{\\vee}) \\star \\lambda_{y}((\\CS_{k}/\\CS_{k-1})^{\\vee}) = \\lambda_{y}(\\CS_{k}^{\\vee}) - y \\frac{Q_{k-1}}{1-Q_{k-1}} [(\\CS_{k}/\\CS_{k-1})^{\\vee}] \\star (\\lambda_{y}(\\CS_{k-1}^{\\vee}) - \\lambda_{y}(\\CS_{k-2}^{\\vee})). \n\\end{equation}\n\n\\item In $QK_{T}(\\FlC{n})[y]$, we have \n\\begin{equation} \\label{eq:QK-Whitney_3_intro}\n\\begin{split}\n& \\lambda_{y}(\\CS_{n}) \\star \\lambda_{y}(\\CS_{n}^{\\vee}) = \\lambda_{y}(\\underline{\\BC}^{2n}) \\\\ \n& \\qquad - y^{2} \\sum_{p=1}^{n} \\frac{Q_{p} \\cdots Q_{n}}{1-Q_{p-1}} (\\lambda_{y}(\\CS_{p-1}) - Q_{p-1} \\lambda_{y}(\\CS_{p-2})) \\star (\\lambda_{y}(\\CS_{p-1}^{\\vee}) - Q_{p-1} \\lambda_{y}(\\CS_{p-2}^{\\vee})). \n\\end{split}\n\\end{equation}\n\n\\end{enu}",
+    "sketch": "To prove the main theorem, we use the theory of semi-infinite flag manifolds. Kato (\\cite{Kato}) proved that the $K$-group of the semi-infinite flag manifold is isomorphic to the quantum $K$-ring of the flag manifold as $R(T)$-modules. Through this isomorphism, we can translate certain quantum products in $QK_{T}(\\FlC{n})$ that appear in the computation of the left-hand side of the $QK$-Whitney relations into tensor products in the $K$-group of the semi-infinite flag manifold. Since tensor products in the $K$-group of the semi-infinite flag manifold satisfy a multiplicative property, we can obtain identities of line bundle classes in $QK_{T}(\\FlC{n})$. We first record the following corollary.\n\n\\begin{cor} \\label{cor:multiple_line_bundles}\nAssume that $G = \\Sp_{2n}(\\BC)$. \nLet $2 \\le k \\le n$ and take $J \\subset [1, k-1]$. Then we have \n\\begin{align}\n[\\CO_{G/B}(-\\ve_{J \\sqcup \\{k\\}})] &= \\begin{cases} \\dfrac{1}{1-Q_{k-1}} [\\CO_{G/B}(-\\ve_{J})] \\star [\\CO_{G/B}(-\\ve_{k})] & \\text{if $k-1 \\in J$}, \\\\[5mm]\n[\\CO_{G/B}(-\\ve_{J})] \\star [\\CO_{G/B}(-\\ve_{k})] & \\text{if $k-1 \\notin J$}, \\end{cases} \\label{eq:multiple_1} \\\\ \n[\\CO_{G/B}(\\ve_{J \\sqcup \\{k\\}})] &= \\begin{cases} \\dfrac{1}{1-Q_{k-1}} [\\CO_{G/B}(\\ve_{J})] \\star [\\CO_{G/B}(\\ve_{k})] & \\text{if $k-1 \\in J$}, \\\\[5mm]\n[\\CO_{G/B}(\\ve_{J})] \\star [\\CO_{G/B}(\\ve_{k})] & \\text{if $k-1 \\notin J$}. \\end{cases} \\label{eq:multiple_2}\n\\end{align}\n\\end{cor}\n\nThese identities enable us to compute $\\lambda_{y}(\\CS_{k-1}) \\star \\lambda_{y}(\\CS_{k}/\\CS_{k-1})$ and $\\lambda_{y}(\\CS_{k-1}^{\\vee}) \\star \\lambda_{y}((\\CS_{k}/\\CS_{k-1})^{\\vee})$. To consider the product $\\lambda_{y}(\\CS_{n}) \\star \\lambda_{y}(\\CS_{n}^{\\vee})$, we use an additional method, the Borel-type presentation. This gives a relation in $QK_{T}(\\FlC{n}) enabling us to simplify such a product; more precisely, we use the following proposition.\n\n\\begin{prop}[{\\cite[Corollary~6.4]{KN2}}] \\label{prop:QK-Borel_rel}\nIn $QK_{T}(\\FlC{n})$, for $0 \\le d \\le 2n$, we have \n\\begin{equation} \\label{eq:QK-Borel_rel}\n\\sum_{\\substack{J \\subset [1, \\overline{1}] \\\\ |J|=d}} \\left( \\prod_{1 \\le j \\le \\overline{1}} \\varphi_{J}(j) \\right) \\left( \\qprod_{j \\in J} [\\CO_{G/B}(-\\ve_{j})] \\right) = \\left[ \\extprod^{d} \\udBC^{2n} \\right]. \n\\end{equation}\n\\end{prop}",
+    "theorem_type": [
+      "unknown"
+    ],
+    "question": "Let $\\mathrm{Fl}_C(n)$ be the type $C_n$ flag manifold, i.e. the variety of isotropic flags\n\\[\n0\\subset V_1\\subset\\cdots\\subset V_n\\subset \\mathbb C^{2n}\n\\]\nwith respect to a fixed symplectic form, and let\n\\[\n0=\\mathcal S_0\\subset \\mathcal S_1\\subset\\cdots\\subset \\mathcal S_n\\subset \\underline{\\mathbb C}^{2n}\n\\]\nbe its tautological filtration of subbundles, with $\\operatorname{rk}(\\mathcal S_k)=k$. In the $T$-equivariant quantum $K$-ring $QK_T(\\mathrm{Fl}_C(n))[y]$, write $\\lambda_y(E)=\\sum_i[\\wedge^iE]y^i$, let $\\star$ denote the quantum product, $E^\\vee$ the dual bundle, $[E]$ the $K$-theory class of a bundle $E$, and let $Q_1,\\dots,Q_n$ be the Novikov variables, with the conventions $Q_0=0$ and $\\mathcal S_{-1}=0$. What is the strongest statement that can be proved about these objects?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "In $QK_T(\\mathrm{Fl}_C(n))[y]$, for $1\\le k\\le n$, one has\n\\[\n\\lambda_y(\\mathcal S_{k-1})\\star\\lambda_y(\\mathcal S_k/\\mathcal S_{k-1})\n=\\lambda_y(\\mathcal S_k)-y\\frac{Q_{k-1}}{1-Q_k}[\\mathcal S_k/\\mathcal S_{k-1}]\\star\\bigl(\\lambda_y(\\mathcal S_{k-1})-\\lambda_y(\\mathcal S_{k-2})\\bigr),\n\\]\nand likewise\n\\[\n\\lambda_y(\\mathcal S_{k-1}^{\\vee})\\star\\lambda_y((\\mathcal S_k/\\mathcal S_{k-1})^{\\vee})\n=\\lambda_y(\\mathcal S_k^{\\vee})-y\\frac{Q_{k-1}}{1-Q_k}[(\\mathcal S_k/\\mathcal S_{k-1})^{\\vee}]\\star\\bigl(\\lambda_y(\\mathcal S_{k-1}^{\\vee})-\\lambda_y(\\mathcal S_{k-2}^{\\vee})\\bigr).\n\\]"
+      },
+      {
+        "label": "C",
+        "text": "In $QK_T(\\mathrm{Fl}_C(n))[y]$, for $1\\le k\\le n$, one has\n\\[\n\\lambda_y(\\mathcal S_{k-1})\\star\\lambda_y(\\mathcal S_k/\\mathcal S_{k-1})\n=\\lambda_y(\\mathcal S_k)-y\\frac{Q_{k-1}}{1-Q_{k-1}}[\\mathcal S_k/\\mathcal S_{k-1}]\\star\\bigl(\\lambda_y(\\mathcal S_{k-1})-\\lambda_y(\\mathcal S_{k-2})\\bigr).\n\\]"
+      },
+      {
+        "label": "D",
+        "text": "In $QK_T(\\mathrm{Fl}_C(n))[y]$, one has\n\\[\n\\begin{aligned}\n\\lambda_y(\\mathcal S_n)\\star\\lambda_y(\\mathcal S_n^{\\vee})\n&=\\lambda_y(\\underline{\\mathbb C}^{2n})\\\\\n&\\quad-y^2\\sum_{p=1}^n \\frac{Q_p\\cdots Q_n}{1-Q_p}\\bigl(\\lambda_y(\\mathcal S_{p-1})-Q_{p-1}\\lambda_y(\\mathcal S_{p-2})\\bigr)\\star\\bigl(\\lambda_y(\\mathcal S_{p-1}^{\\vee})-Q_{p-1}\\lambda_y(\\mathcal S_{p-2}^{\\vee})\\bigr).\n\\end{aligned}\n\\]"
+      },
+      {
+        "label": "E",
+        "text": "In $QK_T(\\mathrm{Fl}_C(n))[y]$, one has\n\\[\n\\begin{aligned}\n\\lambda_y(\\mathcal S_n)\\star\\lambda_y(\\mathcal S_n^{\\vee})\n&=\\lambda_y(\\underline{\\mathbb C}^{2n})\\\\\n&\\quad-y^2\\sum_{p=1}^n \\frac{Q_p\\cdots Q_n}{1-Q_{p-1}}\\bigl(\\lambda_y(\\mathcal S_{p-1})-Q_{p-1}\\lambda_y(\\mathcal S_{p-2})\\bigr)\\star\\bigl(\\lambda_y(\\mathcal S_{p-1}^{\\vee})-Q_p\\lambda_y(\\mathcal S_{p-2}^{\\vee})\\bigr).\n\\end{aligned}\n\\]"
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202512_final.json"
+  },
+  {
+    "id": "202602:47",
+    "month": "202602",
+    "no": 47,
+    "paper_link": "http://arxiv.org/abs/2602.10391v1",
+    "theorem": "(\\cite[Conjecture 4.6]{Rui2026})\\label{conjsymetrycmHZv}\nLet $x_1,\\ldots,x_r$ be roots of unity and $a\\in \\mathbb{C}\\setminus \\mathbb{Z}$. For $\\bfk=(k_1,\\ldots,k_r)\\in \\mathbb{N}^r$ and $(k_1,x_1),\\ (k_r,x_r)\\neq (1,1)$, we have\n\\begin{align*}\n\\Li_{k_1,\\ldots,k_r}(x_1,\\ldots,x_r;a)\\equiv  (-1)^{k_1+\\cdots+k_r-1} (x_1\\cdots x_r) \\Li_{k_r,\\ldots,k_1}(x^{-1}_r,\\ldots,x_1^{-1};1-a)\\quad (\\text{mod products}),\n\\end{align*}\nwhere ``mod products\" means discarding all product terms of cyclotomic multiple Hurwitz zeta values with depth $<r$.,",
+    "sketch": "This paper states that it \"employs the methods of contour integration and residue computation to prove the main conjecture.\" The approach is based on the contour-integration framework of Flajolet--Salvy and, specifically, on considering the two vanishing contour integrals\n\\[\n\\oint_{(\\infty)} \\frac{\\Phi(s;x)\\,\\Li_{k_1,\\ldots,k_r}(x_1,\\ldots,x_r;s+1)}{s^q}\\,ds=0\n\\quad\\text{and}\\quad\n\\oint_{(\\infty)} \\frac{\\Phi(s;x)\\,\\Li_{k_1,\\ldots,k_r}(x_1,\\ldots,x_r;1+a_1+s,\\ldots,1+a_r+s)}{(s+a)^q}\\,ds=0,\n\\]\nwhere \\(\\Phi(s;x)\\) is an \"extended trigonometric function\" defined by\n\\(\\Phi(s;x):=\\phi(s;x)-\\phi(-s;x^{-1})-1/s\\) with \\(\\phi(s;x)=\\sum_{k=0}^\\infty x^k/(k+s)\\).\nThe paper then indicates the proof organization: next it provides \"Laurent expansions of the integrands ... at their poles, preparing for the residue calculations,\" and later it gives the proofs of the main theorems via these residue computations, yielding the desired symmetry (modulo lower-depth product terms) and \"a more generalized form along with explicit formulas.\"",
+    "theorem_type": [
+      "Universal",
+      "Equivalence"
+    ],
+    "question": "For every positive integer \\(r\\), every choice of roots of unity \\(x_1,\\ldots,x_r\\), every complex number \\(a\\in \\mathbb{C}\\setminus \\mathbb{Z}\\), and every index \\(\\mathbf{k}=(k_1,\\ldots,k_r)\\in \\mathbb{N}^r\\) such that \\((k_1,x_1)\\neq (1,1)\\) and \\((k_r,x_r)\\neq (1,1)\\), consider the cyclotomic multiple Hurwitz zeta value \\(\\operatorname{Li}_{k_1,\\ldots,k_r}(x_1,\\ldots,x_r;a)\\). Here “mod products” means that all product terms of cyclotomic multiple Hurwitz zeta values of depth less than \\(r\\) are discarded. Which statement holds for every such choice?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "\\(\\operatorname{Li}_{k_1,\\ldots,k_r}(x_1,\\ldots,x_r;a)\\equiv (-1)^{k_1+\\cdots+k_r-1}(x_1\\cdots x_r)\\,\\operatorname{Li}_{k_r,\\ldots,k_1}(x_r^{-1},\\ldots,x_1^{-1};1+a)\\pmod{\\text{products}}\\)."
+      },
+      {
+        "label": "C",
+        "text": "\\(\\operatorname{Li}_{k_1,\\ldots,k_r}(x_1,\\ldots,x_r;a)-(-1)^{k_1+\\cdots+k_r-1}(x_1\\cdots x_r)\\,\\operatorname{Li}_{k_r,\\ldots,k_1}(x_r^{-1},\\ldots,x_1^{-1};1-a)\\) is a finite linear combination of products of cyclotomic multiple Hurwitz zeta values of depth less than \\(r\\)."
+      },
+      {
+        "label": "D",
+        "text": "\\(\\operatorname{Li}_{k_1,\\ldots,k_r}(x_1,\\ldots,x_r;a)\\equiv (-1)^{k_1+\\cdots+k_r-1}(x_1\\cdots x_r)^{-1}\\,\\operatorname{Li}_{k_r,\\ldots,k_1}(x_r^{-1},\\ldots,x_1^{-1};1-a)\\pmod{\\text{products}}\\)."
+      },
+      {
+        "label": "E",
+        "text": "\\(\\operatorname{Li}_{k_1,\\ldots,k_r}(x_1,\\ldots,x_r;a)=(-1)^{k_1+\\cdots+k_r-1}(x_1\\cdots x_r)\\,\\operatorname{Li}_{k_r,\\ldots,k_1}(x_r^{-1},\\ldots,x_1^{-1};1-a)\\), so no lower-depth product correction terms occur at all."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202602_final.json"
+  },
+  {
+    "id": "202602:46",
+    "month": "202602",
+    "no": 46,
+    "paper_link": "http://arxiv.org/abs/2602.13727v2",
+    "theorem": "\\label{maintheore}\nLet $U \\subset \\mathbb{R}^d$ be a (possibly unbounded) open set with $d \\geq 2$. Assume that $\\mathbf{G} \\in L^2_{loc}(U, \\mathbb{R}^d)$ and $c \\in L^1_{loc}(U)$. Let $A = (a_{ij})_{1 \\leq i,j \\leq d}$ be a symmetric matrix of functions such that $a_{ij} \\in VMO_{loc}(U)$ for all $1 \\leq i,j \\leq d$, where $VMO_{loc}(U)$ is defined as follows.\n\n\\begin{defn} \\label{defnvmo}\nLet $\\omega$ be a positive continuous function on $[0,\\infty)$ with $\\omega(0) = 0$. The space $VMO_\\omega$ consists of all functions $g \\in L^1_{loc}(\\mathbb{R}^d)$ such that\n\\[\n\\sup_{z \\in \\mathbb{R}^d,\\, r < R} \\, r^{-2d} \\int_{B_r(z)} \\int_{B_r(z)} |g(x) - g(y)| \\, dx \\, dy \\leq \\omega(R) \\quad \\text{for all } R \\in (0,\\infty).\n\\]\nLet $B$ be an open ball in $\\mathbb{R}^d$. We define $VMO(B)$ as the set of all functions $f \\in L^1(B)$ for which there exists an extension $\\tilde{f} \\in VMO_{\\omega}$  (for some modulus $\\omega$) such that $\\tilde{f}|_B = f$. For an open set $U \\subset \\mathbb{R}^d$, the space $VMO_{loc}(U)$ is defined as the collection of all functions $f \\in L^1_{loc}(U)$ such that $f \\in VMO(B)$ for every open ball $B \\subset \\mathbb{R}^d$ with $\\overline{B} \\subset U$.\n\\end{defn}\n\nAssume moreover that ${\\rm div} A \\in L^2_{loc}(U, \\mathbb{R}^d)$, where the meaning of ${\\rm div}$ for a matrix field is as follows.\n\n\\begin{defn} \\label{defndivmat}\nLet $U$ be an open subset of $\\mathbb{R}^d$, $\\mathbf{E} = (e_1, \\dots, e_d) \\in L^1_{loc}(U, \\mathbb{R}^d)$ and $B = (b_{ij})_{1 \\leq i,j \\leq d}$ be a (possibly non-symmetric) matrix of functions with $b_{ij} \\in L^1_{loc}(U)$ for all $1 \\leq i,j \\leq d$. Let $\\mathbf{F} \\in L^1_{loc}(U, \\mathbb{R}^d)$ and $f \\in L^1_{loc}(U)$.\n\\begin{itemize}\n\\item[(i)] We say that ${\\rm div} B = \\mathbf{E}$ if\n\\[\n\\int_U \\sum_{i,j=1}^d b_{ij} \\, \\partial_i \\phi_j \\, dx = - \\int_U \\sum_{j=1}^d e_j \\, \\phi_j \\, dx \\quad \\text{for all } (\\phi_1, \\dots, \\phi_d) \\in C_0^\\infty(U)^d.\n\\]\n\\item[(ii)] We say that ${\\rm div} \\mathbf{F} = f$ if\n\\[\n\\int_U \\langle \\mathbf{F}, \\nabla \\varphi \\rangle \\, dx = - \\int_U f \\varphi \\, dx \\quad \\text{for all } \\varphi \\in C_0^\\infty(U).\n\\]\n\\end{itemize}\n\\end{defn}\n\nAlso assume that $A$ is locally uniformly strictly elliptic and bounded on $U$, i.e. for every open ball $V$ with $\\overline{V} \\subset U$, there exist constants $\\lambda_V, M_V > 0$ such that\n\\begin{equation} \\label{locellst}\n\\lambda_V \\| \\xi \\|^2 \\leq \\langle A(x) \\xi, \\xi \\rangle, \\quad \\;\\; \\max_{1 \\leq i,j \\leq d} |a_{ij}(x)| \\leq M_V\n\\quad \\text{for a.e. } x \\in V \\text{ and all } \\xi \\in \\mathbb{R}^d.\n\\end{equation}\nLet $\\tilde{\\mathbf{F}} \\in L^2_{loc}(U, \\mathbb{R}^d)$ and $\\tilde{f} \\in L^1_{loc}(U)$. Suppose that $h \\in L^{\\infty}_{loc}(U)$ satisfies\n\\[\n\\int_U \\left({\\rm trace}(A \\nabla^2 \\varphi) + \\langle \\mathbf{G}, \\nabla \\varphi \\rangle + c \\varphi \\right) h \\, dx \n= \\int_U \\tilde{f} \\varphi \\, dx + \\int_U \\langle \\tilde{\\mathbf{F}}, \\nabla \\varphi \\rangle \\, dx \\quad \\text{for all } \\varphi \\in C_0^{\\infty}(U).\n\\]\nThen, in establishing the main theorem, $h \\in H^{1,2}_{loc}(U).",
+    "sketch": "To prove the main theorem, the paper’s stated strategy is to (i) “construct a constant $\\lambda_0>0$ and a sub-Markovian resolvent $(R_\\alpha)_{\\alpha\\ge \\lambda_0}$ associated with the principal elliptic operator $L^A={\\rm trace}(A\\nabla^2)$”, and then (ii) “show that the function $h$ can be represented as the local weak $H^{1,2}$-limit of the family $(\\alpha R_\\alpha h)_{\\alpha\\ge \\lambda_0}$ as $\\alpha\\to\\infty$.” The introduction emphasizes that the proof relies on “resolvent estimates under the weaker assumptions that the coefficients belong to $VMO_{loc}(\\mathbb{R}^d)$ and that ${\\rm div}A\\in L^2_{loc}(\\mathbb{R}^d,\\mathbb{R}^d)$, which enable us to derive the main result.”",
+    "theorem_type": [
+      "Implication",
+      "Universal"
+    ],
+    "question": "Let U \\subset \\mathbb{R}^d be an open set, possibly unbounded, with d \\ge 2. Let \\mathbf{G} \\in L^2_{loc}(U,\\mathbb{R}^d) and c \\in L^1_{loc}(U). Let A=(a_{ij})_{1\\le i,j\\le d} be a symmetric matrix field such that each coefficient a_{ij} belongs to VMO_{loc}(U), meaning it has vanishing mean oscillation on every ball whose closure is contained in U. Assume also that the distributional divergence of A belongs to L^2_{loc}(U,\\mathbb{R}^d), where \\operatorname{div}A=\\mathbf E means\n\\[\n\\int_U \\sum_{i,j=1}^d a_{ij}\\,\\partial_i \\psi_j\\,dx=-\\int_U \\sum_{j=1}^d E_j\\,\\psi_j\\,dx\n\\qquad \\text{for all } (\\psi_1,\\dots,\\psi_d)\\in C_c^\\infty(U)^d.\n\\]\nAssume further that A is locally uniformly strictly elliptic and locally bounded on U: for every open ball V with \\overline V\\subset U, there exist constants \\lambda_V,M_V>0 such that\n\\[\n\\lambda_V|\\xi|^2\\le \\langle A(x)\\xi,\\xi\\rangle,\\qquad \\max_{i,j}|a_{ij}(x)|\\le M_V\n\\]\nfor a.e. x\\in V and all \\xi\\in\\mathbb{R}^d. Let \\tilde{\\mathbf F}\\in L^2_{loc}(U,\\mathbb{R}^d) and \\tilde f\\in L^1_{loc}(U). Suppose h\\in L^\\infty_{loc}(U) satisfies\n\\[\n\\int_U \\big(\\operatorname{trace}(A\\nabla^2\\varphi)+\\langle \\mathbf G,\\nabla\\varphi\\rangle + c\\varphi\\big)h\\,dx\n= \\int_U \\tilde f\\,\\varphi\\,dx + \\int_U \\langle \\tilde{\\mathbf F},\\nabla\\varphi\\rangle\\,dx\n\\qquad \\text{for all }\\varphi\\in C_c^\\infty(U),\n\\]\nwhere \\operatorname{trace}(A\\nabla^2\\varphi)=\\sum_{i,j=1}^d a_{ij}\\,\\partial_{ij}\\varphi. What is the strongest statement that can be proved about every such h?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "h belongs to H^{1,2}_{loc}(U)."
+      },
+      {
+        "label": "B",
+        "text": "h belongs to H^{1,2}_{loc}(U), and for every open ball V with \\overline V\\subset U there exists a constant C_V depending only on the local coefficients and data such that \\|h\\|_{H^{1,2}(V)}\\le C_V\\big(\\|\\tilde{\\mathbf F}\\|_{L^2(V)}+\\|\\tilde f\\|_{L^1(V)}\\big)."
+      },
+      {
+        "label": "C",
+        "text": "h belongs to L^2_{loc}(U)."
+      },
+      {
+        "label": "D",
+        "text": "h has a representative that is locally Hölder continuous on U."
+      },
+      {
+        "label": "E",
+        "text": "h belongs to H^{2,2}_{loc}(U)."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "h belongs to H^{1,2}_{loc}(U)."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202602_final.json"
+  },
+  {
+    "id": "202512:21",
+    "month": "202512",
+    "no": 21,
+    "paper_link": "http://arxiv.org/abs/2512.12835v1",
+    "theorem": "\\label{theorem: intro}\n\tConsistently from a measurable cardinal, there are two $\\sigma$-complete ultrafilters $\\mathcal{V}, \\mathcal{W}$ such that $\\mathcal{V}$ is Lipschitz below $\\mathcal{W}$, but $\\mathcal{V}$ and $\\mathcal{W}$ are Ketonen-incomparable. Furthermore, the same is also consistent with the assumption that the Weak Ultrapower Axiom holds.",
+    "sketch": "We will rely on the construction from \\cite{kaplan2025number} in the proof of the main theorem. The paper then proceeds by: (1) defining the Ketonen and Lipschitz orders and outlining their basic properties; (2) showing, consistently, that the Ketonen and Lipschitz orders do not coincide (not in a model of the Weak UA). We first prove the following theorem. \\begin{theorem}\\label{Theorem: Separating Lipschitz from Ketonen the Easy way}\n\tAssume $V= L[U]$, $\\kappa$ is the unique measurable cardinal, $\\po$ is the forcing notion described above and $G,G^*, U_0,U_1$ are as above. Denote $\\vc = U_0$ and $\\wc$ the measure derived from $j^{V[G]}_{(U_1)^2}$ using the ordinal $j_U(\\kappa)+\\kappa$ as a seed. Then $\\vc<_{L} \\wc$ but $\\vc, \\wc$ are Ketonen incomparable.\n\\end{theorem} (3) sketching basic properties of forcing with nonstationary support products; and (4) separating the Ketonen and Lipschitz orders in a model of the Weak UA, thereby completing the proof of the main theorem.",
+    "theorem_type": [
+      "Independence or Consistency",
+      "Existence"
+    ],
+    "question": "Assume the consistency strength of a measurable cardinal. A \\(\\sigma\\)-complete ultrafilter is an ultrafilter closed under countable intersections. Using the standard comparison notions \\(<_L\\) (the Lipschitz order) and \\(<_k\\) (the Ketonen order) on \\(\\sigma\\)-complete ultrafilters, where “Ketonen-incomparable” means that neither ultrafilter is below the other in \\(<_k\\), and writing WUA for the Weak Ultrapower Axiom, what is the strongest statement that can be proved about consistency phenomena for \\(\\sigma\\)-complete ultrafilters?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "Relative to a measurable cardinal, it is consistent that there exist two \\(\\sigma\\)-complete ultrafilters \\(\\mathcal V\\) and \\(\\mathcal W\\) such that \\(\\mathcal V\\) is Lipschitz below \\(\\mathcal W\\), while \\(\\mathcal V\\) and \\(\\mathcal W\\) are Ketonen-incomparable; moreover, it is also consistent that such a situation occurs together with the Weak Ultrapower Axiom."
+      },
+      {
+        "label": "B",
+        "text": "Relative to a measurable cardinal, it is consistent that there exist two \\(\\sigma\\)-complete ultrafilters \\(\\mathcal V\\) and \\(\\mathcal W\\) such that \\(\\mathcal V\\) is Lipschitz below \\(\\mathcal W\\), while \\(\\mathcal V\\) and \\(\\mathcal W\\) are Ketonen-incomparable; however, no model satisfying the Weak Ultrapower Axiom can contain such a pair."
+      },
+      {
+        "label": "C",
+        "text": "Relative to a measurable cardinal, it is consistent that there exist two \\(\\sigma\\)-complete ultrafilters \\(\\mathcal V\\) and \\(\\mathcal W\\) such that \\(\\mathcal V\\) is Lipschitz below \\(\\mathcal W\\), while \\(\\mathcal V\\) and \\(\\mathcal W\\) are Ketonen-incomparable."
+      },
+      {
+        "label": "D",
+        "text": "Relative to a measurable cardinal, it is consistent that there exist two \\(\\sigma\\)-complete ultrafilters \\(\\mathcal V\\) and \\(\\mathcal W\\) such that \\(\\mathcal V\\) is Lipschitz below \\(\\mathcal W\\) and the Lipschitz and Ketonen orders do not coincide on \\(\\sigma\\)-complete ultrafilters; nevertheless, in every model of the Weak Ultrapower Axiom, any relation \\(\\mathcal V<_L\\mathcal W\\) already implies that \\(\\mathcal V\\) and \\(\\mathcal W\\) are comparable in the Ketonen order."
+      },
+      {
+        "label": "E",
+        "text": "Relative to a measurable cardinal, it is consistent that the Lipschitz and Ketonen orders on \\(\\sigma\\)-complete ultrafilters can fail to coincide, but only outside the Weak Ultrapower Axiom; under WUA, the Ketonen order is always linear on \\(\\sigma\\)-complete ultrafilters."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "Relative to a measurable cardinal, it is consistent that there exist two \\(\\sigma\\)-complete ultrafilters \\(\\mathcal V\\) and \\(\\mathcal W\\) such that \\(\\mathcal V\\) is Lipschitz below \\(\\mathcal W\\), while \\(\\mathcal V\\) and \\(\\mathcal W\\) are Ketonen-incomparable; moreover, it is also consistent that such a situation occurs together with the Weak Ultrapower Axiom."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202512_final.json"
+  },
+  {
+    "id": "202512:33",
+    "month": "202512",
+    "no": 33,
+    "paper_link": "http://arxiv.org/abs/2512.19500v1",
+    "theorem": "\\label{t:main}\n  Let $q\\ge4$ be a prime power and $G$ be almost simple with socle\n  $S=\\PSL_2(q)$, that is $S\\le G\\le\\aut(S)$. Suppose that $G$ acts\n  primitively on $\\Omega$. Then for every distinct\n  $\\alpha, \\beta\\in\\Omega$ there exists $s\\in S$ such that\n  $\\alpha^s=\\beta$ and $s$ fixes no point of $\\Omega$.",
+    "sketch": "To prove the main theorem, one uses that when $G$ acts primitively on $\\Omega$, “the possibilities for a point stabilizer $S_\\omega < S$ are known.” The argument then splits by the type of $S_\\omega$: “some cases are relatively easy to handle,” while the “more difficult ones arise when $S_\\omega$ is dihedral, or when $S_\\omega$ is one of the polyhedral groups $A_4$, $S_4$, or $A_5$.” In the dihedral case, the proof “require[s] Hasse’s bound on the number of points on elliptic curves over finite fields,” and to exclude the polyhedral cases one “derive[s] trace identities for the binary polyhedral groups $2A_4$, $2S_4$, and $2A_5$.” The authors note that “in some cases there are lengthy calculations” and they “provide SageMath code at \\cite{dera_psl2_verify} that confirms the claims.”",
+    "theorem_type": [
+      "Universal–Existential",
+      "Implication"
+    ],
+    "question": "Let q\\ge 4 be a prime power, let G be an almost simple group with socle S=\\mathrm{PSL}_2(q) (so S\\le G\\le \\mathrm{Aut}(S)), and suppose G acts primitively on a set \\Omega. Here, for g\\in G and \\omega\\in\\Omega, \\omega^g denotes the image of \\omega under the action. For distinct points \\alpha,\\beta\\in\\Omega, what is the strongest statement that can be proved about the existence of an element sending \\alpha to \\beta while fixing no point of \\Omega?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "For every pair of distinct points \\alpha,\\beta\\in\\Omega, there exists an involution s\\in S such that \\alpha^s=\\beta and s fixes no point of \\Omega."
+      },
+      {
+        "label": "C",
+        "text": "For every pair of distinct points \\alpha,\\beta\\in\\Omega, there exists an element g\\in G such that \\alpha^g=\\beta and g fixes no point of \\Omega."
+      },
+      {
+        "label": "D",
+        "text": "For every pair of distinct points \\alpha,\\beta\\in\\Omega, there exists an element s\\in S such that \\alpha^s=\\beta and every nontrivial power of s fixes no point of \\Omega."
+      },
+      {
+        "label": "E",
+        "text": "There exists a single conjugacy class C\\subseteq S such that for every pair of distinct points \\alpha,\\beta\\in\\Omega, some element s\\in C satisfies \\alpha^s=\\beta and s fixes no point of \\Omega."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202512_final.json"
+  },
+  {
+    "id": "202602:45",
+    "month": "202602",
+    "no": 45,
+    "paper_link": "http://arxiv.org/abs/2602.23912v1",
+    "theorem": "\\label{thm:phase-transition}\nLet $\\cC$ be a block-stable class of connected graphs, let $\\cB$ be its class of $2$-connected components whose EGF we denote by $B(y)$, and let $\\rho_B$ be the radius of convergence of $B$. Let\n\\[u_C := \\frac{1}{\\rho_B B''(\\rho_B)}.\\]\nThen the following hold. \n\\begin{itemize}\n    \\item The singular behaviour of $C^{\\bullet}(x,u)$ depends on the relative positions of $u$ and $u_C$;\n    \\item The block tree corresponding to a graph drawn according to $\\Pnu$ follows a subcritical \\BGW{} tree law if $u<u_C$, and a critical \\BGW{} tree law if $u \\ge u_C$.\n\\end{itemize}",
+    "sketch": "The post-theorem text does not give a step-by-step proof of the main theorem, but it does outline the main ingredients used to establish it. The argument is said to build on methods for block-weighted planar maps Fleurat and Salvy, title unknown (2023). The key structural input is that “The Lagrangean form of\n\\begin{equation}\n\\label{eq:Cbullet-block}\nC^\\bullet(x) = x \\exp(B'(C^\\bullet(x))).\n\\end{equation}\nimplicitly gives a tree-like structure” which the authors “make … combinatorially explicit in the form of a \\emph{decorated block tree}.” This tree is “different in that the vertices of our tree represent cut-vertices instead of blocks, and these cut-vertices are decorated by sets of blocks.” With this explicit tree representation in hand, they “use tools from singularity analysis and results about \\BGW{} trees to pinpoint and describe a phase transition,” yielding the subcritical/critical dichotomy for the block tree law.\n\nThey also connect the phase transition threshold to a known (sub)criticality criterion: “It is well-known that the relative positions of $\\rho_B B''(\\rho_B)$ and $1$ allow us to distinguish (sub)criticality,” with the interpretation that when $\\rho_B B''(\\rho_B) > 1$ the graphs behave “tree-like” (consistent with $u_C<1$), while when $\\rho_B B''(\\rho_B) < 1$ they behave like “general planar graphs” (consistent with $u_C>1$).",
+    "theorem_type": [
+      "Universal",
+      "Classification or Bijection"
+    ],
+    "question": "Let \\(\\mathcal C\\) be a block-stable class of connected graphs, and let \\(\\mathcal B\\) be the class of its 2-connected components (blocks). Write \\(B(y)\\) for the exponential generating function of \\(\\mathcal B\\), let \\(\\rho_B\\) be the radius of convergence of \\(B\\), and define\n\\[\nu_C:=\\frac{1}{\\rho_B B''(\\rho_B)}.\n\\]\nLet \\(C^{\\bullet}(x,u)\\) be the exponential generating function of connected rooted graphs in \\(\\mathcal C\\), where \\(x\\) marks vertices and \\(u\\) marks blocks. For fixed \\(u>0\\), let \\(\\mathbb P_\\nu\\) denote the fixed-size block-weighted law under which a rooted graph \\(G\\in\\mathcal C^{\\bullet}\\) with \\(n\\) vertices is sampled with probability proportional to \\(u^{b(G)}\\), where \\(b(G)\\) is the number of blocks of \\(G\\). The block tree of a sampled graph is the tree recording how its blocks are attached. Which statement holds for every such class \\(\\mathcal C\\)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "The behaviour changes at the threshold \\(u_C=1/(\\rho_B B''(\\rho_B))\\): the singular behaviour of \\(C^{\\bullet}(x,u)\\) depends on whether \\(u<u_C\\) or not, and the block tree of a graph sampled according to \\(\\mathbb P_\\nu\\) has a subcritical Bienaymé–Galton–Watson law when \\(u<u_C\\), while it has a critical Bienaymé–Galton–Watson law when \\(u\\ge u_C\\)."
+      },
+      {
+        "label": "B",
+        "text": "The behaviour changes at the threshold \\(u_C=1/(\\rho_B B''(\\rho_B))\\): the singular behaviour of \\(C^{\\bullet}(x,u)\\) depends on whether \\(u<u_C\\) or not, and the block tree of a graph sampled according to \\(\\mathbb P_\\nu\\) has a subcritical Bienaymé–Galton–Watson law when \\(u<u_C\\), a critical Bienaymé–Galton–Watson law only at \\(u=u_C\\), and a supercritical Bienaymé–Galton–Watson law when \\(u>u_C\\)."
+      },
+      {
+        "label": "C",
+        "text": "The behaviour changes at the threshold \\(u_C=1/(\\rho_B B''(\\rho_B))\\): in particular, the singular behaviour of \\(C^{\\bullet}(x,u)\\) depends on whether \\(u<u_C\\) or not."
+      },
+      {
+        "label": "D",
+        "text": "The behaviour changes at the threshold \\(u_C=1/(\\rho_B B''(\\rho_B))\\): the singular behaviour of \\(C^{\\bullet}(x,u)\\) depends on whether \\(u<u_C\\) or not, and under \\(\\mathbb P_\\nu\\) it is the decorated block tree itself that has a subcritical Bienaymé–Galton–Watson law when \\(u<u_C\\) and a critical one when \\(u\\ge u_C\\), whereas the underlying undecorated block tree need not be Bienaymé–Galton–Watson."
+      },
+      {
+        "label": "E",
+        "text": "The behaviour changes at the threshold \\(u_C=1/(\\rho_B B''(\\rho_B))\\): the singular behaviour of \\(C^{\\bullet}(x,u)\\) depends on whether \\(u<u_C\\) or not, but after conditioning on the size \\(n\\) the block tree of a graph sampled according to \\(\\mathbb P_\\nu\\) always has a critical Bienaymé–Galton–Watson law, for every \\(u>0\\)."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "The behaviour changes at the threshold \\(u_C=1/(\\rho_B B''(\\rho_B))\\): the singular behaviour of \\(C^{\\bullet}(x,u)\\) depends on whether \\(u<u_C\\) or not, and the block tree of a graph sampled according to \\(\\mathbb P_\\nu\\) has a subcritical Bienaymé–Galton–Watson law when \\(u<u_C\\), while it has a critical Bienaymé–Galton–Watson law when \\(u\\ge u_C\\)."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202602_final.json"
+  },
+  {
+    "id": "202602:26",
+    "month": "202602",
+    "no": 26,
+    "paper_link": "http://arxiv.org/abs/2602.14658v1",
+    "theorem": "[Gradient regularity in Morrey spaces]\\label{MainThm}\nLet $u \\in W^{1,p}(\\Omega)$ be a local minimizer of the functional $\\mathcal{F}(\\cdot;\\Omega)$ defined in\n\\begin{equation}\\label{MainF}\n\\mathcal{F}(u;E) := \\int_{\\Omega} \\sigma_E(x)\\, F(\\nabla u)\\, dx,\n\\end{equation}\nand assume that $\\partial E$ is a hypersurface of class $C^1$.\nSuppose that assumptions \\emph{(H1)}--\\emph{(H2)} are satisfied where $2<p<\\frac{2n}{n-2}$.\nThen, for every $0 \\leq \\lambda < n$,\n\\[\n\\nabla u \\in L^{{p},\\lambda}_{\\mathrm{loc}}(\\Omega).\n\\]\nMoreover, for every $\\Omega' \\Subset \\Omega$, there exists a constant\n$C = C\\big(n, p, \\nu, L, \\beta, E, \\operatorname{diam}(\\Omega),\n\\operatorname{dist}(\\Omega', \\partial\\Omega)\\big) > 0$\nsuch that\n\\[\n\\|\\nabla u\\|_{L^{{p},\\lambda}(\\Omega')} \\leq C.\n\\]",
+    "sketch": "The proof of the main theorem is obtained as a consequence of the decay estimate for the energy stated in the following proposition.\n\n\\begin{Prop}\\label{FJNL}\nLet $u$ be a local minimizer of the functional $\\mathcal{F}(\\cdot;\\Omega)$ defined\nin \\eqref{MainF} under the assumption of Theorem~\\ref{MainThm}.\nThen there exists a constant $0 < \\tau_0 < 1$ such that the following holds:\nfor every $\\tau \\in (0,\\tau_0)$ there exists $\\varepsilon_0 = \\varepsilon_0(\\tau) > 0$\nwith the property that, if $B_r(x_0) \\Subset \\Omega$ and one of the following\nconditions is satisfied,\n\\begin{enumerate}[label=(\\roman*)]\n\\item $|E \\cap B_r(x_0)| < \\varepsilon_0 |B_r|$,\n\\item $|B_r(x_0) \\setminus E| < \\varepsilon_0 |B_r|$,\n\\item there exists a half-space $H$ such that\n\\[\n\\frac{|(E \\Delta H) \\cap B_r(x_0)|}{|B_r|} < \\varepsilon_0,\n\\]\n\\end{enumerate}\nthen, for every $0 < \\delta < n$, the estimate\n\\[\n\\int_{B_{\\tau r}(x_0)} |\\nabla u|^p \\, dx\n\\leq\nC_0 \\tau^{n-\\delta}\n\\left(\n\\int_{B_r(x_0)} |\\nabla u|^p \\, dx + r^n\n\\right)\n\\]\nholds, where the constant $C_0$ depends only on\n$n, \\nu, L, \\alpha,\\beta, \\delta$ and $\\|\\nabla u\\|_{L^2(\\Omega)}$.\n\\end{Prop}\n\nAn outline is given for the proof of Proposition~\\ref{FJNL}:\n\\begin{itemize}\n\\item The argument \\emph{relies on decay estimates for the gradient near the interface}, first established in a \\emph{flat configuration} (interface coincides with a hyperplane), treated next.\n\\item Starting point: a \\emph{local boundedness estimate for the tangential gradient} $\\nabla' u$ (derivatives parallel to the interface). This is proved in Proposition~3.2 via a \\emph{difference-quotient argument} with test functions involving only tangential increments.\n\\item Key ingredient: a \\emph{Moser iteration} applied to $Z:=|\\Delta_{i,h}u|^{m/p}$. In the estimates, the full gradient $\\nabla u$ appears through (H1)--(H2) and is \\emph{treated as a weight}; this is cited as the origin of the restriction $2<p<\\frac{2n}{n-2}$.\n\\item Since the Proposition~3.2 bound has a non-optimal decay exponent and constants that may depend on $\\mu$, one obtains the \\emph{scale-invariant Lipschitz estimate for $\\nabla' u$} (Proposition~3.4) by a \\emph{rescaling argument} requiring \\emph{uniformity with respect to $\\mu$}. This uniformity is proved in Lemma~3.3, using boundedness of $\\nabla' u$ and a \\emph{Poincar\\'e-type inequality} for $Z:=|\\partial_i u|^{m/p}$, $i=1,\\dots,n-1$, which is admissible by Theorem~3.1.\n\\item With the tangential Lipschitz bound, the \\emph{Morrey estimate in the flat case} is proved in Theorem~3.5 by a \\emph{comparison argument}.\n\\item The \\emph{general case} then follows by a \\emph{standard flattening/approximation procedure} using the $C^1$ regularity of the interface, along the lines of the quadratic theory.\n\\end{itemize}\n\nAdditionally, Remark~\\ref{Reg} notes that for proving the main theorem it would be sufficient to have Proposition~\\ref{FJNL} only in case (i), though cases (ii)--(iii) are included for completeness.",
+    "theorem_type": [
+      "Implication",
+      "Existential–Universal"
+    ],
+    "question": "Let $\\Omega\\subset\\mathbb{R}^n$ be a bounded domain, let $E\\subset\\Omega$ be measurable, fix constants $0<\\alpha<\\beta<+\\infty$, and set\n\\[\n\\sigma_E:=\\beta\\,\\mathbbm{1}_E+\\alpha\\,\\mathbbm{1}_{E^c},\n\\]\nwhere $\\mathbbm{1}_E$ denotes the characteristic function of $E$. Let $u\\in W^{1,p}(\\Omega)$ be a local minimizer of the functional\n\\[\n\\mathcal F(v;E)=\\int_{\\Omega} \\sigma_E(x)\\,F(\\nabla v)\\,dx,\n\\]\nmeaning that for every ball $B_r(x_0)\\subset\\Omega$ and every $\\phi\\in W^{1,p}_0(B_r(x_0))$ one has\n\\[\n\\mathcal F(u;B_r(x_0))\\le \\mathcal F(u+\\phi;B_r(x_0)).\n\\]\nAssume that $\\partial E$ is a hypersurface of class $C^1$, that the structural assumptions $(H1)$--$(H2)$ hold, and that $2<p<\\frac{2n}{n-2}$. Fix $0\\le \\lambda<n$. Here $\\Omega'\\Subset\\Omega$ means that $\\Omega'$ is compactly contained in $\\Omega$, and $L^{p,\\lambda}_{\\mathrm{loc}}(\\Omega)$ means membership in $L^{p,\\lambda}(\\Omega')$ for every such $\\Omega'$. What is the strongest statement that can be proved about the Morrey-space regularity of $\\nabla u$ under these assumptions?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "For every $\\Omega'\\Subset\\Omega$, there exists a constant\n$C=C\\big(n,p,\\nu,L,\\beta,\\operatorname{diam}(\\Omega),\\operatorname{dist}(\\Omega',\\partial\\Omega)\\big)>0$\nsuch that\n\\[\n\\|\\nabla u\\|_{L^{p,\\lambda}(\\Omega')}\\le C.\n\\]\nIn particular, $\\nabla u\\in L^{p,\\lambda}_{\\mathrm{loc}}(\\Omega)$."
+      },
+      {
+        "label": "C",
+        "text": "For every $\\Omega'\\Subset\\Omega$, there exists a constant\n$C=C\\big(n,p,\\nu,L,\\beta,E,\\operatorname{diam}(\\Omega),\\operatorname{dist}(\\Omega',\\partial\\Omega)\\big)>0$\nsuch that\n\\[\n\\|\\nabla u\\|_{L^{p,0}(\\Omega')}\\le C.\n\\]\nIn particular, $\\nabla u\\in L^{p}_{\\mathrm{loc}}(\\Omega)$."
+      },
+      {
+        "label": "D",
+        "text": "There exists a constant\n$C=C\\big(n,p,\\nu,L,\\beta,E,\\operatorname{diam}(\\Omega)\\big)>0$\nsuch that\n\\[\n\\|\\nabla u\\|_{L^{p,\\lambda}(\\Omega)}\\le C.\n\\]\nIn particular, $\\nabla u\\in L^{p,\\lambda}(\\Omega)$."
+      },
+      {
+        "label": "E",
+        "text": "For every $\\Omega'\\Subset\\Omega$, there exists a constant\n$C=C\\big(n,p,\\nu,L,\\beta,E,\\operatorname{diam}(\\Omega),\\operatorname{dist}(\\Omega',\\partial\\Omega)\\big)>0$\nsuch that\n\\[\n\\|\\nabla u\\|_{L^{q,\\lambda}(\\Omega')}\\le C\n\\qquad\\text{for every }q\\in[p,sp],\n\\]\nwhere $s>1$ is the higher-integrability exponent. In particular, $\\nabla u\\in L^{q,\\lambda}_{\\mathrm{loc}}(\\Omega)$ for every $q\\in[p,sp]$."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202602_final.json"
+  },
+  {
+    "id": "202512:41",
+    "month": "202512",
+    "no": 41,
+    "paper_link": "http://arxiv.org/abs/2512.15177v1",
+    "theorem": "\\label{th:BC:u}\n\tIf the underlying probability space $(\\Omega,\\mathscr{F},\\mathrm{P})$ is \n\tcomplete, then:\n\t\\begin{enumerate}[\\noindent (1)]\n\t\\item There exists a strictly decreasing, convex, \n\t\tand continuous function $\\lambda: (0\\,,\\infty) \\to (0\\,,\\infty)$, \n\t\tindependent of $\\sigma$, such that $\\lim_{r\\to0^+} \\lambda(r) = \\infty$, \n\t\t$\\lim_{r \\to \\infty} \\lambda(r) = 0$, and \n\t\t\\[\n\t\t\t\\mathrm{P}\\left\\{ |u(t\\,,0)-1| \\leqslant |\\sigma(1)| \\theta t^{1/4}\\ \\ \n\t\t\t\\forall t \\in [\\varepsilon f(\\varepsilon),\\varepsilon]\\right\\} \n\t\t\t= f(\\varepsilon)^{\\lambda(\\theta)+\\mathscr{o}(1)}\\quad\n\t\t\t\\text{as $\\varepsilon\\to0$},\n\t\t\\]\n\t\tfor every function $f:(0\\,,1/{\\rm e})\\to(0\\,,1/{\\rm e})$ that vanishes at zero and satisfies\n\t\t$f(\\varepsilon) \\geqslant \\varepsilon^{\\ell+\\mathscr{o}(1)}$, as $\\varepsilon\\to0^+$,\n\t\tfor a fixed number $\\ell=\\ell(f)>0$.\n\t\\item Let $K$ denote a nonrandom compact set in $\\mathbb{R}$. Then,\n\t\t\\[\n\t\t\t\\mathrm{P}\\{\\fS(\\theta)\\cap K\\neq\\varnothing\\}=\n\t\t\t\\begin{cases}\n\t\t\t\t1 & \\text{if $\\lambda(\\theta) < \\frac12\\dimh K$},\\\\\n\t\t\t\t0 & \\text{if $\\lambda(\\theta) > \\frac12\\dimmm K$},\n\t\t\t\\end{cases}\n\t\t\\]\n\t\twhere $\\dimmm$ and $\\dimh$ respectively the lower Minkowski (or box) dimension\n\t\tand the Hausdorff dimension (see Falconer \\textnormal{\\cite{Falconer}}); and\n\t\\item  There exists a single $\\mathrm{P}$-null set off which $\\dimh \\fS(\\theta) = 1 - 2\\lambda(\\theta)$\n\t\tfor every \n\t\t\\begin{equation}\\label{theta_c}\n\t\t\t\\theta\\geqslant \\theta_c := \\lambda^{-1}(\\tfrac12).\n\t\t\\end{equation}\n\t\\end{enumerate}",
+    "sketch": "A proof sketch appears only in the discussion of measurability:\n\n\\begin{remark}\\label{rem:meas}\n\tAs usual, the completeness condition for the underlying probability space\n\tcan be made without loss in generality. It is used here in order to overcome \n\tpotential measurability issues. For instance, we establish Part (2) by proving \n\tthat $\\{\\omega\\in\\Omega:\\ \\fS(\\theta)\\cap K\\neq\\varnothing\\}$\n\tis a subset of a $\\P$-null set when $\\lambda(\\theta) > \\frac12\\dimmm K$,\n\tand contains a full-probability set when $\\lambda(\\theta) < \\frac12\\dimh K$.\n\tLikewise, Part (3) is proved by showing\n\tthat the set $\\{\\omega\\in\\Omega:\\ \\dimh \\fS(\\theta)(\\omega) \\neq 1 - \n\t2\\lambda(\\theta)\\}$ lies in a $\\P$-null set. In the sequel, we \n\tmight suppress discussions\n\ton measurability. In all such cases, measurability issues can be verified individually using this type of\n\tinclusion/exclusion idea.\n\\end{remark}\n\n- The completeness assumption on $(\\Omega,\\mathscr{F},\\mathrm{P})$ is used to handle “potential measurability issues.”\n\n- In establishing the main theorem, Part~(2) is handled by proving that $\\{\\omega\\in\\Omega:\\ \\fS(\\theta)\\cap K\\neq\\varnothing\\}$ is a subset of a $\\mathrm{P}$-null set when $\\lambda(\\theta) > \\frac12\\dimmm K$, and contains a full-probability set when $\\lambda(\\theta) < \\frac12\\dimh K$.\n\n- In establishing the main theorem, Part~(3) is proved by showing that the set $\\{\\omega\\in\\Omega:\\ \\dimh \\fS(\\theta)(\\omega) \\neq 1 - 2\\lambda(\\theta)\\}$ lies in a $\\mathrm{P}$-null set.\n\n- They indicate that later they may “suppress discussions on measurability,” since such issues “can be verified individually using this type of inclusion/exclusion idea.”\n\nNo further proof outline for the analytic content (e.g., the construction/properties of $\\lambda$ in Part~(1), or the probabilistic/fractal arguments beyond the above null/full-probability inclusions) is provided in the post-theorem introduction.",
+    "theorem_type": [
+      "Implication",
+      "Existence"
+    ],
+    "question": "Let $u=u(t,x)$ be the solution to the stochastic heat equation on $(0,\fty)\\times\\mathbb R$\n\\[\n\\partial_t u(t,x)=\\partial_x^2 u(t,x)+\\sigma(u(t,x))\\,\\dot W(t,x),\\qquad u(0,x)=1\\ \\text{for all }x\\in\\mathbb R,\n\\]\nwhere $\\sigma:\\mathbb R\\to\\mathbb R$ is a nonrandom Lipschitz continuous function with $\\sigma(1)\\neq 0$, and $\\dot W$ denotes space-time white noise. Assume the underlying probability space $(\\Omega,\\mathscr F,\\mathrm P)$ is complete. Let\n\\[\n\\left\\{|u(t,0)-1|\\le |\\sigma(1)|\\,\\theta\\, t^{1/4}\\ \\text{for all } t\\in[\\varepsilon f(\\varepsilon),\\varepsilon]\\right\\}\n\\]\nbe the small-time event of interest, where $f:(0,1/e)\\to(0,1/e)$ satisfies $f(\\varepsilon)\\to0$ as $\\varepsilon\\to0^+$ and\n\\[\nf(\\varepsilon)\\ge \\varepsilon^{\\ell+o(1)}\\quad\\text{as }\\varepsilon\\to0^+\n\\]\nfor some fixed number $\\ell=\\ell(f)>0$. What is the strongest statement that can be proved about the asymptotic probability of this event as $\\varepsilon\\to0^+$?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "There exists a strictly decreasing, convex, and continuous function \\(\\lambda:(0,\\infty)\\to(0,\\infty)\\), independent of \\(\\sigma\\), such that \\(\\lim_{r\\to0^+}\\lambda(r)=\\infty\\), \\(\\lim_{r\\to\\infty}\\lambda(r)=0\\), and for every such \\(f\\) and every \\(\\theta>0\\),\n\\[\n\\lim_{\\varepsilon\\to0^+}\\frac{\\log \\mathrm P\\left\\{|u(t,0)-1|\\le |\\sigma(1)|\\,\\theta\\, t^{1/4}\\ \\text{for all }t\\in[\\varepsilon f(\\varepsilon),\\varepsilon]\\right\\}}{\\log \\varepsilon}\n=\\lambda(\\theta).\n\\]"
+      },
+      {
+        "label": "C",
+        "text": "There exists a function \\(\\lambda:(0,\\infty)\\to(0,\\infty)\\), independent of \\(\\sigma\\), such that for every such \\(f\\) and every \\(\\theta>0\\),\n\\[\n\\mathrm P\\left\\{|u(t,0)-1|\\le |\\sigma(1)|\\,\\theta\\, t^{1/4}\\ \\text{for all }t\\in[\\varepsilon f(\\varepsilon),\\varepsilon]\\right\\}\n=f(\\varepsilon)^{\\lambda(\\theta)+o(1)}\\qquad\\text{as }\\varepsilon\\to0^+.\n\\]"
+      },
+      {
+        "label": "D",
+        "text": "There exists a strictly decreasing, convex, and continuous function \\(\\lambda:(0,\\infty)\\to(0,\\infty)\\), independent of \\(\\sigma\\), such that \\(\\lim_{r\\to0^+}\\lambda(r)=\\infty\\), \\(\\lim_{r\\to\\infty}\\lambda(r)=0\\), and the same asymptotic\n\\[\n\\mathrm P\\left\\{|u(t,0)-1|\\le |\\sigma(1)|\\,\\theta\\, t^{1/4}\\ \\text{for all }t\\in[\\varepsilon f(\\varepsilon),\\varepsilon]\\right\\}\n=f(\\varepsilon)^{\\lambda(\\theta)+o(1)}\n\\]\nholds for every \\(\\theta>0\\) and every function \\(f:(0,1/e)\\to(0,1/e)\\) with \\(f(\\varepsilon)\\to0\\) as \\(\\varepsilon\\to0^+\\), even without assuming \\(f(\\varepsilon)\\ge \\varepsilon^{\\ell+o(1)}\\)."
+      },
+      {
+        "label": "E",
+        "text": "There exists a strictly decreasing, convex, and continuous function \\(\\lambda:(0,\\infty)\\to(0,\\infty)\\), independent of \\(\\sigma\\), such that \\(\\lim_{r\\to0^+}\\lambda(r)=\\infty\\), \\(\\lim_{r\\to\\infty}\\lambda(r)=0\\), and for every such \\(f\\) and every \\(\\theta>0\\),\n\\[\n\\mathrm P\\left\\{|u(t,0)-1|\\le |\\sigma(1)|\\,\\theta\\, t^{1/4}\\ \\text{for all }t\\in[0,\\varepsilon]\\right\\}\n=f(\\varepsilon)^{\\lambda(\\theta)+o(1)}\\qquad\\text{as }\\varepsilon\\to0^+.\n\\]"
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202512_final.json"
+  },
+  {
+    "id": "202601:38",
+    "month": "202601",
+    "no": 38,
+    "paper_link": "http://arxiv.org/abs/2601.07817v1",
+    "theorem": "\\label{thm:main}\nLet $n(B)$ be the number of triples $u,v,w\\in\\mathbb{N}$ of square-full integers, such that $u+v=w$ and\n$w\\le B$. Then\n\\[n(B)\\ll_\\varepsilon B^{3/5-3/1555+\\varepsilon}\\]\nfor any fixed $\\varepsilon>0$.",
+    "sketch": "To see how the main theorem follows from Theorem \\ref{thm2} one argues as follows. Given $u+v=w$ with positive square-full integers, let $h=\\gcd(u,v,w)$. Then “$h$ must be square-full”, and writing square-full integers as $x^2y^3$ with $y$ square-free yields decompositions $u=ha_1x_1^2y_1^3$ with $a_1\\mid h$, $(a_1,x_1y_1)=1$, and $a_1y_1$ square-free (and similarly for $v,w$), leading to the bound\n\\[\n n(B)\\le\\sum_{\\substack{h\\le B\\\\ h\\ \\mathrm{square\\text{-}full}}}\\ \\sum_{a_1,a_2,a_3\\mid h} n(B/h;a_1,a_2,a_3).\n\\]\nWe first use the following theorem.\n\\begin{theorem}\\label{thm2}\nLet $a_1,a_2,a_3$ be non-zero square-free integers (of either sign) which are coprime in\npairs. Let $n(B;a_1,a_2,a_3)$ be the number of positive integer solutions\n$x_1,x_2,x_3,y_1,y_2,y_3$ of the equation\n\\beql{axy}\na_1x_1^2y_1^3+a_2x_2^2y_2^3+a_3x_3^2y_3^3=0\n\\eeq\nwith $a_1y_1,a_2y_2$ and $a_3y_3$ square-free, and for which\n\\beql{range}\n|a_1|x_1^2y_1^3,|a_2|x_2^2y_2^3,|a_3|x_3^2y_3^3\\le B\n\\eeq\nand\n\\beql{gcd}\n\\gcd(x_1y_1\\,,\\,x_2y_2\\,,\\,x_3y_3)=\\gcd(a_1a_2a_3\\,,\\,x_1x_2x_3y_1y_2y_3)=1.\n\\eeq\nThen $n(B;a_1,a_2,a_3)\\ll_\\ep B^{3/5-3/1555+\\ep}$, for any fixed $\\ep>0$.\n\\end{theorem}\nApplying the theorem above gives\n\\[\n n(B)\\ll_\\varepsilon\\sum_{\\substack{h\\le B\\\\ h\\ \\mathrm{square\\text{-}full}}}\\left(\\frac{B}{h}\\right)^{3/5-3/1555+\\varepsilon}\\tau(h)^3\n\\ll_\\varepsilon B^{3/5-3/1555+\\varepsilon},\n\\]\nusing that $a_1,a_2,a_3$ may be of either sign and that if $h$ runs over square-full integers then $\\sum_h h^{-\\theta}<\\infty$ for $\\theta>\\tfrac12$.\n\nFor Theorem \\ref{thm2}, “the main element in our strategy” is to study the bi-homogeneous congruence\n\\[\na_1x_1^2y_1^3+a_2x_2^2y_2^3\\equiv 0\\ (\\mathrm{mod}\\ y_3^3).\n\\]\nAfter “various manoeuvres” one shows $(x_1,x_2,y_1,y_2)$ lies on “one of a small number of lines in $\\mathbb{P}^3(\\mathbb{Q})$ or, more precisely, on 2-dimensional lattices $\\mathsf{M}\\subset\\mathbb{Z}^4$.” These lead to equations\n\\[\nF(u,v)=-a_3y_3^3\\square,\n\\]\nwith $F$ a degree-5 form, which are treated by the “square-sieve”. A key input is control of “the size of $\\det(\\mathsf{M})$ for these lattices,” which governs the range of $u,v$, and “various special cases” are handled separately. An auxiliary ingredient highlighted is Theorem \\ref{cubic}, bounding primitive solutions to $ax^3+by^3+cz^3=0$ by $\\rho(B;a,b,c)\\ll_\\varepsilon B^\\varepsilon$, with the note that in this particular situation the ranks of the associated elliptic curves can be estimated “quite efficiently.”",
+    "theorem_type": [
+      "Inequality or Bound",
+      "Universal"
+    ],
+    "question": "A positive integer is called square-full if every prime dividing it divides it to exponent at least 2. For a real parameter $B\\ge 1$, let $n(B)$ denote the number of triples $(u,v,w)$ of positive integers, each square-full, satisfying $u+v=w$ and $w\\le B$. What is the strongest statement that can be proved about the quantitative estimate for $n(B)$?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "One of the remaining options is correct, but a stronger result can be proven."
+      },
+      {
+        "label": "B",
+        "text": "For every fixed $\\varepsilon>0$ one has\n\\[\nn(B)\\ll_{\\varepsilon} B^{3/5-1/500+\\varepsilon}.\n\\]"
+      },
+      {
+        "label": "C",
+        "text": "There exists a constant $\\delta>0$ such that\n\\[\nn(B)\\ll B^{3/5-\\delta}.\n\\]"
+      },
+      {
+        "label": "D",
+        "text": "For every fixed $\\varepsilon>0$ one has\n\\[\nn(B)\\ll_{\\varepsilon} B^{1/2+\\varepsilon}.\n\\]"
+      },
+      {
+        "label": "E",
+        "text": "For every fixed $\\varepsilon>0$ one has\n\\[\nn(B)\\ll B^{3/5-3/1555+\\varepsilon},\n\\]\nwith an implied constant absolute (in particular, independent of $\\varepsilon$)."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "One of the remaining options is correct, but a stronger result can be proven."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202601_final.json"
+  },
+  {
+    "id": "202601:14",
+    "month": "202601",
+    "no": 14,
+    "paper_link": "http://arxiv.org/abs/2601.08704v1",
+    "theorem": "\\label{thm:main}\nLet $F$ be the complete flag variety of vector subspaces of $\\C^4$, isotropic with respect to a nondegenerate skew-symmetric form, endowed with the natural action of the complex torus $H\\subset\\PSP(4)$ of homothety classes of diagonal matrices. Then the normalized Chow quotient $X$ of $F$ by the action of $H$ is a singular del Pezzo surface of degree $4$ with two singularities of type $A_1$.",
+    "sketch": "We \"follow the lines of argumentation of \\cite{BOS2}, adapted to our particular situation.\" After preliminaries on torus actions and on the complete flag $F$ of type $\\DC_2$, the authors \"recall some known facts on its fixed points by the action of the maximal torus $H$, and introduce some particular $\\C^*$-actions, that later on will play a central role in the study of the boundary divisors of the Chow quotient.\" Next, they study \"the combinatorial quotients of $H$-invariant affine charts in $F$, which contain information about the local degeneration of the closure of the general $H$-orbit in $F$.\" Finally, in Section \\ref{sec:mainproof} they \"prove the main statement of the paper, showing how to construct the Chow quotient $X$ as an inverse limit of combinatorial quotients,\" and then conclude with a description of the geometry of $X$.",
+    "theorem_type": [
+      "Classification or Bijection"
+    ],
+    "question": "Let $\\Omega$ be a nondegenerate skew-symmetric form on $\\mathbb{C}^4$, and let\n$$F=\\{(V_1,V_2)\\in \\mathrm{G}(1,4)\\times \\mathrm{G}(2,4)\\mid V_1\\subset V_2,\\ \\text{and }V_1,V_2\\text{ are }\\Omega\\text{-isotropic}\\}$$\nbe the complete flag variety of $\\Omega$-isotropic lines contained in $\\Omega$-isotropic planes in $\\mathbb{C}^4$. Let $H\\subset \\mathrm{PSP}(4)$, where $\\mathrm{PSP}(4)$ is the projective symplectic group of $\\Omega$, be the complex torus of homothety classes of diagonal matrices acting naturally on $F$. What is the normalized Chow quotient $X$ of $F$ by $H$?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "A singular del Pezzo surface of degree 4 with two singularities of type $A_1$."
+      },
+      {
+        "label": "B",
+        "text": "A singular del Pezzo surface of degree 4 with one singularity of type $A_1$ and one singularity of type $A_2$."
+      },
+      {
+        "label": "C",
+        "text": "A singular del Pezzo surface of degree 4."
+      },
+      {
+        "label": "D",
+        "text": "A singular del Pezzo surface of degree 4 with two singularities of type $A_2$."
+      },
+      {
+        "label": "E",
+        "text": "A singular del Pezzo surface of degree 5 with two singularities of type $A_1$."
+      }
+    ],
+    "correct_choice": {
+      "label": "A",
+      "text": "A singular del Pezzo surface of degree 4 with two singularities of type $A_1$."
+    },
+    "source_path": "/root/skillopt-fullrun-gatesweep/SkillOpt/data/livemathematicianbench_raw/qa_202601_final.json"
+  }
+]

@@ -1,0 +1,32 @@
+# Root workspace for the QD-over-Skills research package.
+#
+# `qd/` is the Quality-Diversity (MAP-Elites) layer over the frozen SkillOpt fork.
+# The SkillOpt fork is installed SEPARATELY (`pip install -e ./SkillOpt`, or
+# `./vendor/SkillOpt` after the S13 vendor move); `conftest.py` resolves the
+# `skillopt` / `qd` imports on a clean clone without a per-machine editable .pth.
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skillopt-qd"
+version = "0.1.0"
+description = "Quality-Diversity (MAP-Elites) search over SkillOpt skills"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=1.0",            # DeepSeek (OpenAI-compatible) backend for the model adapter / feasibility spike
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "datasets>=2.19.0",       # benchmark materialization (tools/)
+    "huggingface_hub>=0.23.0",
+]
+
+[tool.setuptools]
+packages = ["qd"]
+
+[tool.pytest.ini_options]
+testpaths = ["qd/tests"]
