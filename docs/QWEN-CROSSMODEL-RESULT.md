@@ -82,7 +82,7 @@ the headline's fate, a fresh **OfficeQA-Qwen** run is required.
 - **C. Write it up** on the strengthened thesis (eval-bound + provable gate failure + safe abstention).
 
 ## 9. State of the world
-box2 (`connect.westb.seetacloud.com:20263`) = only live machine, KEEP. Auto-finish watcher
+box2 (`<server>`) = only live machine, KEEP. Auto-finish watcher
 (`/root/lmqwenC_watch.sh`) self-exited at `VERDICT_PIPELINE_DONE`. DeepSeek DION/YH live; QWEN_KEY
 spent some (target rollouts + posthoc). Code: committed `qd/decoupled_select.py`,
 `tools/{posthoc_select,decoupled_ship}.py`; gitignored `tools/_oracle_headroom.py`.

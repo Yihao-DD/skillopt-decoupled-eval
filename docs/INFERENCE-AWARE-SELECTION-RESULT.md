@@ -140,7 +140,7 @@ bitter lesson, now with a controlled experiment behind it.
 3. **Budget-allocation frontier** (v2 §3.2): fixed eval budget — more items/candidate (lower SEM) vs more
    candidates? Our "noise > gain" data is the setup to answer it.
 
-## 6. Reproduce (box2 `connect.westb.seetacloud.com:20263`, pw `<redacted>` — rotate)
+## 6. Reproduce (box2 `<server>`, pw `<redacted>` — rotate)
 ```
 # offline rule sweep (zero-API) on the cached trajectories:
 cd /root/skillopt-fullrun-gatesweep && export SKILLOPT_OUT=$PWD/SkillOpt/outputs

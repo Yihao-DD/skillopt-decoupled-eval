@@ -11,7 +11,7 @@ citations), `SELECTION-FIX-HANDOFF.md` (the diagnosis line this grew out of).*
 
 ## 0. FIRST THING TO DO (resume the in-flight experiments)
 
-Experiments run on **box2** (`connect.westb.seetacloud.com:20263`). The *greedy training runs are detached
+Experiments run on **box2** (`<server>`). The *greedy training runs are detached
 on the server and survive* a session end; the *orchestrators were LOCAL background shells and DIE with the
 session* — so you (next agent) must finish the pipeline manually:
 
@@ -162,7 +162,7 @@ Launch long jobs **detached** (`setsid nohup … > /root/x.log 2>&1 < /dev/null 
 ---
 
 ## 6. RUNBOOK (box2)
-- `connect.westb.seetacloud.com` port **20263**, root, pw `<redacted>` (⚠️ rotate). Repo
+- `<server>` port **20263**, root, pw `<redacted>` (⚠️ rotate). Repo
   `/root/skillopt-fullrun-gatesweep`; python `/root/miniconda3/bin/python` (absolute).
 - SSH helper (LOCAL from `E:\skillopt`): `AUTODL_PORT=20263 python tools/_autodl_ssh.py '<pw>' exec '<cmd>' [to]`
   / `… put <local> <remote>`. QUIRKS: `put` needs `MSYS_NO_PATHCONV=1`; remote cmd single-quoted locally →
